@@ -11,12 +11,15 @@ uv sync
 uv run timbrelens --help
 ```
 
+Install FFmpeg and ffprobe for audio processing. Run commands from the repo root.
+
 ## Commands
 
 ```sh
-uv run timbrelens crawl incompetech
+uv run timbrelens crawl incompetech --limit 2
 uv run timbrelens sync
 uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
+uv run timbrelens serve
 uv run timbrelens enrich --model AUDIO_MODEL_ID
 uv run timbrelens embed --text-model TEXT_MODEL_ID --audio-model CLAP_MODEL_ID
 uv run timbrelens export --output dist
@@ -33,5 +36,4 @@ generation run locally.
 ```sh
 uv run ruff check .
 uv run ruff format --check .
-uv run timbrelens --help
 ```

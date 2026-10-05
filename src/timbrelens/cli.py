@@ -3,11 +3,12 @@ from pathlib import Path
 from typing import Literal
 
 from cyclopts import App
+from httpx import HTTPError
 
-from timbrelens import audio, embeddings, enrichment, pipeline
+from timbrelens import audio, embeddings, enrichment, pipeline, server
 from timbrelens import export as page_export
 
-app = App(name="timbrelens", help="Offline audio catalog and static search (scaffold).")
+app = App(name="timbrelens", help="Offline audio catalog and static search.")
 
 
 @app.command
@@ -15,22 +16,26 @@ def crawl(
     source: Literal["incompetech"] = "incompetech",
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
-    previews: Path = Path("audio-previews"),
+    previews: Path = Path("data/audio-previews"),
     duration: float = 20.0,
+    limit: int | None = None,
+    refresh: bool = False,
 ):
     """Fetch and cache source audio, prepare previews, and sync metadata."""
-    pipeline.crawl(source, state=state, cache=cache, previews=previews, duration=duration)
+    pipeline.crawl(source, state, cache, previews, duration, limit, refresh)
 
 
 @app.command
 def sync(
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
-    previews: Path = Path("audio-previews"),
+    previews: Path = Path("data/audio-previews"),
     duration: float = 20.0,
+    limit: int | None = None,
+    refresh: bool = False,
 ):
     """Run all crawlers, including preview preparation."""
-    pipeline.sync(state=state, cache=cache, previews=previews, duration=duration)
+    pipeline.sync(state, cache, previews, duration, limit, refresh)
 
 
 @app.command
@@ -55,7 +60,7 @@ def export(
     state: Path = Path("data/catalog.json"),
     embeddings: Path = Path("data/embeddings"),
     site: Path = Path("site"),
-    previews: Path = Path("audio-previews"),
+    previews: Path = Path("data/audio-previews"),
     output: Path = Path("dist"),
 ):
     """Export the static page, search indexes, embeddings, and previews."""
@@ -70,9 +75,23 @@ def normalize(input: Path, output: Path):
     audio.normalize(input, output)
 
 
+@app.command
+def serve(
+    site: Path = Path("site"),
+    data: Path = Path("data"),
+    host: str = "127.0.0.1",
+    port: int = 8000,
+):
+    """Serve the page and data locally."""
+    server.serve(site, data, host, port)
+
+
 def main() -> None:
     try:
         app()
     except NotImplementedError as error:
         print(f"Scaffold: {error}", file=sys.stderr)
+        raise SystemExit(1) from None
+    except (OSError, ValueError, HTTPError) as error:
+        print(f"Error: {error}", file=sys.stderr)
         raise SystemExit(1) from None
