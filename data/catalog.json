@@ -1,4 +1,338 @@
 {
   "schema_version": 1,
-  "tracks": []
+  "tracks": [
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "\"C-Funk\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/C-Funk.mp3",
+      "bpm": 117.0,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "Kevin MacLeod",
+      "description": "More funk than disco, but more disco than rock. Bongos and guitar reminiscent of a certain genre of film from the 70's.",
+      "duration": 170,
+      "genres": [
+        "Funk"
+      ],
+      "id": "incompetech:USUAN1100001",
+      "instruments": [
+        "Bari Sax",
+        "Bass",
+        "Drum Kit",
+        "Guitar",
+        "Percussion",
+        "Tenor Sax",
+        "Trumpet"
+      ],
+      "isrc": "USUAN1100001",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "117",
+        "collection": "11",
+        "description": "More funk than disco, but more disco than rock. Bongos and guitar reminiscent of a certain genre of film from the 70's.",
+        "feel": "Grooving",
+        "filename": "C-Funk.mp3",
+        "filmmusicURL": "https://incompetech.filmmusic.io/song/3469-c-funk/",
+        "genre": "8",
+        "instruments": "Bass, Drum Kit, Guitar, Bari Sax, Tenor Sax, Trumpet, Percussion",
+        "isrc": "USUAN1100001",
+        "itunes": "https://itunes.apple.com/us/album/c-funk/id945494837?i=945494840",
+        "length": "00:02:50",
+        "sheetmusic": null,
+        "title": "C-Funk",
+        "uploaded": "2006-01-01",
+        "video": null
+      },
+      "moods": [
+        "Grooving"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "path": "audio-previews/ad8ac85099e6bb7fa46049857f387a2a08c4eda64f00ccf9438e1a7175897bb4.mp3",
+        "sha256": "b82c388a68d83c9572a35bd662cc491049671b4f8adb925362e7d327da8f3119",
+        "start": 52.0
+      },
+      "source": "incompetech",
+      "source_id": "USUAN1100001",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100001",
+      "tags": [
+        "Bari Sax",
+        "Bass",
+        "Drum Kit",
+        "Funk",
+        "Funk and Blues",
+        "Grooving",
+        "Guitar",
+        "Percussion",
+        "Tenor Sax",
+        "Trumpet"
+      ],
+      "title": "C-Funk",
+      "uploaded": "2006-01-01"
+    },
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "\"Poofy Reel\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Poofy%20Reel.mp3",
+      "bpm": 93.0,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "Kevin MacLeod",
+      "description": "Funtastic little piece written for a movie trailer's more quirky section.",
+      "duration": 48,
+      "genres": [
+        "Pop"
+      ],
+      "id": "incompetech:USUAN1100003",
+      "instruments": [
+        "Bass",
+        "Drum Kit",
+        "Electric Piano",
+        "Guitar"
+      ],
+      "isrc": "USUAN1100003",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "93",
+        "collection": null,
+        "description": "Funtastic little piece written for a movie trailer's more quirky section.",
+        "feel": "Bouncy, Grooving, Humorous",
+        "filename": "Poofy Reel.mp3",
+        "filmmusicURL": "https://incompetech.filmmusic.io/song/4228-poofy-reel/",
+        "genre": "16",
+        "instruments": "Bass, Guitar, Electric Piano, Drum Kit",
+        "isrc": "USUAN1100003",
+        "itunes": "https://itunes.apple.com/us/album/poofy-reel/id945454501?i=945454505",
+        "length": "00:00:48",
+        "sheetmusic": null,
+        "title": "Poofy Reel",
+        "uploaded": "2010-01-26",
+        "video": null
+      },
+      "moods": [
+        "Bouncy",
+        "Grooving",
+        "Humorous"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "path": "audio-previews/01f34d12a31818e5d4e2542af7cd00d34ef99bb805e5b7d8f5b4db65df3f5957.mp3",
+        "sha256": "3386d603f784e3f7c62557b288bc5b042c89b8eb588eff4710892a115db2eeba",
+        "start": 0.0
+      },
+      "source": "incompetech",
+      "source_id": "USUAN1100003",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100003",
+      "tags": [
+        "Bass",
+        "Bouncy",
+        "Drum Kit",
+        "Electric Piano",
+        "Grooving",
+        "Guitar",
+        "Humorous",
+        "Pop"
+      ],
+      "title": "Poofy Reel",
+      "uploaded": "2010-01-26"
+    },
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "\"Zombie Hoodoo\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Zombie%20Hoodoo.mp3",
+      "bpm": null,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "Kevin MacLeod",
+      "description": "Simple piano line with dark atmospherics in the background. It says \"Zombie\", but it is useful for any number of creepy motifs. (This piece is related to Zombie Chase).",
+      "duration": 87,
+      "genres": [
+        "Horror"
+      ],
+      "id": "incompetech:USUAN1100004",
+      "instruments": [
+        "Piano",
+        "Synth"
+      ],
+      "isrc": "USUAN1100004",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": null,
+        "collection": "42",
+        "description": "Simple piano line with dark atmospherics in the background. It says \"Zombie\", but it is useful for any number of creepy motifs. (This piece is related to Zombie Chase).",
+        "feel": "Unnerving, Eerie, Mystical, Mysterious, Suspenseful",
+        "filename": "Zombie Hoodoo.mp3",
+        "filmmusicURL": null,
+        "genre": "10",
+        "instruments": "Piano, Synth",
+        "isrc": "USUAN1100004",
+        "itunes": "https://itunes.apple.com/us/album/zombie-hoodoo/id941889480?i=941889559",
+        "length": "00:01:27",
+        "sheetmusic": null,
+        "title": "Zombie Hoodoo",
+        "uploaded": "2006-01-01",
+        "video": null
+      },
+      "moods": [
+        "Eerie",
+        "Mysterious",
+        "Mystical",
+        "Suspenseful",
+        "Unnerving"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "path": "audio-previews/95b1dd69ad2fb4f68158ee865fa5ac07ad9ad2c63ca7d7d01c3dbdf576f84e03.mp3",
+        "sha256": "df301bf9b508d980a4e9080455801453e215b7ae150d22b19712a17815cf3f79",
+        "start": 52.0
+      },
+      "source": "incompetech",
+      "source_id": "USUAN1100004",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100004",
+      "tags": [
+        "Eerie",
+        "Horror",
+        "Mysterious",
+        "Mystical",
+        "Piano",
+        "Suspenseful",
+        "Synth",
+        "Transitions",
+        "Unnerving"
+      ],
+      "title": "Zombie Hoodoo",
+      "uploaded": "2006-01-01"
+    },
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "\"Zombie Chase\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Zombie%20Chase.mp3",
+      "bpm": null,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "Kevin MacLeod",
+      "description": "Aggressive, but smooth action sequence; earthy and powerful, using the same piano theme as Zombie Hoodoo.",
+      "duration": 143,
+      "genres": [
+        "Horror"
+      ],
+      "id": "incompetech:USUAN1100005",
+      "instruments": [
+        "Percussion",
+        "Piano",
+        "Synth"
+      ],
+      "isrc": "USUAN1100005",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": null,
+        "collection": "33",
+        "description": "Aggressive, but smooth action sequence; earthy and powerful, using the same piano theme as Zombie Hoodoo.",
+        "feel": "Driving, Action, Unnerving, Dark, Mysterious, Suspenseful",
+        "filename": "Zombie Chase.mp3",
+        "filmmusicURL": null,
+        "genre": "10",
+        "instruments": "Percussion, Piano, Synth",
+        "isrc": "USUAN1100005",
+        "itunes": "https://itunes.apple.com/us/album/zombie-chase/id941896986?i=941897024",
+        "length": "00:02:23",
+        "sheetmusic": null,
+        "title": "Zombie Chase",
+        "uploaded": "2006-01-01",
+        "video": null
+      },
+      "moods": [
+        "Action",
+        "Dark",
+        "Driving",
+        "Mysterious",
+        "Suspenseful",
+        "Unnerving"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "path": "audio-previews/db5bc07488a0b75cff164610ae890c9993575fcf9689a5d40641140dcdd0ffe7.mp3",
+        "sha256": "34f4ee868daed5d70592364fad3746d2dd86c81a87e43c29d92db8c4083bd423",
+        "start": 106.0
+      },
+      "source": "incompetech",
+      "source_id": "USUAN1100005",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100005",
+      "tags": [
+        "Action",
+        "Dark",
+        "Driving",
+        "Horror",
+        "Mysterious",
+        "Percussion",
+        "Piano",
+        "Suspenseful",
+        "Synth",
+        "Unnerving"
+      ],
+      "title": "Zombie Chase",
+      "uploaded": "2006-01-01"
+    },
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "\"Work is Work\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Work%20is%20Work%20FX.mp3",
+      "bpm": 94.0,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "Kevin MacLeod",
+      "description": "Light and cheery. Appropriate for nearly any application.",
+      "duration": 50,
+      "genres": [
+        "Silent Film Score"
+      ],
+      "id": "incompetech:USUAN1100006",
+      "instruments": [
+        "Piano"
+      ],
+      "isrc": "USUAN1100006",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "94",
+        "collection": "31",
+        "description": "Light and cheery. Appropriate for nearly any application.",
+        "feel": "Bright, Bouncy, Humorous",
+        "filename": "Work is Work FX.mp3",
+        "filmmusicURL": null,
+        "genre": "20",
+        "instruments": "Piano",
+        "isrc": "USUAN1100006",
+        "itunes": "https://itunes.apple.com/us/album/work-is-work/id945553462?i=945553496",
+        "length": "00:00:50",
+        "sheetmusic": null,
+        "title": "Work is Work",
+        "uploaded": "2006-01-01",
+        "video": null
+      },
+      "moods": [
+        "Bouncy",
+        "Bright",
+        "Humorous"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "path": "audio-previews/49a0f16abe9717acbb2201767b5f6169b3a19b24e53d91cbeb88e784b8df9a26.mp3",
+        "sha256": "5bc961e20de2e2e7d0c437216e65621581cdb1112fe449f2cf615914bc49be8d",
+        "start": 26.0
+      },
+      "source": "incompetech",
+      "source_id": "USUAN1100006",
+      "source_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100006",
+      "tags": [
+        "Bouncy",
+        "Bright",
+        "Humorous",
+        "Piano",
+        "Silent Film - Bright",
+        "Silent Film Score"
+      ],
+      "title": "Work is Work",
+      "uploaded": "2006-01-01"
+    }
+  ]
 }

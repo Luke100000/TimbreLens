@@ -1,3 +1,4 @@
+from datetime import date
 from typing import NotRequired, TypedDict
 
 
@@ -12,16 +13,13 @@ class Enrichment(TypedDict):
     useCases: list[str]
     texture: list[str]
     model: str
-    prompt_version: str
     input_sha256: str
 
 
 class Preview(TypedDict):
     path: str
-    start_ms: int
-    duration_ms: int
-    source_sha256: str
-    recipe_version: str
+    start: float
+    duration: float
     sha256: str
 
 
@@ -33,16 +31,20 @@ class Track(TypedDict):
     audio_url: str
     title: str
     artist: str
-    creator_id: str
+    composer: str
+    copyright_holder: str
     description: str
     tags: list[str]
-    duration_ms: int | None
+    genres: list[str]
+    moods: list[str]
+    instruments: list[str]
+    isrc: str | None
+    uploaded: date | None
+    duration: float | None
     bpm: float | None
     license: str
     license_url: str
     attribution: str
-    download_allowed: bool | None
-    ai_generated: bool | None
     metadata: dict[str, object]
     preview: NotRequired[Preview]
     enrichment: NotRequired[Enrichment]

@@ -1,8 +1,119 @@
+import json
+import math
+import sys
+from datetime import date
 from pathlib import Path
+from urllib.parse import quote, urlencode
 
+from timbrelens.audio import preview
+from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
 
+BASE = "https://incompetech.com/music/royalty-free/"
+LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 
-def crawl(cache: Path, previews: Path, duration: float = 20.0) -> list[Track]:
-    """Cache downloads, write normalized previews, and return track metadata."""
-    raise NotImplementedError("The Incompetech crawler is not implemented.")
+
+def _terms(value: str | None) -> list[str]:
+    return sorted({term.strip() for term in (value or "").split(",") if term.strip()})
+
+
+def map_track(piece: dict, genres: dict[str, str], collections: dict[str, str]) -> Track:
+    source_id = str(piece.get("isrc") or piece.get("uuid") or piece["filename"])
+    filename = str(piece["filename"])
+    title = str(piece["title"]).strip()
+    length = piece.get("length")
+    duration = None
+    if length:
+        parts = [int(part) for part in str(length).split(":")]
+        if len(parts) not in (2, 3) or any(part < 0 for part in parts):
+            raise ValueError(f"Invalid duration for {title}: {length}")
+
+        duration = 0
+        for part in parts:
+            duration = duration * 60 + part
+
+    bpm = float(piece["bpm"]) if piece.get("bpm") else None
+    if bpm is not None and (not math.isfinite(bpm) or bpm <= 0):
+        bpm = None
+
+    genre = [genres[str(piece["genre"])]] if piece.get("genre") else []
+    collection = [collections[str(piece["collection"])]] if piece.get("collection") else []
+    moods = _terms(piece.get("feel"))
+    instruments = _terms(piece.get("instruments"))
+    source_url = (
+        BASE + "index.html?" + urlencode({"isrc": piece.get("isrc")}) if piece.get("isrc") else BASE
+    )
+
+    return {
+        "id": f"incompetech:{source_id}",
+        "source": "incompetech",
+        "source_id": source_id,
+        "source_url": source_url,
+        "audio_url": BASE + "mp3-royaltyfree/" + quote(filename, safe=""),
+        "title": title,
+        "artist": "Kevin MacLeod",
+        "composer": "Kevin MacLeod",
+        "copyright_holder": "Kevin MacLeod",
+        "description": (piece.get("description") or "").strip(),
+        "tags": sorted(set(genre + collection + moods + instruments)),
+        "genres": genre,
+        "moods": moods,
+        "instruments": instruments,
+        "isrc": piece.get("isrc") or None,
+        "uploaded": date.fromisoformat(piece["uploaded"]) if piece.get("uploaded") else None,
+        "duration": duration,
+        "bpm": bpm,
+        "license": "CC-BY-4.0",
+        "license_url": LICENSE,
+        "attribution": (
+            f'"{title}" Kevin MacLeod (incompetech.com)\n'
+            f"Licensed under Creative Commons: By Attribution 4.0 License\n{LICENSE}"
+        ),
+        "metadata": dict(piece),
+    }
+
+
+def crawl(
+    cache: Path,
+    previews: Path,
+    duration: float = 20.0,
+    limit: int | None = None,
+    refresh: bool = False,
+) -> list[Track]:
+    if limit is not None and limit <= 0:
+        raise ValueError("Track limit must be positive.")
+
+    if not math.isfinite(duration) or duration < 0.001:
+        raise ValueError("Preview duration must be finite and at least 0.001 seconds.")
+
+    with CachedHTTP(cache / "incompetech") as http:
+        age = 0 if refresh else 86400
+        pieces = json.loads(http.get(BASE + "pieces.json", age).read_text(encoding="utf-8-sig"))
+        genres = {
+            str(row["id"]): row["genre"]
+            for row in json.loads(
+                http.get(BASE + "genre.json", age).read_text(encoding="utf-8-sig")
+            )
+        }
+        collections = {
+            str(row["code"]): row["collection_name"]
+            for row in json.loads(
+                http.get(BASE + "collections.json", age).read_text(encoding="utf-8-sig")
+            )
+        }
+        tracks = sorted(
+            [map_track(piece, genres, collections) for piece in pieces],
+            key=lambda track: track["id"],
+        )
+
+        if len({track["id"] for track in tracks}) != len(tracks):
+            raise ValueError("Incompetech returned duplicate track IDs.")
+
+        tracks = tracks[:limit]
+
+        for index, track in enumerate(tracks, 1):
+            print(f"[{index}/{len(tracks)}] {track['title']}", file=sys.stderr)
+            input = http.get(track["audio_url"], 0 if refresh else 30 * 86400)
+            result = preview(input, previews, track["id"], http.cache, duration)
+            track["preview"] = {**result, "path": "audio-previews/" + result["path"]}
+        return tracks
