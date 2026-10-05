@@ -6,11 +6,7 @@ class Enrichment(TypedDict):
     summary: str
     genres: list[str]
     moods: list[str]
-    energy: list[str]
-    tempo: list[str]
     instruments: list[str]
-    vocals: list[str]
-    useCases: list[str]
     texture: list[str]
     model: str
     input_sha256: str

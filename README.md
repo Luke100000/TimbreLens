@@ -20,10 +20,15 @@ uv run timbrelens crawl incompetech --limit 2
 uv run timbrelens sync
 uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
 uv run timbrelens serve
-uv run timbrelens enrich --model AUDIO_MODEL_ID
+uv run timbrelens enrich --limit 1
 uv run timbrelens embed --text-model TEXT_MODEL_ID --audio-model CLAP_MODEL_ID
 uv run timbrelens export --output dist
 ```
+
+Enrichment reads `OPENROUTER_API_KEY` from the environment or `.env`. It defaults
+to `google/gemini-3.8-flash` with flex and minimal reasoning; override with `--model`
+or `OPENROUTER_AUDIO_MODEL`, and `--reasoning-effort none` when supported.
+Results are cached by all request inputs in `.cache/enrichment/`.
 
 ## GitHub Pages
 

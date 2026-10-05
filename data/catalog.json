@@ -10,6 +10,38 @@
       "copyright_holder": "Kevin MacLeod",
       "description": "More funk than disco, but more disco than rock. Bongos and guitar reminiscent of a certain genre of film from the 70's.",
       "duration": 170,
+      "enrichment": {
+        "genres": [
+          "disco",
+          "funk"
+        ],
+        "input_sha256": "cec265ddb3c369b75b28d50546a7f58986de500391eab5d9dc1eaae06afd9bf7",
+        "instruments": [
+          "bass guitar",
+          "bongo",
+          "drum kit",
+          "electric guitar",
+          "percussion",
+          "saxophone",
+          "trumpet"
+        ],
+        "model": "google/gemini-3.8-flash",
+        "moods": [
+          "confident",
+          "cool",
+          "energetic",
+          "funky",
+          "lively"
+        ],
+        "summary": "Upbeat retro 1970s funk driven by a driving rhythm section, rhythmic wah-wah guitar, punchy brass stabs, and vibrant percussion creating a cool, energetic vibe.",
+        "texture": [
+          "bright",
+          "dynamic",
+          "layered",
+          "punchy",
+          "rhythmic"
+        ]
+      },
       "genres": [
         "Funk"
       ],

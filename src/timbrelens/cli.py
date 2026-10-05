@@ -4,6 +4,7 @@ from typing import Literal
 
 from cyclopts import App
 from httpx import HTTPError
+from openai import OpenAIError
 
 from timbrelens import audio, embeddings, enrichment, pipeline, server
 from timbrelens import export as page_export
@@ -39,9 +40,15 @@ def sync(
 
 
 @app.command
-def enrich(model: str, state: Path = Path("data/catalog.json")):
+def enrich(
+    model: str | None = None,
+    state: Path = Path("data/catalog.json"),
+    cache: Path = Path(".cache"),
+    limit: int | None = None,
+    reasoning_effort: Literal["minimal", "none"] = "minimal",
+):
     """Enrich track metadata through OpenRouter."""
-    enrichment.enrich(state=state, model=model)
+    enrichment.enrich(state, model, cache, limit, reasoning_effort)
 
 
 @app.command
@@ -92,6 +99,6 @@ def main() -> None:
     except NotImplementedError as error:
         print(f"Scaffold: {error}", file=sys.stderr)
         raise SystemExit(1) from None
-    except (OSError, ValueError, HTTPError) as error:
+    except (OSError, ValueError, HTTPError, OpenAIError) as error:
         print(f"Error: {error}", file=sys.stderr)
         raise SystemExit(1) from None

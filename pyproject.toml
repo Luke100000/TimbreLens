@@ -4,7 +4,14 @@ version = "0.1.0"
 description = "An offline audio catalog pipeline and static music search."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["cyclopts>=4,<5", "diskcache>=5.6,<6", "httpx>=0.28,<1"]
+dependencies = [
+    "cyclopts>=4,<5",
+    "diskcache>=5.6,<6",
+    "httpx>=0.28,<1",
+    "openai>=2,<3",
+    "pydantic>=2,<3",
+    "python-dotenv>=1,<2",
+]
 
 [project.scripts]
 timbrelens = "timbrelens.cli:main"
