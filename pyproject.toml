@@ -5,6 +5,7 @@ description = "An offline audio catalog pipeline and static music search."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "beautifulsoup4>=4.14,<5",
     "cyclopts>=4,<5",
     "diskcache>=5.6,<6",
     "httpx>=0.28,<1",

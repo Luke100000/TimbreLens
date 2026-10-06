@@ -2,6 +2,177 @@
   "schema_version": 1,
   "tracks": [
     {
+      "artist": "Alexander Nakarada",
+      "attribution": "Music: Achievement by Alexander Nakarada (https://creatorchords.com)\nLicensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://d19p7hqu4j8vx0.cloudfront.net/media/media/data/mp3s/Achievement.mp3",
+      "bpm": 121.0,
+      "composer": "Alexander Nakarada",
+      "copyright_holder": "Alexander Nakarada",
+      "description": "",
+      "duration": 117,
+      "genres": [
+        "Cinematic",
+        "Epic"
+      ],
+      "id": "creatorchords:1",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "121",
+        "duration": "01:57",
+        "genres": [
+          "Cinematic",
+          "Epic"
+        ],
+        "id": "1",
+        "moods": [
+          "dramatic",
+          "majestic",
+          "neutral"
+        ],
+        "title": "Achievement"
+      },
+      "moods": [
+        "dramatic",
+        "majestic",
+        "neutral"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "85bb2f298d8621a8e2e6630085d8287f51d58731e4c0a69a1a48d7782bc8464d",
+        "start": 90.0
+      },
+      "source": "creatorchords",
+      "source_id": "1",
+      "source_url": "https://creatorchords.com/music/achievement/",
+      "tags": [
+        "Cinematic",
+        "Epic",
+        "dramatic",
+        "majestic",
+        "neutral"
+      ],
+      "title": "Achievement",
+      "uploaded": null
+    },
+    {
+      "artist": "Alexander Nakarada",
+      "attribution": "Music: Ambient Bongos by Alexander Nakarada (https://creatorchords.com)\nLicensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://d19p7hqu4j8vx0.cloudfront.net/media/media/data/mp3s/Ambient_Bongos.mp3",
+      "bpm": 136.0,
+      "composer": "Alexander Nakarada",
+      "copyright_holder": "Alexander Nakarada",
+      "description": "",
+      "duration": 87,
+      "genres": [
+        "Ambient",
+        "Soundscape",
+        "World"
+      ],
+      "id": "creatorchords:10",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "136",
+        "duration": "01:27",
+        "genres": [
+          "Ambient",
+          "Soundscape",
+          "World"
+        ],
+        "id": "10",
+        "moods": [
+          "neutral",
+          "quirky",
+          "tense"
+        ],
+        "title": "Ambient Bongos"
+      },
+      "moods": [
+        "neutral",
+        "quirky",
+        "tense"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "954ecf370173a89547d84aa10c8a2dd49219433aa51d16c0203564fb7c2fa305",
+        "start": 49.0
+      },
+      "source": "creatorchords",
+      "source_id": "10",
+      "source_url": "https://creatorchords.com/music/ambient-bongos/",
+      "tags": [
+        "Ambient",
+        "Soundscape",
+        "World",
+        "neutral",
+        "quirky",
+        "tense"
+      ],
+      "title": "Ambient Bongos",
+      "uploaded": null
+    },
+    {
+      "artist": "Alexander Nakarada",
+      "attribution": "Music: Dark n Deep by Alexander Nakarada (https://creatorchords.com)\nLicensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://d19p7hqu4j8vx0.cloudfront.net/media/media/data/mp3s/Dark_n_Deep.mp3",
+      "bpm": 60.0,
+      "composer": "Alexander Nakarada",
+      "copyright_holder": "Alexander Nakarada",
+      "description": "",
+      "duration": 30,
+      "genres": [
+        "Horror",
+        "Soundscape"
+      ],
+      "id": "creatorchords:100",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "bpm": "60",
+        "duration": "00:30",
+        "genres": [
+          "Horror",
+          "Soundscape"
+        ],
+        "id": "100",
+        "moods": [
+          "dark",
+          "negative",
+          "scary"
+        ],
+        "title": "Dark n Deep"
+      },
+      "moods": [
+        "dark",
+        "negative",
+        "scary"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "9bd1f078e9c5f24fb8fafd5ee2d794b6a40315ded1387ad3e072d29c1bbab6a4",
+        "start": 3.0
+      },
+      "source": "creatorchords",
+      "source_id": "100",
+      "source_url": "https://creatorchords.com/music/dark-n-deep/",
+      "tags": [
+        "Horror",
+        "Soundscape",
+        "dark",
+        "negative",
+        "scary"
+      ],
+      "title": "Dark n Deep",
+      "uploaded": null
+    },
+    {
       "artist": "Kevin MacLeod",
       "attribution": "\"C-Funk\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/C-Funk.mp3",

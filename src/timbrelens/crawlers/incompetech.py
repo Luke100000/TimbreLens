@@ -1,11 +1,10 @@
 import json
 import math
-import sys
 from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlencode
 
-from timbrelens.audio import preview
+from timbrelens.crawlers.common import prepare_previews
 from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
 
@@ -111,8 +110,6 @@ def crawl(
 
         tracks = tracks[:limit]
 
-        for index, track in enumerate(tracks, 1):
-            print(f"[{index}/{len(tracks)}] {track['title']}", file=sys.stderr)
-            input = http.get(track["audio_url"], 0 if refresh else 30 * 86400)
-            track["preview"] = preview(input, previews, http.cache, duration)
-        return tracks
+        prepare_previews(tracks, http, previews, duration, refresh)
+
+    return tracks
