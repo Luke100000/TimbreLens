@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 32 32"
+     fill="none"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <defs>
+        <!-- Removes the underlying waveform around the magnifier. -->
+        <mask id="timbre-cutout"
+              maskUnits="userSpaceOnUse"
+              x="0" y="0" width="32" height="32">
+            <rect width="32" height="32" fill="white"/>
+
+            <!-- Slightly larger than the visible lens to create separation -->
+            <circle cx="20" cy="19" r="10.4" fill="black"/>
+
+            <!-- Separation around handle -->
+            <path d="M25.66 24.66L29 28"
+                  stroke="black"
+                  stroke-width="5.25"
+                  stroke-linecap="round"/>
+        </mask>
+    </defs>
+
+    <!-- Timbre waveform -->
+    <g stroke="#32604a"
+       stroke-width="2.25"
+       mask="url(#timbre-cutout)">
+        <path d="M3.75 13v6"/>
+        <path d="M9.25 8v16"/>
+        <path d="M14.75 4.5v23"/>
+        <path d="M20.25 10v12"/>
+        <path d="M25.75 13v6"/>
+    </g>
+
+    <!-- Magnifying lens -->
+    <circle cx="20" cy="19" r="8"
+            stroke="#32604a"
+            stroke-width="2.25"/>
+
+    <!-- Timbre detail viewed through lens -->
+    <g stroke="#32604a" stroke-width="2.25">
+        <path d="M16.5 17.5v3.5"/>
+        <path d="M20 15.25v7.5"/>
+        <path d="M23.5 17v4"/>
+    </g>
+
+    <!-- Magnifier handle -->
+    <path d="M25.66 24.66L29 28"
+          stroke="#32604a"
+          stroke-width="2.25"/>
+</svg>

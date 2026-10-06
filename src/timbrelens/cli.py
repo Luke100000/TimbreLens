@@ -90,8 +90,8 @@ def normalize(input: Path, output: Path):
 
 @app.command
 def serve(
-    site: Path = Path("site"),
-    data: Path = Path("data"),
+    site: Path = Path("dist"),
+    data: Path = Path("dist/data"),
     host: str = "127.0.0.1",
     port: int = 8000,
 ):

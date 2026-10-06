@@ -37,12 +37,18 @@ Embedding uses [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5
 for metadata and [CLAP](https://huggingface.co/Xenova/clap-htsat-unfused) for previews. Local generation needs Node.js
 20+ and `npm ci`; query inference runs in the browser.
 
-`embed` writes two int8 matrices sorted by track ID, plus float32 inverse norms,
-in `data/embeddings/`. For a normalized query, cosine is
+`embed` writes two int8 matrices sorted by track ID, plus float32 inverse norms, in `data/embeddings/`. For a normalized
+query, cosine is
 `dot(query, int8_row) * inverse_norm[row]`. All four binaries and the manifest belong in Git.
 
-Export writes the site, public catalog, MiniSearch index, int8 vectors, and previews to `dist/`.
-It copies the prepared matrices and norms without quantizing again.
+Export builds the site in `dist/`.
+
+Run the exported site locally at http://127.0.0.1:8000:
+
+```sh
+uv run timbrelens export
+uv run timbrelens serve
+```
 
 ## GitHub Pages
 

@@ -1,15 +1,113 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TimbreLens</title>
-  </head>
-  <body>
-    <main>
-      <h1>TimbreLens</h1>
-      <p>Search interface is not implemented yet.</p>
-    </main>
-    <script type="module" src="./app.js"></script>
-  </body>
+    <meta name="description" content="Search music by title, mood, genre, and instrument.">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="masthead">
+    <a class="brand" href="./" aria-label="TimbreLens home">
+        <img src="./icon.svg" width="28" height="28" alt="">
+        TimbreLens
+    </a>
+</header>
+
+<main>
+    <section class="search-area" aria-label="Search music">
+        <form id="search-form" role="search">
+            <fieldset id="controls" disabled>
+                <legend class="sr-only">Search and filter music</legend>
+                <label class="sr-only" for="query">Search music</label>
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.5"/>
+                        <path d="m16 16 5 5"/>
+                    </svg>
+                    <input id="query" type="search" placeholder="Search titles, moods, instruments…" autocomplete="off">
+                </div>
+                <div class="filters">
+                    <details class="filter" data-field="genres">
+                        <summary>Genre <span class="selected-count"></span></summary>
+                        <fieldset class="filter-options">
+                            <legend class="sr-only">Genres</legend>
+                        </fieldset>
+                    </details>
+                    <details class="filter" data-field="moods">
+                        <summary>Mood <span class="selected-count"></span></summary>
+                        <fieldset class="filter-options">
+                            <legend class="sr-only">Moods</legend>
+                        </fieldset>
+                    </details>
+                    <details class="filter" data-field="instruments">
+                        <summary>Instrument <span class="selected-count"></span></summary>
+                        <fieldset class="filter-options">
+                            <legend class="sr-only">Instruments</legend>
+                        </fieldset>
+                    </details>
+                    <button id="clear" type="button" class="text-button" hidden>Clear filters</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="catalog" aria-label="Tracks" aria-busy="true">
+        <div class="results-header">
+            <p id="status" role="status">Loading catalog…</p>
+        </div>
+        <ol id="results" class="track-list"></ol>
+        <div id="empty" class="empty" hidden>
+            <h2>No tracks found.</h2>
+            <p>Try fewer words or clear a filter.</p>
+        </div>
+        <button id="more" type="button" class="more-button" hidden>Show more</button>
+    </section>
+</main>
+
+<section id="player" class="player" aria-label="Preview player" hidden>
+    <div class="playing-track">
+        <span class="eyebrow">Preview</span>
+        <strong id="playing-title"></strong>
+        <span id="playing-artist"></span>
+    </div>
+    <audio id="audio" controls controlslist="nodownload" preload="none"></audio>
+    <span id="player-message" role="status"></span>
+    <button id="close-player" class="close-button" type="button" aria-label="Close preview player">×</button>
+</section>
+
+<template id="track-template">
+    <li class="track">
+        <button class="preview-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 4v16l12-8z"/>
+            </svg>
+        </button>
+        <div class="track-content">
+            <div class="title-line"><h2 class="track-title"></h2><span class="duration"
+                                                                       title="Full track duration"></span></div>
+            <div class="track-meta">
+                <span class="artist"></span>
+                <a class="license" target="_blank" rel="noopener noreferrer"></a>
+                <a class="source-link" target="_blank" rel="noopener noreferrer">Source ↗</a>
+                <details class="credits">
+                    <summary>Attribution</summary>
+                    <div class="credit-box">
+                        <pre class="attribution"></pre>
+                        <button class="copy-credit text-button" type="button">Copy attribution</button>
+                    </div>
+                </details>
+            </div>
+            <p class="description"></p>
+            <div class="tags"></div>
+        </div>
+        <div class="waveform" role="img" aria-label="Full-track waveform placeholder">
+            <img src="./waveform-placeholder.svg" width="240" height="48" alt="">
+        </div>
+    </li>
+</template>
+<script type="module" src="./app.js"></script>
+</body>
 </html>

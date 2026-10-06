@@ -21,13 +21,13 @@ class PreviewHandler(SimpleHTTPRequestHandler):
 
 
 def serve(
-    site: Path = Path("site"),
-    data: Path = Path("data"),
+    site: Path = Path("dist"),
+    data: Path = Path("dist/data"),
     host: str = "127.0.0.1",
     port: int = 8000,
 ) -> None:
     if not (site / "index.html").is_file():
-        raise ValueError(f"No index.html in {site}")
+        raise ValueError(f"No index.html in {site}; run timbrelens export first.")
     handler = partial(PreviewHandler, site=site, data=data)
     with ThreadingHTTPServer((host, port), handler) as server:
         print(f"Preview: http://{host}:{server.server_port}/", flush=True)
