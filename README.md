@@ -34,14 +34,21 @@ Run `uv run timbrelens evaluate` to compare the configured models and tracks. It
 descriptions and labels, model predictions, and costs for review.
 
 Embedding uses [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5)
-for metadata and [CLAP](https://huggingface.co/Xenova/clap-htsat-unfused) for previews.
-Local generation needs Node.js 20+ and `npm ci`; query inference runs in the browser.
+for metadata and [CLAP](https://huggingface.co/Xenova/clap-htsat-unfused) for previews. Local generation needs Node.js
+20+ and `npm ci`; query inference runs in the browser.
+
+`embed` writes two int8 matrices sorted by track ID, plus float32 inverse norms,
+in `data/embeddings/`. For a normalized query, cosine is
+`dot(query, int8_row) * inverse_norm[row]`. All four binaries and the manifest belong in Git.
+
+Export writes the site, public catalog, MiniSearch index, int8 vectors, and previews to `dist/`.
+It copies the prepared matrices and norms without quantizing again.
 
 ## GitHub Pages
 
 Pushes to `main` trigger the [workflow](.github/workflows/pages.yml): export
 `dist/`, upload it as an Actions artifact, and deploy that artifact to Pages. Crawling, enrichment, and embedding
-generation run locally.
+generation run locally. The build needs the prepared catalog, previews, and embeddings in its checkout.
 
 ## Checks
 

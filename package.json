@@ -6,6 +6,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@huggingface/transformers": "4.3.0"
+    "@huggingface/transformers": "4.3.0",
+    "minisearch": "7.2.0"
   }
 }

@@ -76,13 +76,10 @@ def export(
     state: Path = Path("data/catalog.json"),
     embeddings: Path = Path("data/embeddings"),
     site: Path = Path("site"),
-    previews: Path = Path("data/audio-previews"),
     output: Path = Path("dist"),
 ):
     """Export the static page, search indexes, embeddings, and previews."""
-    page_export.export(
-        state=state, embeddings=embeddings, site=site, previews=previews, output=output
-    )
+    page_export.export(state=state, embeddings=embeddings, site=site, output=output)
 
 
 @app.command
@@ -105,9 +102,6 @@ def serve(
 def main() -> None:
     try:
         app()
-    except NotImplementedError as error:
-        print(f"Scaffold: {error}", file=sys.stderr)
-        raise SystemExit(1) from None
     except (OSError, ValueError, HTTPError, OpenAIError) as error:
         print(f"Error: {error}", file=sys.stderr)
         raise SystemExit(1) from None

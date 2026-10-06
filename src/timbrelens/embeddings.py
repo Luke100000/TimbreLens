@@ -78,6 +78,29 @@ def _vector(values: list[float]) -> bytes:
     return vector.tobytes()
 
 
+def _quantize(content: bytes, dimensions: int) -> tuple[bytes, bytes]:
+    values = array("f")
+    values.frombytes(content)
+
+    if sys.byteorder != "little":
+        values.byteswap()
+
+    quantized = array("b")
+    inverse_norms = array("f")
+
+    for offset in range(0, len(values), dimensions):
+        row = values[offset : offset + dimensions]
+        scale = max(abs(value) for value in row) / 127
+        encoded = [round(value / scale) for value in row]
+        quantized.extend(encoded)
+        inverse_norms.append(1 / math.sqrt(sum(value * value for value in encoded)))
+
+    if sys.byteorder != "little":
+        inverse_norms.byteswap()
+
+    return quantized.tobytes(), inverse_norms.tobytes()
+
+
 def _encode(tasks: list[dict], models: dict, cache: Path, store: Cache) -> None:
     with subprocess.Popen(
         ["node", str(RUNNER)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True
@@ -183,14 +206,26 @@ def embed(
         raise ValueError("Catalog changed while embedding; rerun to use the updated tracks.")
 
     for kind, content in matrices.items():
-        digest = hashlib.sha256(content).hexdigest()
-        filename = f"{kind}-{digest}.f32.bin"
-        models[kind].update({"file": filename, "sha256": digest})
-        target = output / filename
+        dimensions = models[kind].pop("dimensions")
+        quantized, norms = _quantize(content, dimensions)
+        filename = f"{kind}.i8.bin"
+        norm_filename = f"{kind}-norms.f32.bin"
 
-        if not target.exists() or target.read_bytes() != content:
-            with atomic_output(target) as temporary:
-                temporary.write_bytes(content)
+        for name, payload in ((filename, quantized), (norm_filename, norms)):
+            target = output / name
+
+            if not target.exists() or target.read_bytes() != payload:
+                with atomic_output(target) as temporary:
+                    temporary.write_bytes(payload)
+
+        models[kind] = {
+            "file": filename,
+            "dimensions": dimensions,
+            "dtype": "int8",
+            "quantization": "symmetric_per_row_max_abs_127_round_ties_even",
+            "inverse_norms": {"file": norm_filename, "dtype": "float32"},
+            "encoder": models[kind],
+        }
 
     manifest = {
         "schema_version": 1,
@@ -201,9 +236,8 @@ def embed(
             "version": RUNTIME_VERSION,
             "browser_device": "wasm",
         },
-        "dtype": "float32",
+        "dtype": "int8",
         "byte_order": "little",
-        "normalized": True,
         **models,
     }
     content = json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
@@ -212,6 +246,9 @@ def embed(
     if not target.exists() or target.read_text(encoding="utf-8") != content:
         with atomic_output(target) as temporary:
             temporary.write_text(content, encoding="utf-8")
+
+    for kind in models:
+        (output / f"{kind}.f32.bin").unlink(missing_ok=True)
 
     print(
         f"Embedded {len(tracks)} tracks; generated {len(missing)}, "

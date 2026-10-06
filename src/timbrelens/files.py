@@ -18,15 +18,7 @@ def preview_path(track: Track, state: Path) -> Path:
     if not preview:
         raise ValueError(f"Missing preview for {track['id']}; run the crawler first.")
 
-    path = (state.parent / preview["path"]).resolve()
-
-    if not path.is_relative_to(state.parent.resolve()) or path.suffix != ".mp3":
-        raise ValueError(f"Invalid preview path for {track['id']}.")
-
-    if sha256(path) != preview["sha256"]:
-        raise ValueError(f"Preview checksum mismatch for {track['id']}; recrawl it.")
-
-    return path
+    return (state.parent / preview["path"]).resolve()
 
 
 @contextmanager
