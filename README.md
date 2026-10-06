@@ -30,6 +30,10 @@ to `google/gemini-3.8-flash` with flex and minimal reasoning; override with `--m
 or `OPENROUTER_AUDIO_MODEL`, and `--reasoning-effort none` when supported.
 Results are cached by all request inputs in `.cache/enrichment/`.
 
+Run `uv run timbrelens evaluate` to compare the configured
+models and tracks. It writes `evaluation.md` with reference descriptions and labels,
+model predictions, and costs for review.
+
 ## GitHub Pages
 
 Pushes to `main` trigger the [workflow](.github/workflows/pages.yml): export

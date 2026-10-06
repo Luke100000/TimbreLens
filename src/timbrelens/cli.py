@@ -6,7 +6,7 @@ from cyclopts import App
 from httpx import HTTPError
 from openai import OpenAIError
 
-from timbrelens import audio, embeddings, enrichment, pipeline, server
+from timbrelens import audio, embeddings, enrichment, evaluation, pipeline, server
 from timbrelens import export as page_export
 
 app = App(name="timbrelens", help="Offline audio catalog and static search.")
@@ -49,6 +49,12 @@ def enrich(
 ):
     """Enrich track metadata through OpenRouter."""
     enrichment.enrich(state, model, cache, limit, reasoning_effort)
+
+
+@app.command
+def evaluate():
+    """Compare audio enrichment models and write evaluation.md."""
+    evaluation.evaluate()
 
 
 @app.command
