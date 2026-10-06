@@ -531,6 +531,164 @@
       ],
       "title": "Work is Work",
       "uploaded": "2006-01-01"
+    },
+    {
+      "artist": "Shane Ivers",
+      "attribution": "Music: 80s Motivational Chiptune by Shane Ivers - https://www.silvermansound.com",
+      "audio_url": "https://www.silvermansound.com/wp-content/uploads/80s-motivational-chiptune.mp3",
+      "bpm": 155.0,
+      "composer": "Shane Ivers",
+      "copyright_holder": "Shane Ivers",
+      "description": "80s Motivational Chiptune channels the specific optimism of arcade gaming at its peak – that particular brand of conviction that convinced an entire generation of children that digital worlds could be conquered with sufficient persistence and a well-aimed joystick. The bassline marches through circuits of possibility with relentless enthusiasm, chiptune melodies bounce across the frequency range with the brightness and determination of music that has absolute faith in the player’s ability to succeed, and the whole thing drives forward with the kind of focused energy that makes difficult things feel achievable. It is motivation in its most direct and pixelated form, and it works.",
+      "duration": 118,
+      "genres": [
+        "Chiptune"
+      ],
+      "id": "silverman:UKEZT1600034",
+      "instruments": [
+        "Synth"
+      ],
+      "isrc": "UKEZT1600034",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "collections": [
+          {
+            "name": "Ambient",
+            "url": "https://www.silvermansound.com/royalty-free-ambient-music"
+          },
+          {
+            "name": "Gaming",
+            "url": "https://www.silvermansound.com/royalty-free-gaming-music"
+          }
+        ],
+        "links": [
+          "https://music.apple.com/us/search?term=Shane%20Ivers%2080s%20Motivational%20Chiptune",
+          "https://open.spotify.com/search/Shane%20Ivers%2080s%20Motivational%20Chiptune",
+          "https://www.youtube.com/watch?v=y_EPv3I6We8"
+        ],
+        "released": "2016",
+        "stems": false
+      },
+      "moods": [
+        "Driving",
+        "Uplifting"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3f9c0ba6251fe01d9589e5d1bd387397cb6acd789bfd18ec0d31fc6bf6afba71",
+        "start": 97.0
+      },
+      "source": "silverman",
+      "source_id": "UKEZT1600034",
+      "source_url": "https://www.silvermansound.com/free-music/80s-motivational-chiptune",
+      "tags": [
+        "8 bit",
+        "8bit",
+        "Ambient",
+        "Chiptune",
+        "Driving",
+        "Gaming",
+        "Synth",
+        "Uplifting",
+        "achievement",
+        "action",
+        "ambient",
+        "chiptune",
+        "driving",
+        "electronic",
+        "exciting",
+        "game",
+        "gaming",
+        "heroic",
+        "indie game",
+        "loop",
+        "motivational",
+        "retro",
+        "uplifting"
+      ],
+      "title": "80s Motivational Chiptune",
+      "uploaded": "2016-02-13"
+    },
+    {
+      "artist": "Shane Ivers",
+      "attribution": "Music: A Few Moments Later by Shane Ivers - https://www.silvermansound.com",
+      "audio_url": "https://www.silvermansound.com/wp-content/uploads/a-few-moments-later.mp3",
+      "bpm": 94.0,
+      "composer": "Shane Ivers",
+      "copyright_holder": "Shane Ivers",
+      "description": "There’s something wonderfully matter-of-fact about this little piano piece – it plods along with cheerful determination, as if it has somewhere vaguely important to be and is in absolutely no rush to get there. A single piano bounces through a simple, slightly Eastern-flavoured melody at a measured pace, conjuring the universal feeling of time passing without a great deal of urgency. It’s the musical equivalent of a clock ticking in an empty room, but considerably more pleasant. The polka-adjacent rhythm keeps things bobbing along, and there’s just enough mystery in the melody to keep it interesting rather than tedious.",
+      "duration": 167,
+      "genres": [
+        "Folk"
+      ],
+      "id": "silverman:UKEZT2100009",
+      "instruments": [
+        "Piano"
+      ],
+      "isrc": "UKEZT2100009",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "collections": [
+          {
+            "name": "TikTok",
+            "url": "https://www.silvermansound.com/royalty-free-music-for-tiktok"
+          },
+          {
+            "name": "Piano",
+            "url": "https://www.silvermansound.com/royalty-free-piano-music"
+          },
+          {
+            "name": "Documentary",
+            "url": "https://www.silvermansound.com/royalty-free-documentary-music"
+          }
+        ],
+        "links": [
+          "https://music.apple.com/us/search?term=Shane%20Ivers%20A%20Few%20Moments%20Later",
+          "https://open.spotify.com/search/Shane%20Ivers%20A%20Few%20Moments%20Later",
+          "https://www.youtube.com/watch?v=xCs3oMyYs04"
+        ],
+        "released": "2021",
+        "stems": false
+      },
+      "moods": [
+        "Bouncy",
+        "Mysterious"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "771b8a8b7c1e1b081be774c825596ba1bc4ddd4b3b58e49050a6485d0268571b",
+        "start": 128.0
+      },
+      "source": "silverman",
+      "source_id": "UKEZT2100009",
+      "source_url": "https://www.silvermansound.com/free-music/a-few-moments-later",
+      "tags": [
+        "Bouncy",
+        "Documentary",
+        "Folk",
+        "Mysterious",
+        "Piano",
+        "TikTok",
+        "amusing",
+        "bouncy",
+        "documentary",
+        "eastern",
+        "folk",
+        "melodic",
+        "mysterious",
+        "on-hold",
+        "piano",
+        "polka",
+        "relaxed",
+        "simple",
+        "solo piano",
+        "temporal",
+        "waiting"
+      ],
+      "title": "A Few Moments Later",
+      "uploaded": "2021-03-18"
     }
   ]
 }

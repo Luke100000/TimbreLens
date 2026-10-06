@@ -18,6 +18,7 @@ Install FFmpeg and ffprobe for audio processing. Run commands from the repo root
 ```sh
 uv run timbrelens crawl incompetech --limit 2
 uv run timbrelens crawl creatorchords --limit 2
+uv run timbrelens crawl silverman --limit 2
 uv run timbrelens sync
 uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
 uv run timbrelens serve

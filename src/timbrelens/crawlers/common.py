@@ -1,9 +1,18 @@
+import math
 import sys
 from pathlib import Path
 
 from timbrelens.audio import preview
 from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
+
+
+def validate_options(duration: float, limit: int | None) -> None:
+    if limit is not None and limit <= 0:
+        raise ValueError("Track limit must be positive.")
+
+    if not math.isfinite(duration) or duration < 0.001:
+        raise ValueError("Preview duration must be finite and at least 0.001 seconds.")
 
 
 def prepare_previews(

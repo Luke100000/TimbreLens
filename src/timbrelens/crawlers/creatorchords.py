@@ -5,7 +5,7 @@ from urllib.robotparser import RobotFileParser
 
 from bs4 import BeautifulSoup, Tag
 
-from timbrelens.crawlers.common import prepare_previews
+from timbrelens.crawlers.common import prepare_previews, validate_options
 from timbrelens.http import USER_AGENT, CachedHTTP
 from timbrelens.models import Track
 
@@ -113,11 +113,7 @@ def crawl(
     limit: int | None = None,
     refresh: bool = False,
 ) -> list[Track]:
-    if limit is not None and limit <= 0:
-        raise ValueError("Track limit must be positive.")
-
-    if not math.isfinite(duration) or duration < 0.001:
-        raise ValueError("Preview duration must be finite and at least 0.001 seconds.")
+    validate_options(duration, limit)
 
     with CachedHTTP(cache / "creatorchords") as http:
         tracks = catalog(http, refresh)[:limit]
