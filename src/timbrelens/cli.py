@@ -59,13 +59,16 @@ def evaluate():
 
 @app.command
 def embed(
-    text_model: str,
-    audio_model: str,
+    text_model: str = embeddings.TEXT_MODEL,
+    audio_model: str = embeddings.AUDIO_MODEL,
     state: Path = Path("data/catalog.json"),
     output: Path = Path("data/embeddings"),
+    cache: Path = Path(".cache"),
+    text_revision: str | None = None,
+    audio_revision: str | None = None,
 ):
     """Generate text and CLAP embeddings."""
-    embeddings.embed(state=state, output=output, text_model=text_model, audio_model=audio_model)
+    embeddings.embed(state, output, text_model, audio_model, cache, text_revision, audio_revision)
 
 
 @app.command

@@ -21,18 +21,21 @@ uv run timbrelens sync
 uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
 uv run timbrelens serve
 uv run timbrelens enrich --limit 1
-uv run timbrelens embed --text-model TEXT_MODEL_ID --audio-model CLAP_MODEL_ID
+uv run timbrelens embed
 uv run timbrelens export --output dist
 ```
 
-Enrichment reads `OPENROUTER_API_KEY` from the environment or `.env`. It defaults
-to `google/gemini-3.8-flash` with flex and minimal reasoning; override with `--model`
-or `OPENROUTER_AUDIO_MODEL`, and `--reasoning-effort none` when supported.
-Results are cached by all request inputs in `.cache/enrichment/`.
+Enrichment reads `OPENROUTER_API_KEY` from the environment or `.env`. It defaults to `google/gemini-3.8-flash` with flex
+and minimal reasoning; override with `--model`
+or `OPENROUTER_AUDIO_MODEL`, and `--reasoning-effort none` when supported. Results are cached by all request inputs in
+`.cache/enrichment/`.
 
-Run `uv run timbrelens evaluate` to compare the configured
-models and tracks. It writes `evaluation.md` with reference descriptions and labels,
-model predictions, and costs for review.
+Run `uv run timbrelens evaluate` to compare the configured models and tracks. It writes `evaluation.md` with reference
+descriptions and labels, model predictions, and costs for review.
+
+Embedding uses [BGE-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5)
+for metadata and [CLAP](https://huggingface.co/Xenova/clap-htsat-unfused) for previews.
+Local generation needs Node.js 20+ and `npm ci`; query inference runs in the browser.
 
 ## GitHub Pages
 

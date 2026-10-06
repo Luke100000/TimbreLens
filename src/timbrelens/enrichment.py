@@ -12,6 +12,7 @@ from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 from timbrelens import state as catalog_state
+from timbrelens.files import preview_path
 
 DEFAULT_MODEL = "google/gemini-3.8-flash"
 
@@ -89,17 +90,8 @@ def enrich(
     try:
         with Cache(str(cache / "enrichment")) as store:
             for index, track in enumerate(tracks, 1):
-                preview = track.get("preview")
-                if not preview:
-                    raise ValueError(f"Missing preview for {track['id']}; run the crawler first.")
-                path = (state.parent / preview["path"]).resolve()
-                if not path.is_relative_to(state.parent.resolve()) or path.suffix != ".mp3":
-                    raise ValueError(f"Invalid preview path for {track['id']}.")
-
-                audio = path.read_bytes()
+                audio = preview_path(track, state).read_bytes()
                 audio_hash = hashlib.sha256(audio).hexdigest()
-                if audio_hash != preview["sha256"]:
-                    raise ValueError(f"Preview checksum mismatch for {track['id']}; recrawl it.")
 
                 metadata = {
                     field: track.get(field)

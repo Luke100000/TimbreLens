@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 from openai import OpenAI, OpenAIError
 
 from timbrelens.enrichment import PROMPT, AudioDescription
-from timbrelens.files import atomic_output
+from timbrelens.files import atomic_output, preview_path
 from timbrelens.state import load
 
 TRACK_IDS = [
@@ -204,10 +204,7 @@ def evaluate() -> None:
 
     for track_id in TRACK_IDS:
         track = lookup[track_id]
-        audio = (CATALOG.parent / track["preview"]["path"]).read_bytes()
-
-        if hashlib.sha256(audio).hexdigest() != track["preview"]["sha256"]:
-            raise ValueError(f"Preview checksum mismatch: {track_id}")
+        audio = preview_path(track, CATALOG).read_bytes()
 
         tracks.append((track, audio))
 

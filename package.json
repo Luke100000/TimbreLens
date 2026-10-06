@@ -1,0 +1,11 @@
+{
+  "name": "timbrelens",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.0"
+  }
+}
