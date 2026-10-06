@@ -78,7 +78,7 @@ def _write_json(path: Path, value) -> None:
     )
 
 
-def _build_index(tracks: list[dict], path: Path) -> None:
+def _build_index(tracks: list[dict], path: Path, runtime_version: str) -> None:
     documents = [
         {
             "id": track["id"],
@@ -98,6 +98,7 @@ def _build_index(tracks: list[dict], path: Path) -> None:
                 "documents": documents,
                 "options": SEARCH_OPTIONS,
                 "version": SEARCH_VERSION,
+                "runtime_version": runtime_version,
                 "output": str(path),
             }
         ),
@@ -106,7 +107,7 @@ def _build_index(tracks: list[dict], path: Path) -> None:
     )
 
     if process.returncode:
-        raise ValueError(f"MiniSearch export failed; run npm ci.\n{process.stderr.strip()}")
+        raise ValueError(f"Search export failed; run npm ci.\n{process.stderr.strip()}")
 
 
 def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
@@ -152,7 +153,7 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
             public.append(_public_track(track))
 
         _write_json(data / "catalog.json", {"schema_version": 1, "tracks": public})
-        _build_index(public, data / "minisearch.json")
+        _build_index(public, data / "minisearch.json", manifest["runtime"]["version"])
         exported = {
             "schema_version": 1,
             "track_ids": manifest["track_ids"],

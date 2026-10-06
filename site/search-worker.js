@@ -1,4 +1,6 @@
 import MiniSearch from "./data/vendor/minisearch.js";
+import {rank} from "./search.js";
+import {loadSemantic} from "./semantic.js";
 
 const dataRoot = new URL("./data/", import.meta.url);
 
@@ -21,24 +23,81 @@ async function load() {
 
     const [{tracks}, serialized] = await Promise.all([responses[0].json(), responses[1].text()]);
     const index = MiniSearch.loadJSON(serialized, manifest.lexical.options);
-    const byId = new Map(tracks.map(track => [track.id, track]));
 
-    self.onmessage = ({data: {id, query, filters}}) => {
-        query = query.trim();
-        let matches = query
-            ? index.search(query, {combineWith: "AND"}).map(result => byId.get(result.id))
-            : tracks;
+    // Reuse query rankings when only filters change.
+    const cached = new Map();
+    let latest;
+    let running = false;
+    let semantic;
+    let failed = false;
 
-        if (query) {
-            const title = query.toLowerCase();
-            matches.sort((a, b) => Number(b.title.toLowerCase() === title)
-                - Number(a.title.toLowerCase() === title));
+    function publish(request, rankings, pending = false) {
+        self.postMessage({
+            id: request.id, pending,
+            track_ids: rank(tracks, request.query, request.filters, rankings)
+        });
+    }
+
+    async function searchSemantic() {
+        running = true;
+
+        try {
+            if (!semantic) {
+                self.postMessage({type: "semantic", state: "loading"});
+                semantic = await loadSemantic(manifest, dataRoot);
+                self.postMessage({type: "semantic", state: "ready"});
+            }
+
+            // Finish in-flight inference, then skip to the newest query.
+            while (latest.query) {
+                const request = latest;
+                let rankings = cached.get(request.query);
+
+                if (!rankings) {
+                    rankings = await semantic(request.query);
+                    cached.set(request.query, rankings);
+
+                    if (cached.size > 20) {
+                        cached.delete(cached.keys().next().value);
+                    }
+                }
+
+                if (request !== latest) continue;
+
+                publish(request, [request.lexical, ...rankings]);
+                break;
+            }
+        } catch (error) {
+            console.error(error);
+            failed = true;
+            self.postMessage({type: "semantic", state: "error"});
+            publish(latest, [latest.lexical]);
+        } finally {
+            running = false;
+        }
+    }
+
+    self.onmessage = ({data}) => {
+        data.query = data.query.trim();
+        data.lexical = {
+            ids: data.query
+                ? index.search(data.query, {combineWith: "AND"}).map(result => result.id) : [],
+            weight: data.query.split(/\s+/).length <= 2 ? 2 : 1
+        };
+        latest = data;
+
+        if (data.retry) {
+            failed = false;
         }
 
-        matches = matches.filter(track => Object.entries(filters).every(([field, values]) =>
-            values.length === 0 || values.some(value => track[field].includes(value))));
+        const rankings = cached.get(data.query);
 
-        self.postMessage({id, track_ids: matches.map(track => track.id)});
+        // Show keyword matches immediately, then add semantic results when ready.
+        publish(data, [data.lexical, ...(rankings || [])], Boolean(data.query && !rankings && !failed));
+
+        if (data.query && !rankings && !running && !failed) {
+            searchSemantic();
+        }
     };
 
     self.postMessage({type: "ready", tracks});

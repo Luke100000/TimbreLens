@@ -1,6 +1,8 @@
 const query = document.querySelector("#query");
 const controls = document.querySelector("#controls");
 const status = document.querySelector("#status");
+const semanticStatus = document.querySelector("#semantic-status");
+const retry = document.querySelector("#retry-search");
 const catalog = document.querySelector(".catalog");
 const results = document.querySelector("#results");
 const empty = document.querySelector("#empty");
@@ -132,7 +134,7 @@ function renderMore() {
     updatePlayback();
 }
 
-function search() {
+function search(retryModels = false) {
     clearTimeout(searchTimer);
     const selected = {};
 
@@ -144,7 +146,7 @@ function search() {
 
     clear.hidden = Object.values(selected).every(values => values.length === 0);
     catalog.setAttribute("aria-busy", "true");
-    worker.postMessage({id: ++requestId, query: query.value, filters: selected});
+    worker.postMessage({id: ++requestId, query: query.value, filters: selected, retry: retryModels});
 }
 
 function fillFilters() {
@@ -183,6 +185,13 @@ function loadError() {
 }
 
 worker.onmessage = ({data}) => {
+    if (data.type === "semantic") {
+        semanticStatus.textContent = data.state === "loading" ? "Loading search models…"
+            : data.state === "error" ? "Keyword search only." : "";
+        retry.hidden = data.state !== "error";
+        return;
+    }
+
     if (data.type === "error") {
         loadError();
         return;
@@ -202,9 +211,10 @@ worker.onmessage = ({data}) => {
     visible = 0;
     results.replaceChildren();
     renderMore();
-    status.textContent = `${matches.length.toLocaleString()} ${matches.length === 1 ? "track" : "tracks"}`;
-    empty.hidden = matches.length !== 0;
-    catalog.setAttribute("aria-busy", "false");
+    status.textContent = data.pending && !matches.length ? "Searching…"
+        : `${matches.length.toLocaleString()} ${matches.length === 1 ? "track" : "tracks"}`;
+    empty.hidden = matches.length !== 0 || data.pending;
+    catalog.setAttribute("aria-busy", String(data.pending));
 };
 
 worker.onerror = loadError;
@@ -220,8 +230,10 @@ document.querySelector("#search-form").onsubmit = event => {
 };
 
 for (const filter of filters) {
-    filter.onchange = search;
+    filter.onchange = () => search();
 }
+
+retry.onclick = () => search(true);
 
 clear.onclick = () => {
     for (const input of document.querySelectorAll(".filter input:checked")) {
@@ -233,12 +245,16 @@ clear.onclick = () => {
 
 document.addEventListener("click", event => {
     for (const filter of filters) {
-        if (!filter.contains(event.target)) filter.open = false;
+        if (!filter.contains(event.target)) {
+            filter.open = false;
+        }
     }
 });
 document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
-        for (const filter of filters) filter.open = false;
+        for (const filter of filters) {
+            filter.open = false;
+        }
     }
 
     if (event.key === "/" && !controls.disabled && !event.ctrlKey && !event.metaKey
