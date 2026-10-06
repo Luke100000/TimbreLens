@@ -43,7 +43,7 @@ DISPLAY_FIELDS = (
 )
 
 
-def _public_track(track: dict, path: Path) -> dict:
+def _public_track(track: dict) -> dict:
     result = {field: track[field] for field in DISPLAY_FIELDS if field in track}
     enrichment = track.get("enrichment") or {}
     result["summary"] = enrichment.get("summary", "")
@@ -61,7 +61,7 @@ def _public_track(track: dict, path: Path) -> dict:
         result["uploaded"] = track["uploaded"].isoformat()
 
     result["preview"] = {
-        "path": f"audio-previews/{path.name}",
+        "sha256": track["preview"]["sha256"],
         "start": track["preview"]["start"],
         "duration": track["preview"]["duration"],
     }
@@ -138,7 +138,7 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
         shutil.copytree(site, staging)
         (staging / ".nojekyll").touch()
         data = staging / "data"
-        audio = data / "audio-previews"
+        audio = data / "previews"
         audio.mkdir(parents=True)
         public = []
 
@@ -147,7 +147,9 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
 
             destination = audio / path.name
             shutil.copyfile(path, destination)
-            public.append(_public_track(track, path))
+            image_path = path.with_suffix(".png")
+            shutil.copyfile(image_path, audio / image_path.name)
+            public.append(_public_track(track))
 
         _write_json(data / "catalog.json", {"schema_version": 1, "tracks": public})
         _build_index(public, data / "minisearch.json")

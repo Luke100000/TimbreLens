@@ -114,6 +114,5 @@ def crawl(
         for index, track in enumerate(tracks, 1):
             print(f"[{index}/{len(tracks)}] {track['title']}", file=sys.stderr)
             input = http.get(track["audio_url"], 0 if refresh else 30 * 86400)
-            result = preview(input, previews, track["id"], http.cache, duration)
-            track["preview"] = {**result, "path": "audio-previews/" + result["path"]}
+            track["preview"] = preview(input, previews, http.cache, duration)
         return tracks

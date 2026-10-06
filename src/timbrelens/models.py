@@ -13,7 +13,6 @@ class Enrichment(TypedDict):
 
 
 class Preview(TypedDict):
-    path: str
     start: float
     duration: float
     sha256: str

@@ -52,7 +52,7 @@ async function play(track) {
 
     if (playingId !== track.id || audio.error) {
         playingId = track.id;
-        audio.src = new URL(track.preview.path, dataRoot).href;
+        audio.src = new URL(`previews/${track.preview.sha256}.mp3`, dataRoot).href;
         document.querySelector("#playing-title").textContent = track.title;
         document.querySelector("#playing-artist").textContent = track.artist;
     }
@@ -82,6 +82,22 @@ function renderMore() {
         row.querySelector(".duration").textContent = duration(track.duration);
         row.querySelector(".artist").textContent = track.artist;
         row.querySelector(".description").textContent = track.summary || track.description;
+
+        const waveform = row.querySelector(".waveform");
+        waveform.querySelector("img").src = new URL(`previews/${track.preview.sha256}.png`, dataRoot).href;
+        waveform.setAttribute("aria-label", `Full-track signature of ${track.title}`);
+
+        if (track.duration > 0) {
+            const start = track.preview.start;
+            const end = Math.min(start + track.preview.duration, track.duration);
+            const marker = waveform.querySelector(".preview-range");
+            marker.style.left = `${start / track.duration * 100}%`;
+            marker.style.width = `${(end - start) / track.duration * 100}%`;
+            marker.hidden = false;
+            waveform.title = `Preview: ${duration(start)}–${duration(end)}`;
+            waveform.setAttribute("aria-label",
+                `Full-track signature of ${track.title}. Preview from ${duration(start)} to ${duration(end)}.`);
+        }
 
         for (const value of [...new Set([...track.genres, ...track.moods])].slice(0, 6)) {
             const tag = document.createElement("span");

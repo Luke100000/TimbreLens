@@ -80,8 +80,7 @@
       ],
       "preview": {
         "duration": 20.0,
-        "path": "audio-previews/ad8ac85099e6bb7fa46049857f387a2a08c4eda64f00ccf9438e1a7175897bb4.mp3",
-        "sha256": "b82c388a68d83c9572a35bd662cc491049671b4f8adb925362e7d327da8f3119",
+        "sha256": "0e7e5c836a44a4d45b1fe5655369e3d2fbaac62e01d3c96491b8f7faca517ee6",
         "start": 52.0
       },
       "source": "incompetech",
@@ -148,8 +147,7 @@
       ],
       "preview": {
         "duration": 20.0,
-        "path": "audio-previews/01f34d12a31818e5d4e2542af7cd00d34ef99bb805e5b7d8f5b4db65df3f5957.mp3",
-        "sha256": "3386d603f784e3f7c62557b288bc5b042c89b8eb588eff4710892a115db2eeba",
+        "sha256": "e1728e3d7d84a5ecdd87053a78db3785b84697e30aa764baa5accdee059d55e1",
         "start": 0.0
       },
       "source": "incompetech",
@@ -214,8 +212,7 @@
       ],
       "preview": {
         "duration": 20.0,
-        "path": "audio-previews/95b1dd69ad2fb4f68158ee865fa5ac07ad9ad2c63ca7d7d01c3dbdf576f84e03.mp3",
-        "sha256": "df301bf9b508d980a4e9080455801453e215b7ae150d22b19712a17815cf3f79",
+        "sha256": "9aab9ad10bbcc4f42e4f788cd0d8539c91af0185b0af2ae8a0458456454f0fae",
         "start": 52.0
       },
       "source": "incompetech",
@@ -283,8 +280,7 @@
       ],
       "preview": {
         "duration": 20.0,
-        "path": "audio-previews/db5bc07488a0b75cff164610ae890c9993575fcf9689a5d40641140dcdd0ffe7.mp3",
-        "sha256": "34f4ee868daed5d70592364fad3746d2dd86c81a87e43c29d92db8c4083bd423",
+        "sha256": "031aa59660c419cb8ee07f4c4ac3cf0191ce25b6dacdce3a43830f65b6507450",
         "start": 106.0
       },
       "source": "incompetech",
@@ -348,8 +344,7 @@
       ],
       "preview": {
         "duration": 20.0,
-        "path": "audio-previews/49a0f16abe9717acbb2201767b5f6169b3a19b24e53d91cbeb88e784b8df9a26.mp3",
-        "sha256": "5bc961e20de2e2e7d0c437216e65621581cdb1112fe449f2cf615914bc49be8d",
+        "sha256": "43e32a812755a53ea1d4ced0dcddf12631a9394ad25c23209f9372b56651bf86",
         "start": 26.0
       },
       "source": "incompetech",

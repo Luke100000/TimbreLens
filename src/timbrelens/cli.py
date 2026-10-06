@@ -17,26 +17,24 @@ def crawl(
     source: Literal["incompetech"] = "incompetech",
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
-    previews: Path = Path("data/audio-previews"),
     duration: float = 20.0,
     limit: int | None = None,
     refresh: bool = False,
 ):
-    """Fetch and cache source audio, prepare previews, and sync metadata."""
-    pipeline.crawl(source, state, cache, previews, duration, limit, refresh)
+    """Fetch source audio, generate previews and signatures, and sync metadata."""
+    pipeline.crawl(source, state, cache, duration, limit, refresh)
 
 
 @app.command
 def sync(
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
-    previews: Path = Path("data/audio-previews"),
     duration: float = 20.0,
     limit: int | None = None,
     refresh: bool = False,
 ):
     """Run all crawlers, including preview preparation."""
-    pipeline.sync(state, cache, previews, duration, limit, refresh)
+    pipeline.sync(state, cache, duration, limit, refresh)
 
 
 @app.command

@@ -18,7 +18,7 @@ def preview_path(track: Track, state: Path) -> Path:
     if not preview:
         raise ValueError(f"Missing preview for {track['id']}; run the crawler first.")
 
-    return (state.parent / preview["path"]).resolve()
+    return (state.parent / "previews" / f"{preview['sha256']}.mp3").resolve()
 
 
 @contextmanager

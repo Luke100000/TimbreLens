@@ -11,6 +11,7 @@ from diskcache import Cache
 
 from timbrelens.files import atomic_output, sha256
 from timbrelens.models import Preview
+from timbrelens.signature import signature
 
 RECIPE_VERSION = "energy-window-loudnorm-v2"
 FADE_DURATION = 0.005
@@ -112,9 +113,7 @@ def _preview_filters(duration: float) -> str:
     )
 
 
-def preview(
-    input: Path, output: Path, track_id: str, store: Cache, duration: float = 20.0
-) -> Preview:
+def preview(input: Path, output: Path, store: Cache, duration: float = 20.0) -> Preview:
     if not math.isfinite(duration) or duration < 0.001:
         raise ValueError("Preview duration must be finite and at least 0.001 seconds.")
 
@@ -130,9 +129,8 @@ def preview(
         "fade": FADE_DURATION,
     }
     recipe_hash = hashlib.sha256(json.dumps(recipe, sort_keys=True).encode()).hexdigest()
-    relative = Path(hashlib.sha256(track_id.encode()).hexdigest() + ".mp3")
-    target = output / relative
-    key = ("preview", track_id, recipe_hash)
+    target = output / f"{recipe_hash}.mp3"
+    key = ("preview", recipe_hash)
 
     existing = store.get(key)
     if not (existing and target.is_file() and sha256(target) == existing["sha256"]):
@@ -167,9 +165,14 @@ def preview(
         }
         store[key] = existing
 
+    image = target.with_suffix(".png")
+    image_key = ("signature", recipe_hash)
+    if store.get(image_key) != source_hash or not image.is_file():
+        signature(input, image)
+        store[image_key] = source_hash
+
     return {
-        "path": relative.as_posix(),
         "start": existing["start_ms"] / 1000,
         "duration": existing["duration_ms"] / 1000,
-        "sha256": existing["sha256"],
+        "sha256": recipe_hash,
     }

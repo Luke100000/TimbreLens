@@ -380,6 +380,7 @@ main {
 }
 
 .waveform {
+    position: relative;
     align-self: center;
 }
 
@@ -387,7 +388,13 @@ main {
     display: block;
     width: 100%;
     height: 40px;
-    opacity: .7;
+}
+
+.preview-range {
+    position: absolute;
+    bottom: -5px;
+    border-top: 2px dotted var(--ink);
+    pointer-events: none;
 }
 
 .empty {

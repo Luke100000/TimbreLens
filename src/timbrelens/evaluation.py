@@ -129,13 +129,13 @@ def write_report(tracks: list[dict], results: list[dict]) -> None:
 
     for track in tracks:
         preview = track["preview"]
-        preview_path = os.path.relpath(CATALOG.parent / preview["path"], REPORT.parent)
+        audio_path = os.path.relpath(preview_path(track, CATALOG), REPORT.parent)
         lines.extend(
             [
                 "",
                 f"## {cell(track['title'])} — {cell(track['source_id'])}",
                 "",
-                f"[Listen to preview](<{preview_path}>)",
+                f"[Listen to preview](<{audio_path}>)",
             ]
         )
 

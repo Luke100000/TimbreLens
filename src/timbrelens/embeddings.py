@@ -168,7 +168,7 @@ def embed(
 
         for kind, inputs in (
             ("text", {"text": document(track)}),
-            ("audio", {"preview_sha256": track["preview"]["sha256"], "ffmpeg": _ffmpeg_version()}),
+            ("audio", {"preview_sha256": sha256(path), "ffmpeg": _ffmpeg_version()}),
         ):
             key = hashlib.sha256(
                 json.dumps(
