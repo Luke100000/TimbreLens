@@ -27,6 +27,9 @@ uv run timbrelens embed
 uv run timbrelens export --output dist
 ```
 
+`crawl` saves original audio as `data/originals/{source}/{title}.mp3`, with a matching JSON file containing source
+metadata and credits.
+
 Enrichment reads `OPENROUTER_API_KEY` from the environment or `.env`. It defaults to `google/gemini-3.8-flash` with flex
 and minimal reasoning; override with `--model`
 or `OPENROUTER_AUDIO_MODEL`, and `--reasoning-effort none` when supported. Results are cached by all request inputs in
