@@ -68,8 +68,10 @@ main {
 
 .masthead {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 12px 24px;
     padding-block: 24px;
 }
 
@@ -87,6 +89,101 @@ main {
 .brand img {
     width: 28px;
     height: 28px;
+}
+
+.site-nav {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+}
+
+.site-nav a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.sources-page {
+    padding-bottom: 64px;
+}
+
+.sources-section {
+    margin-top: 12px;
+}
+
+.sources-section + .sources-section {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+}
+
+.sources-section h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -.5px;
+}
+
+.sources-subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.source-entry p {
+    color: #535c52;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.source-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+}
+
+.source-entry {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    min-width: 0;
+}
+
+.source-entry h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -.5px;
+}
+
+.source-entry .source-meta {
+    margin: 6px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.source-entry .source-links {
+    margin-top: auto;
+}
+
+.source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 12px;
 }
 
 .eyebrow {
@@ -523,6 +620,10 @@ main {
 }
 
 @media (max-width: 760px) {
+    .source-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .masthead, main {
         padding-inline: 20px;
     }

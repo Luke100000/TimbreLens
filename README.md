@@ -2,6 +2,9 @@
 
 Static music search with an offline Python pipeline.
 
+The [Music sources page](site/sources.html) lists collected artists and libraries, their licenses, original websites,
+and collection links, plus larger catalogs to browse directly.
+
 ## Setup
 
 Requires Python 3.13+, [uv](https://docs.astral.sh/uv/), FFmpeg/ffprobe, and Node.js 20+. Run commands from the repo
