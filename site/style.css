@@ -342,16 +342,19 @@ main {
 
 .tags {
     display: flex;
-    flex-wrap: wrap;
     gap: 6px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, black calc(100% - 28px), transparent);
 }
 
 .tag {
+    flex: 0 0 auto;
     padding: 4px 8px;
     border: 1px solid var(--line);
     border-radius: 4px;
     font-size: 10px;
     color: #55604f;
+    white-space: nowrap;
 }
 
 .credits {

@@ -1,22 +1,21 @@
 import sys
 from pathlib import Path
-from typing import Literal
+from typing import Annotated, Literal
 
-from cyclopts import App
+from cyclopts import App, Parameter
 from httpx import HTTPError
 from openai import OpenAIError
 
 from timbrelens import audio, embeddings, enrichment, evaluation, pipeline, server
 from timbrelens import export as page_export
+from timbrelens.crawlers import CRAWLERS
 
 app = App(name="timbrelens", help="Offline audio catalog and static search.")
 
 
 @app.command
 def crawl(
-    source: Literal[
-        "incompetech", "creatorchords", "silverman", "freepd", "timkulig"
-    ] = "incompetech",
+    source: Annotated[str, Parameter(choices=CRAWLERS)] = "incompetech",
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
     duration: float = 20.0,

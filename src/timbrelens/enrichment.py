@@ -16,7 +16,8 @@ from timbrelens.files import preview_path
 
 DEFAULT_MODEL = "google/gemini-3.8-flash"
 
-PROMPT = """Listen to the music excerpt and describe its audible qualities for search.
+PROMPT = """Listen to the music excerpt and describe its audible qualities for a
+music catalog's track cards and search.
 This short preview is selected from an energetic part of the track and loudness
 normalized. Describe this excerpt only; it may not represent the whole track.
 Use the audio as evidence. Source metadata may help interpret ambiguous sounds,
@@ -26,8 +27,11 @@ metadata. Do not invent instruments, lyrics, intended uses, or recording dates.
 Focus on distinctive musical character and associations that help a listener
 search in ordinary language. Avoid generic praise and technical measurements.
 
-summary: one concrete English sentence, at most 40 words, describing the dominant
-sounds, musical character, and atmosphere. No title, artist, or list of use cases.
+summary: one natural, concrete English sentence, at most 40 words, helping a
+listener imagine the sound: its dominant instruments, movement, and atmosphere.
+Write a complete description even when source metadata is sparse. Supported
+source qualities may appear in this sentence. No title, artist, generic praise,
+list of use cases, or references to the excerpt, analysis, or missing metadata.
 genres: up to four broad musical styles supported by the excerpt.
 moods: up to six emotional qualities, such as calm, tense, melancholic, or joyful;
 keep instrument names, genre names, and production qualities in their own fields.
@@ -36,9 +40,16 @@ broad names such as synth or percussion when a specific identification is uncert
 texture: up to six audible timbral, spatial, or density qualities, such as warm,
 gritty, reverberant, sparse, or layered. Avoid emotional or genre labels here.
 
+Label lists supplement the source metadata. Add only audible qualities missing
+from the corresponding source field; do not repeat existing labels or add near
+synonyms just to produce more tags. A label found only in generic source tags may
+be added to its appropriate structured field if that field does not contain it.
+When source fields are empty, supply the salient qualities supported by the audio.
+
 Use familiar, short lowercase English labels without duplicates or near synonyms.
 Choose only salient qualities; the limits are maxima, not targets. Use empty
-lists when uncertain. Do not estimate BPM, energy scores, meter, or vocal classes.
+lists when uncertain or when the source field already covers the audible qualities.
+Do not estimate BPM, energy scores, meter, or vocal classes.
 Return only the object.
 """
 
@@ -50,7 +61,9 @@ Label = Annotated[
 class AudioDescription(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    summary: str = Field(min_length=1, max_length=400)
+    summary: Annotated[str, StringConstraints(strip_whitespace=True)] = Field(
+        min_length=1, max_length=400
+    )
     genres: list[Label] = Field(max_length=4)
     moods: list[Label] = Field(max_length=6)
     instruments: list[Label] = Field(max_length=8)
@@ -163,6 +176,16 @@ def enrich(
                     requested += 1
                 else:
                     reused += 1
+
+                for field in ("genres", "moods", "instruments", "texture"):
+                    source_labels = {value.strip().casefold() for value in track.get(field, [])}
+                    result[field] = sorted(
+                        {
+                            value.strip().casefold()
+                            for value in result[field]
+                            if value.strip() and value.strip().casefold() not in source_labels
+                        }
+                    )
 
                 store[input_hash] = result
                 track["enrichment"] = result

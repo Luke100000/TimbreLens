@@ -80,10 +80,14 @@ function renderMore() {
         const button = row.querySelector(".preview-button");
         button.dataset.id = id;
         button.onclick = () => play(track);
+
         row.querySelector(".track-title").textContent = track.title;
         row.querySelector(".duration").textContent = duration(track.duration);
         row.querySelector(".artist").textContent = track.artist;
-        row.querySelector(".description").textContent = track.summary || track.description;
+
+        const description = row.querySelector(".description");
+        description.textContent = track.summary || track.description || "";
+        description.hidden = !description.textContent;
 
         const waveform = row.querySelector(".waveform");
         waveform.querySelector("img").src = new URL(`previews/${track.preview.sha256}.png`, dataRoot).href;
@@ -101,11 +105,14 @@ function renderMore() {
                 `Full-track signature of ${track.title}. Preview from ${duration(start)} to ${duration(end)}.`);
         }
 
-        for (const value of [...new Set([...track.genres, ...track.moods])].slice(0, 6)) {
+        const tags = row.querySelector(".tags");
+        tags.title = track.display_tags.join(", ");
+
+        for (const value of track.display_tags) {
             const tag = document.createElement("span");
             tag.className = "tag";
             tag.textContent = value;
-            row.querySelector(".tags").append(tag);
+            tags.append(tag);
         }
 
         row.querySelector(".source-link").href = track.source_url;

@@ -1,3 +1,4 @@
+import hashlib
 import json
 import shutil
 import subprocess
@@ -46,9 +47,11 @@ DISPLAY_FIELDS = (
 def _public_track(track: dict) -> dict:
     result = {field: track[field] for field in DISPLAY_FIELDS if field in track}
     enrichment = track.get("enrichment") or {}
-    result["summary"] = enrichment.get("summary", "")
+    result["summary"] = enrichment.get("summary", "").strip()
 
-    for field in ("tags", "genres", "moods", "instruments", "texture"):
+    label_fields = ("tags", "genres", "moods", "instruments", "texture")
+
+    for field in label_fields:
         result[field] = sorted(
             {
                 value.strip().casefold()
@@ -56,6 +59,13 @@ def _public_track(track: dict) -> dict:
                 if value.strip()
             }
         )
+
+    # Shuffle by track and label so repeated exports keep the same card order.
+    labels = {label for field in label_fields for label in result[field]}
+    result["display_tags"] = sorted(
+        labels,
+        key=lambda label: hashlib.sha256(f"{track['id']}\0{label}".encode()).digest(),
+    )
 
     if track.get("uploaded"):
         result["uploaded"] = track["uploaded"].isoformat()
