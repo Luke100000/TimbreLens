@@ -52,11 +52,14 @@ class SoundCloudDL(YoutubeDL):
             raise HTTPError(response) from error
 
         metadata = self.http.cache[request.url]
+
+        # Keep API license codes available before resolving individual audio streams.
         if urlsplit(request.url).hostname == "api-v2.soundcloud.com":
             data = json.loads(path.read_bytes())
             items = data
             if isinstance(data, dict):
                 items = data.get("collection") or [data]
+
             for item in items:
                 track = item.get("track", item)
                 if track.get("kind") == "track":
@@ -75,9 +78,9 @@ def _terms(values: list[str]) -> list[str]:
     )
 
 
-def _eligible(code: str | None, website: str) -> bool:
+def _eligible(code: str | None, website: str, strict_license: bool = False) -> bool:
     return code in ("cc-by", "no-rights-reserved", "cc0") or (
-        bool(website) and code in (None, "all-rights-reserved")
+        not strict_license and bool(website) and code in (None, "all-rights-reserved")
     )
 
 
@@ -90,6 +93,7 @@ def map_track(
     creator_url = website or info.get("uploader_url", "")
     genres = _terms(info.get("genres") or [])
     tags = _terms(info.get("tags") or [])
+
     if info.get("license") in ("no-rights-reserved", "cc0"):
         license_url = CC0
 
@@ -147,6 +151,8 @@ def crawl(
     refresh: bool = False,
     artist: str = "",
     website: str = "",
+    strict_license: bool = False,
+    exclude: str = "",
 ) -> list[Track]:
     validate_options(duration, limit)
     if license_url != CC0 and not re.fullmatch(
@@ -160,6 +166,7 @@ def crawl(
     tracks = []
     skipped = 0
     age = 0 if refresh else 30 * 86400
+
     with CachedHTTP(cache / source) as http, SoundCloudDL(http, refresh) as downloader:
         try:
             index = downloader.extract_info(url, download=False)
@@ -169,15 +176,21 @@ def crawl(
             for position, entry in enumerate(entries.values(), 1):
                 print(f"[{position}/{len(entries)}] {entry['title']}", file=sys.stderr)
                 indexed = downloader.tracks.get(entry["id"])
-                if indexed and not _eligible(indexed.get("license"), website):
+
+                if exclude and re.search(exclude, entry["title"], re.IGNORECASE):
+                    skipped += 1
+                    continue
+
+                if indexed and not _eligible(indexed.get("license"), website, strict_license):
                     skipped += 1
                     continue
 
                 info = downloader.extract_info(
                     entry.get("webpage_url") or entry["url"], download=False
                 )
+
                 # An artist's own declaration can supersede SoundCloud's default license.
-                if not _eligible(info.get("license"), website):
+                if not _eligible(info.get("license"), website, strict_license):
                     skipped += 1
                     continue
 
@@ -185,11 +198,14 @@ def crawl(
                 audio = http.get(info["url"], age, cache_key=track["audio_url"])
                 prepare_preview(track, audio, previews, http.cache, duration)
                 tracks.append(track)
+
                 if limit is not None and len(tracks) >= limit:
                     break
+
         except DownloadError as error:
             raise ValueError(f"SoundCloud extraction failed: {error}") from error
 
     if skipped:
-        print(f"Skipped {skipped} SoundCloud tracks with unsupported licenses.", file=sys.stderr)
+        print(f"Skipped {skipped} ineligible SoundCloud tracks.", file=sys.stderr)
+
     return tracks

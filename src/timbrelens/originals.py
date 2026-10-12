@@ -8,7 +8,7 @@ from timbrelens.files import atomic_output
 from timbrelens.models import Track
 
 
-def save(track: Track, audio: Path, output: Path) -> Path:
+def save(track: Track, audio: Path, output: Path, extension: str | None = None) -> Path:
     title = re.sub(r'[<>:"/\\|?*\x00-\x1f]', "_", track["title"]).strip(" .")
     title = title.encode("utf-8")[:160].decode("utf-8", errors="ignore") or "Untitled"
     directory = output / track["source"]
@@ -16,7 +16,7 @@ def save(track: Track, audio: Path, output: Path) -> Path:
     number = 1
 
     while True:
-        target = directory / (name + audio.suffix)
+        target = directory / (name + (extension or audio.suffix))
         metadata = directory / (name + ".json")
         if metadata.is_file():
             archived = catalog_state.load(metadata)["tracks"][0]

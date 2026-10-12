@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path, PurePosixPath
 from urllib.parse import quote
 
@@ -66,6 +67,10 @@ def crawl(
     limit: int | None = None,
     refresh: bool = False,
     ref: str | None = None,
+    path_prefix: str = "",
+    artist: str = "",
+    website: str = "",
+    exclude: str = "",
 ) -> list[Track]:
     validate_options(duration, limit)
     api = f"https://api.github.com/repos/{repository}"
@@ -88,6 +93,8 @@ def crawl(
             if entry["type"] == "blob"
             and entry["mode"] in ("100644", "100755")
             and PurePosixPath(entry["path"]).suffix.lower() in AUDIO_EXTENSIONS
+            and entry["path"].startswith(path_prefix)
+            and not (exclude and re.search(exclude, entry["path"], re.IGNORECASE))
         )
         if not paths:
             raise ValueError(f"No audio files found in {repository}.")
@@ -97,6 +104,13 @@ def crawl(
             map_track(repository, source, commit, path, license, license_url)
             for path in paths[:limit]
         ]
+
+        for track in tracks:
+            if artist:
+                track["artist"] = artist
+            if website:
+                track["metadata"]["creator_url"] = website
+
         prepare_previews(tracks, http, previews, duration, refresh)
 
     return tracks
