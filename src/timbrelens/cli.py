@@ -14,7 +14,9 @@ app = App(name="timbrelens", help="Offline audio catalog and static search.")
 
 @app.command
 def crawl(
-    source: Literal["incompetech", "creatorchords", "silverman", "freepd"] = "incompetech",
+    source: Literal[
+        "incompetech", "creatorchords", "silverman", "freepd", "timkulig"
+    ] = "incompetech",
     state: Path = Path("data/catalog.json"),
     cache: Path = Path(".cache"),
     duration: float = 20.0,

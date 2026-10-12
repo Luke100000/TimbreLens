@@ -3,6 +3,8 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from diskcache import Cache
+
 from timbrelens import audio_metadata, originals
 from timbrelens.audio import preview
 from timbrelens.http import CachedHTTP
@@ -30,6 +32,12 @@ def prepare_previews(
         title = track["title"] or unquote(Path(urlsplit(track["audio_url"]).path).stem)
         print(f"[{index}/{len(tracks)}] {title}", file=sys.stderr)
         audio = http.get(track["audio_url"], age)
-        audio_metadata.fill_missing(track, audio)
-        originals.save(track, audio, previews.parent / "originals")
-        track["preview"] = preview(audio, previews, http.cache, duration)
+        prepare_preview(track, audio, previews, http.cache, duration)
+
+
+def prepare_preview(
+    track: Track, audio: Path, previews: Path, cache: Cache, duration: float
+) -> None:
+    audio_metadata.fill_missing(track, audio)
+    originals.save(track, audio, previews.parent / "originals")
+    track["preview"] = preview(audio, previews, cache, duration)

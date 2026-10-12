@@ -49,17 +49,24 @@ class CachedHTTP:
         self.client.close()
         self.cache.close()
 
-    def get(self, url: str, max_age: float = 86400) -> Path:
+    def get(
+        self,
+        url: str,
+        max_age: float = 86400,
+        cache_key: str | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> Path:
         if max_age < 0:
             raise ValueError("Cache age must be nonnegative.")
 
-        key = hashlib.sha256(url.encode()).hexdigest()
+        cache_key = cache_key or url
+        key = hashlib.sha256(cache_key.encode()).hexdigest()
         path = self.directory / "downloads" / (key + Path(urlsplit(url).path).suffix)
-        metadata = self.cache.get(url) if path.is_file() else None
+        metadata = self.cache.get(cache_key) if path.is_file() else None
         if metadata and time.time() - metadata["checked_at"] < max_age:
             return path
 
-        headers = {}
+        headers = dict(headers or {})
         if metadata:
             if metadata.get("etag"):
                 headers["If-None-Match"] = metadata["etag"]
@@ -79,7 +86,7 @@ class CachedHTTP:
                 else:
                     if response.status_code == 304 and metadata:
                         metadata["checked_at"] = time.time()
-                        self.cache[url] = metadata
+                        self.cache[cache_key] = metadata
                         return path
 
                     response.raise_for_status()
@@ -88,10 +95,11 @@ class CachedHTTP:
                         for chunk in response.iter_bytes():
                             stream.write(chunk)
 
-                    self.cache[url] = {
+                    self.cache[cache_key] = {
                         "checked_at": time.time(),
                         "etag": response.headers.get("etag"),
                         "last_modified": response.headers.get("last-modified"),
+                        "response_url": str(response.url),
                     }
                     return path
 

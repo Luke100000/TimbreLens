@@ -1,0 +1,195 @@
+import io
+import json
+import re
+import sys
+from datetime import date
+from pathlib import Path
+from urllib.parse import urlsplit
+
+import httpx
+from yt_dlp import YoutubeDL
+from yt_dlp.networking import Request, Response
+from yt_dlp.networking.exceptions import HTTPError
+from yt_dlp.utils import DownloadError
+
+from timbrelens.crawlers.common import prepare_preview, validate_options
+from timbrelens.http import USER_AGENT, CachedHTTP
+from timbrelens.models import Track
+
+CC0 = "https://creativecommons.org/publicdomain/zero/1.0/"
+
+
+class SoundCloudDL(YoutubeDL):
+    def __init__(self, http: CachedHTTP, refresh: bool):
+        self.http = http
+        self.max_age = 0 if refresh else 3600
+        self.tracks = {}
+        super().__init__(
+            {
+                "quiet": True,
+                "no_warnings": True,
+                "extract_flat": "in_playlist",
+                "format": "bestaudio[protocol=http][ext=mp3][format_id!*=preview]",
+                "extractor_args": {"soundcloud": {"formats": ["http_mp3"]}},
+                "http_headers": {"User-Agent": USER_AGENT},
+                "cachedir": str(http.directory / "yt-dlp"),
+            }
+        )
+
+    def urlopen(self, request):
+        if isinstance(request, str):
+            request = Request(request)
+        if request.method != "GET":
+            return super().urlopen(request)
+
+        # Use the shared cache and rate-limit handling for yt-dlp's metadata requests.
+        try:
+            path = self.http.get(request.url, self.max_age, headers=dict(request.headers))
+        except httpx.HTTPStatusError as error:
+            response = Response(
+                io.BytesIO(), request.url, dict(error.response.headers), error.response.status_code
+            )
+            raise HTTPError(response) from error
+
+        metadata = self.http.cache[request.url]
+        if urlsplit(request.url).hostname == "api-v2.soundcloud.com":
+            data = json.loads(path.read_bytes())
+            items = data
+            if isinstance(data, dict):
+                items = data.get("collection") or [data]
+            for item in items:
+                track = item.get("track", item)
+                if track.get("kind") == "track":
+                    self.tracks[str(track["id"])] = track
+
+        return Response(
+            path.open("rb"),
+            metadata.get("response_url", request.url),
+            {"Content-Length": str(path.stat().st_size)},
+        )
+
+
+def _terms(values: list[str]) -> list[str]:
+    return sorted(
+        {term.strip() for value in values for term in re.split(r"[,;]", value) if term.strip()}
+    )
+
+
+def _eligible(code: str | None, website: str) -> bool:
+    return code in ("cc-by", "no-rights-reserved", "cc0") or (
+        bool(website) and code in (None, "all-rights-reserved")
+    )
+
+
+def map_track(
+    info: dict, source: str, license_url: str, artist: str = "", website: str = ""
+) -> Track:
+    source_id = str(info["id"])
+    title = info["title"].strip()
+    artist = artist or ", ".join(info.get("artists") or []) or info.get("uploader", "")
+    creator_url = website or info.get("uploader_url", "")
+    genres = _terms(info.get("genres") or [])
+    tags = _terms(info.get("tags") or [])
+    if info.get("license") in ("no-rights-reserved", "cc0"):
+        license_url = CC0
+
+    attribution = ""
+    if license_url == CC0:
+        license = "CC0-1.0"
+    else:
+        version = urlsplit(license_url).path.rstrip("/").rsplit("/", 1)[-1]
+        license = f"CC-BY-{version}"
+        attribution = (
+            f'Title: "{title}"\nArtist: {artist} ({creator_url})\n'
+            f"Licensed under Creative Commons By Attribution {version}\n{license_url}"
+        )
+
+    return {
+        "id": f"{source}:{source_id}",
+        "source": source,
+        "source_id": source_id,
+        "source_url": info["webpage_url"],
+        "audio_url": info["webpage_url"],
+        "title": title,
+        "artist": artist,
+        "composer": "",
+        "copyright_holder": "",
+        "description": (info.get("description") or "").strip(),
+        "tags": sorted(set(tags + genres)),
+        "genres": genres,
+        "moods": [],
+        "instruments": [],
+        "isrc": None,
+        "uploaded": date.fromisoformat(info["upload_date"]) if info.get("upload_date") else None,
+        "duration": info.get("duration"),
+        "bpm": None,
+        "license": license,
+        "license_url": license_url,
+        "attribution": attribution,
+        "metadata": {
+            "soundcloud_license": info.get("license"),
+            "license_source": website or info["webpage_url"],
+            "uploader": info.get("uploader", ""),
+            "uploader_url": info.get("uploader_url", ""),
+            "tags": info.get("tags") or [],
+        },
+    }
+
+
+def crawl(
+    url: str,
+    source: str,
+    license_url: str,
+    cache: Path,
+    previews: Path,
+    duration: float = 20.0,
+    limit: int | None = None,
+    refresh: bool = False,
+    artist: str = "",
+    website: str = "",
+) -> list[Track]:
+    validate_options(duration, limit)
+    if license_url != CC0 and not re.fullmatch(
+        r"https://creativecommons\.org/licenses/by/\d\.\d/", license_url
+    ):
+        raise ValueError("SoundCloud sources need a CC BY or CC0 license URL.")
+
+    if len(urlsplit(url).path.strip("/").split("/")) == 1:
+        url = url.rstrip("/") + "/tracks"
+
+    tracks = []
+    skipped = 0
+    age = 0 if refresh else 30 * 86400
+    with CachedHTTP(cache / source) as http, SoundCloudDL(http, refresh) as downloader:
+        try:
+            index = downloader.extract_info(url, download=False)
+            entries = index.get("entries", [index])
+            entries = {entry["id"]: entry for entry in entries}
+
+            for position, entry in enumerate(entries.values(), 1):
+                print(f"[{position}/{len(entries)}] {entry['title']}", file=sys.stderr)
+                indexed = downloader.tracks.get(entry["id"])
+                if indexed and not _eligible(indexed.get("license"), website):
+                    skipped += 1
+                    continue
+
+                info = downloader.extract_info(
+                    entry.get("webpage_url") or entry["url"], download=False
+                )
+                # An artist's own declaration can supersede SoundCloud's default license.
+                if not _eligible(info.get("license"), website):
+                    skipped += 1
+                    continue
+
+                track = map_track(info, source, license_url, artist, website)
+                audio = http.get(info["url"], age, cache_key=track["audio_url"])
+                prepare_preview(track, audio, previews, http.cache, duration)
+                tracks.append(track)
+                if limit is not None and len(tracks) >= limit:
+                    break
+        except DownloadError as error:
+            raise ValueError(f"SoundCloud extraction failed: {error}") from error
+
+    if skipped:
+        print(f"Skipped {skipped} SoundCloud tracks with unsupported licenses.", file=sys.stderr)
+    return tracks
