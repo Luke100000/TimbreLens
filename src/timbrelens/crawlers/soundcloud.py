@@ -7,12 +7,13 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 import httpx
+from bs4 import BeautifulSoup
 from yt_dlp import YoutubeDL
 from yt_dlp.networking import Request, Response
 from yt_dlp.networking.exceptions import HTTPError
 from yt_dlp.utils import DownloadError
 
-from timbrelens.crawlers.common import prepare_preview, validate_options
+from timbrelens.crawlers.common import parse_license, prepare_preview, validate_options
 from timbrelens.http import USER_AGENT, CachedHTTP
 from timbrelens.models import Track
 
@@ -78,14 +79,27 @@ def _terms(values: list[str]) -> list[str]:
     )
 
 
-def _eligible(code: str | None, website: str, strict_license: bool = False) -> bool:
+def _eligible(
+    code: str | None,
+    website: str,
+    strict_license: bool = False,
+    license_override_url: str = "",
+) -> bool:
+    if license_override_url:
+        return True
+
     return code in ("cc-by", "no-rights-reserved", "cc0") or (
         not strict_license and bool(website) and code in (None, "all-rights-reserved")
     )
 
 
 def map_track(
-    info: dict, source: str, license_url: str, artist: str = "", website: str = ""
+    info: dict,
+    source: str,
+    license_url: str,
+    artist: str = "",
+    website: str = "",
+    license_override_url: str = "",
 ) -> Track:
     source_id = str(info["id"])
     title = info["title"].strip()
@@ -94,7 +108,7 @@ def map_track(
     genres = _terms(info.get("genres") or [])
     tags = _terms(info.get("tags") or [])
 
-    if info.get("license") in ("no-rights-reserved", "cc0"):
+    if not license_override_url and info.get("license") in ("no-rights-reserved", "cc0"):
         license_url = CC0
 
     attribution = ""
@@ -132,7 +146,7 @@ def map_track(
         "attribution": attribution,
         "metadata": {
             "soundcloud_license": info.get("license"),
-            "license_source": website or info["webpage_url"],
+            "license_source": license_override_url or website or info["webpage_url"],
             "uploader": info.get("uploader", ""),
             "uploader_url": info.get("uploader_url", ""),
             "tags": info.get("tags") or [],
@@ -153,6 +167,7 @@ def crawl(
     website: str = "",
     strict_license: bool = False,
     exclude: str = "",
+    license_override_url: str = "",
 ) -> list[Track]:
     validate_options(duration, limit)
     if license_url != CC0 and not re.fullmatch(
@@ -168,6 +183,17 @@ def crawl(
     age = 0 if refresh else 30 * 86400
 
     with CachedHTTP(cache / source) as http, SoundCloudDL(http, refresh) as downloader:
+        # A configured publisher declaration can supersede mislabeled platform tracks.
+        if license_override_url:
+            policy_age = 0 if refresh else 86400
+            html = http.get(license_override_url, policy_age).read_text()
+            page = BeautifulSoup(html, "html.parser")
+            licenses = {parse_license(str(anchor["href"])) for anchor in page.select("a[href]")}
+            if parse_license(license_url) not in licenses:
+                raise ValueError(
+                    f"Publisher license declaration is missing: {license_override_url}"
+                )
+
         try:
             index = downloader.extract_info(url, download=False)
             entries = index.get("entries", [index])
@@ -181,7 +207,9 @@ def crawl(
                     skipped += 1
                     continue
 
-                if indexed and not _eligible(indexed.get("license"), website, strict_license):
+                if indexed and not _eligible(
+                    indexed.get("license"), website, strict_license, license_override_url
+                ):
                     skipped += 1
                     continue
 
@@ -189,12 +217,13 @@ def crawl(
                     entry.get("webpage_url") or entry["url"], download=False
                 )
 
-                # An artist's own declaration can supersede SoundCloud's default license.
-                if not _eligible(info.get("license"), website, strict_license):
+                if not _eligible(
+                    info.get("license"), website, strict_license, license_override_url
+                ):
                     skipped += 1
                     continue
 
-                track = map_track(info, source, license_url, artist, website)
+                track = map_track(info, source, license_url, artist, website, license_override_url)
                 audio = http.get(info["url"], age, cache_key=track["audio_url"])
                 prepare_preview(track, audio, previews, http.cache, duration)
                 tracks.append(track)

@@ -3,6 +3,7 @@ from functools import partial
 from pathlib import Path
 
 from timbrelens.crawlers import (
+    archive,
     bandcamp,
     creatorchords,
     github,
@@ -32,7 +33,6 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         "CC0-1.0",
         "https://creativecommons.org/publicdomain/zero/1.0/",
     ),
-    "incompetech": incompetech.crawl,
     "ifness": partial(
         bandcamp.crawl,
         "https://justinallanarnold.bandcamp.com/music",
@@ -40,7 +40,26 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         artist="Justin Allan Arnold",
         website="https://www.ifnessfreemusic.com/",
     ),
+    "incompetech": incompetech.crawl,
+    "kingjames": partial(
+        soundcloud.crawl,
+        "https://soundcloud.com/kingjamesroyaltyfree",
+        "kingjames",
+        "https://creativecommons.org/licenses/by/3.0/",
+        artist="James Richardson",
+        website="https://kingjamesroyaltyfreemusic.blogspot.com/",
+        license_override_url=(
+            "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html"
+        ),
+    ),
     "kongano": kongano.crawl,
+    "ondrosik": partial(
+        archive.crawl,
+        "Ondrosik-Free-music-catalog",
+        "ondrosik",
+        artist="Ondrosik",
+        website="https://ondrosik.sk/music/",
+    ),
     "scottbuckley": partial(
         soundcloud.crawl,
         "https://soundcloud.com/scottbuckley",
