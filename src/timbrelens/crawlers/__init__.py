@@ -12,6 +12,7 @@ from timbrelens.crawlers import (
     silverman,
     soundcloud,
     teknoaxe,
+    timbeek,
 )
 from timbrelens.models import Track
 
@@ -83,6 +84,7 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         exclude=r"\b(?:arrangement|Castlevania|Final Fantasy|DragonFyre)\b",
     ),
     "teknoaxe": teknoaxe.crawl,
+    "timbeek": timbeek.crawl,
     "timkulig": partial(
         soundcloud.crawl,
         "https://soundcloud.com/timkuligfreemusic",
