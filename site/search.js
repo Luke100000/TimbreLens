@@ -16,12 +16,32 @@ export function cosineSearch(query, matrix, inverseNorms, dimensions) {
     return scores.sort((a, b) => b.score - a.score).map(result => result.row);
 }
 
-export function rank(tracks, query, filters, rankings) {
+export function similaritySearch(row, audio, text) {
+    const scores = new Float64Array(audio.norms.length);
+
+    // Fuse rankings so the two embedding spaces do not need matching score scales.
+    for (const [vectors, weight] of [[audio, 0.8], [text, 0.2]]) {
+        const {matrix, norms, dimensions} = vectors;
+        const query = matrix.subarray(row * dimensions, (row + 1) * dimensions);
+        cosineSearch(query, matrix, norms, dimensions).forEach((candidate, index) => {
+            scores[candidate] += weight / (60 + index + 1);
+        });
+    }
+
+    return Array.from(scores, (score, row) => ({row, score}))
+        .sort((a, b) => b.score - a.score || a.row - b.row).map(result => result.row);
+}
+
+export function rank(tracks, query, filters, rankings, similarity = null) {
     // OR within each facet, AND between facets.
     const allowed = new Set(tracks.filter(track => Object.entries(filters).every(([field, values]) =>
-        values.length === 0 || values.some(value => track[field].includes(value)))).map(track => track.id));
+        values.length === 0 || values.some(value => track[field].includes(value))))
+        .filter(track => track.id !== similarity?.id).map(track => track.id));
 
-    if (!query) return tracks.filter(track => allowed.has(track.id)).map(track => track.id);
+    if (!query) {
+        const ids = similarity?.ids.length ? similarity.ids : tracks.map(track => track.id);
+        return ids.filter(id => allowed.has(id));
+    }
 
     const scores = new Map();
 
@@ -42,6 +62,13 @@ export function rank(tracks, query, filters, rankings) {
         if (allowed.has(id) && !scores.has(id)) {
             scores.set(id, 0);
         }
+    }
+
+    // Similarity boosts query candidates without introducing unrelated tracks.
+    if (similarity) {
+        similarity.ids.filter(id => scores.has(id)).forEach((id, index) => {
+            scores.set(id, scores.get(id) + 0.7 / (60 + index + 1));
+        });
     }
 
     return [...scores.keys()].sort((a, b) => Number(exact.has(b)) - Number(exact.has(a))

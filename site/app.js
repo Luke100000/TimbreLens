@@ -2,6 +2,9 @@ const query = document.querySelector("#query");
 const controls = document.querySelector("#controls");
 const status = document.querySelector("#status");
 const semanticStatus = document.querySelector("#semantic-status");
+const similarity = document.querySelector("#similarity");
+const similarityTitle = document.querySelector("#similarity-title");
+const similarityStatus = document.querySelector("#similarity-status");
 const retry = document.querySelector("#retry-search");
 const catalog = document.querySelector(".catalog");
 const results = document.querySelector("#results");
@@ -24,6 +27,9 @@ let visible = 0;
 let requestId = 0;
 let searchTimer;
 let playingId = null;
+let similarTo = null;
+let semanticFailed = false;
+let similarityFailed = false;
 
 function duration(seconds) {
     if (seconds == null) return "";
@@ -116,6 +122,15 @@ function renderMore() {
         }
 
         row.querySelector(".source-link").href = track.source_url;
+        const similar = row.querySelector(".similar-button");
+        similar.setAttribute("aria-label", `Find tracks similar to ${track.title}`);
+        similar.onclick = () => {
+            similarTo = id;
+            similarityTitle.textContent = track.title;
+            similarity.hidden = false;
+            search();
+        };
+
         row.querySelector(".attribution").textContent = track.attribution;
         const license = row.querySelector(".license");
         license.href = track.license_url;
@@ -153,7 +168,14 @@ function search(retryModels = false) {
 
     clear.hidden = Object.values(selected).every(values => values.length === 0);
     catalog.setAttribute("aria-busy", "true");
-    worker.postMessage({id: ++requestId, query: query.value, filters: selected, retry: retryModels});
+    worker.postMessage({
+        id: ++requestId, query: query.value, filters: selected,
+        similar_to: similarTo, retry: retryModels
+    });
+}
+
+function updateRetry() {
+    retry.hidden = !semanticFailed && !(similarTo && similarityFailed);
 }
 
 function fillFilters() {
@@ -195,7 +217,16 @@ worker.onmessage = ({data}) => {
     if (data.type === "semantic") {
         semanticStatus.textContent = data.state === "loading" ? "Loading search models…"
             : data.state === "error" ? "Keyword search only." : "";
-        retry.hidden = data.state !== "error";
+        semanticFailed = data.state === "error";
+        updateRetry();
+        return;
+    }
+
+    if (data.type === "similarity") {
+        similarityStatus.textContent = data.state === "loading" ? "Loading similar tracks…"
+            : data.state === "error" ? "Couldn't load similar tracks." : "";
+        similarityFailed = data.state === "error";
+        updateRetry();
         return;
     }
 
@@ -241,6 +272,13 @@ for (const filter of filters) {
 }
 
 retry.onclick = () => search(true);
+
+document.querySelector("#clear-similarity").onclick = () => {
+    similarTo = null;
+    similarity.hidden = true;
+    updateRetry();
+    search();
+};
 
 clear.onclick = () => {
     for (const input of document.querySelectorAll(".filter input:checked")) {

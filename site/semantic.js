@@ -1,6 +1,7 @@
 import {cosineSearch} from "./search.js";
 
-export async function loadSemantic(manifest, dataRoot) {
+export async function loadSemantic(manifest, dataRoot, vectors) {
+    const {audio: audioVectors, text: textVectors} = vectors;
     const {AutoModel, AutoTokenizer, FeatureExtractionPipeline, ClapTextModelWithProjection, env} =
         await import("./data/vendor/transformers.js");
     const vendor = new URL("vendor/", dataRoot);
@@ -32,30 +33,15 @@ export async function loadSemantic(manifest, dataRoot) {
         return download(target, options);
     };
 
-    async function vectors(spec) {
-        const buffers = await Promise.all([spec.file, spec.inverse_norms.file].map(async file => {
-            const response = await fetch(new URL(file, dataRoot));
-
-            if (!response.ok) {
-                throw new Error(`Couldn't load ${file}.`);
-            }
-
-            return response.arrayBuffer();
-        }));
-
-        return {matrix: new Int8Array(buffers[0]), norms: new Float32Array(buffers[1])};
-    }
-
-    const [textVectors, audioVectors] = await Promise.all([
-        vectors(manifest.text), vectors(manifest.audio),
-    ]);
     const textSpec = manifest.text.encoder;
     const audioSpec = manifest.audio.encoder;
     const options = spec => ({revision: spec.revision, dtype: spec.dtype, device: "wasm"});
     const textTokenizer = await AutoTokenizer.from_pretrained(textSpec.model, options(textSpec));
     const textModel = await AutoModel.from_pretrained(textSpec.model, options(textSpec));
-    const text = new FeatureExtractionPipeline({task: "feature-extraction",
-        tokenizer: textTokenizer, model: textModel});
+    const text = new FeatureExtractionPipeline({
+        task: "feature-extraction",
+        tokenizer: textTokenizer, model: textModel
+    });
     let tokenizer;
     let audio;
 
@@ -75,10 +61,14 @@ export async function loadSemantic(manifest, dataRoot) {
         const {text_embeds} = await audio(inputs);
 
         return [
-            {ids: cosineSearch(metadata.data, textVectors.matrix, textVectors.norms, manifest.text.dimensions)
-                .map(row => manifest.track_ids[row]), weight: 0.7},
-            {ids: cosineSearch(text_embeds.normalize(2, -1).data, audioVectors.matrix, audioVectors.norms,
-                manifest.audio.dimensions).map(row => manifest.track_ids[row]), weight: 0.7},
+            {
+                ids: cosineSearch(metadata.data, textVectors.matrix, textVectors.norms, manifest.text.dimensions)
+                    .map(row => manifest.track_ids[row]), weight: 0.7
+            },
+            {
+                ids: cosineSearch(text_embeds.normalize(2, -1).data, audioVectors.matrix, audioVectors.norms,
+                    manifest.audio.dimensions).map(row => manifest.track_ids[row]), weight: 0.7
+            },
         ];
     };
 }

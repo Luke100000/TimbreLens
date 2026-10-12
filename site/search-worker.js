@@ -1,6 +1,7 @@
 import MiniSearch from "./data/vendor/minisearch.js";
-import {rank} from "./search.js";
+import {rank, similaritySearch} from "./search.js";
 import {loadSemantic} from "./semantic.js";
+import {loadVectors} from "./vectors.js";
 
 const dataRoot = new URL("./data/", import.meta.url);
 
@@ -30,12 +31,72 @@ async function load() {
     let running = false;
     let semantic;
     let failed = false;
+    let vectors;
+    let vectorsLoading;
+    let similarity;
+    let similarityRunning = false;
+    let similarityFailed = false;
 
-    function publish(request, rankings, pending = false) {
+    function loadCatalogVectors() {
+        if (!vectorsLoading) {
+            vectorsLoading = Promise.all([
+                loadVectors(manifest.audio, dataRoot), loadVectors(manifest.text, dataRoot)
+            ]).then(([audio, text]) => {
+                if ([audio, text].some(vector => vector.norms.length !== manifest.track_ids.length)) {
+                    throw new Error("Vectors do not match the catalog.");
+                }
+
+                vectors = {audio, text};
+                return vectors;
+            }).catch(error => {
+                vectorsLoading = null;
+                throw error;
+            });
+        }
+
+        return vectorsLoading;
+    }
+
+    function similarityRanking(id) {
+        if (!id) return null;
+        if (!vectors) return {id, ids: []};
+
+        if (similarity?.id !== id) {
+            const row = manifest.track_ids.indexOf(id);
+            similarity = {
+                id, ids: similaritySearch(row, vectors.audio, vectors.text)
+                    .map(index => manifest.track_ids[index])
+            };
+        }
+
+        return similarity;
+    }
+
+    function publish(request) {
+        const rankings = cached.get(request.query);
+        const pending = Boolean((request.query && !rankings && !failed)
+            || (request.similar_to && !vectors && !similarityFailed));
         self.postMessage({
             id: request.id, pending,
-            track_ids: rank(tracks, request.query, request.filters, rankings)
+            track_ids: rank(tracks, request.query, request.filters,
+                [request.lexical, ...(rankings || [])], similarityRanking(request.similar_to))
         });
+    }
+
+    async function searchSimilar() {
+        similarityRunning = true;
+
+        try {
+            await loadCatalogVectors();
+            self.postMessage({type: "similarity", state: "ready"});
+        } catch (error) {
+            console.error(error);
+            similarityFailed = true;
+            self.postMessage({type: "similarity", state: "error"});
+        } finally {
+            similarityRunning = false;
+            publish(latest);
+        }
     }
 
     async function searchSemantic() {
@@ -44,7 +105,15 @@ async function load() {
         try {
             if (!semantic) {
                 self.postMessage({type: "semantic", state: "loading"});
-                semantic = await loadSemantic(manifest, dataRoot);
+                const catalogVectors = await loadCatalogVectors();
+
+                if (latest.similar_to && similarityFailed) {
+                    similarityFailed = false;
+                    self.postMessage({type: "similarity", state: "ready"});
+                    publish(latest);
+                }
+
+                semantic = await loadSemantic(manifest, dataRoot, catalogVectors);
                 self.postMessage({type: "semantic", state: "ready"});
             }
 
@@ -64,14 +133,14 @@ async function load() {
 
                 if (request !== latest) continue;
 
-                publish(request, [request.lexical, ...rankings]);
+                publish(request);
                 break;
             }
         } catch (error) {
             console.error(error);
             failed = true;
             self.postMessage({type: "semantic", state: "error"});
-            publish(latest, [latest.lexical]);
+            publish(latest);
         } finally {
             running = false;
         }
@@ -79,6 +148,10 @@ async function load() {
 
     self.onmessage = ({data}) => {
         data.query = data.query.trim();
+        if (data.similar_to && !manifest.track_ids.includes(data.similar_to)) {
+            data.similar_to = null;
+        }
+
         data.lexical = {
             ids: data.query
                 ? index.search(data.query, {combineWith: "AND"}).map(result => result.id) : [],
@@ -88,12 +161,28 @@ async function load() {
 
         if (data.retry) {
             failed = false;
+            similarityFailed = false;
+        }
+
+        if (data.similar_to) {
+            if (vectors) {
+                similarityFailed = false;
+            }
+
+            self.postMessage({
+                type: "similarity", state: vectors ? "ready"
+                    : similarityFailed ? "error" : "loading"
+            });
         }
 
         const rankings = cached.get(data.query);
 
         // Show keyword matches immediately, then add semantic results when ready.
-        publish(data, [data.lexical, ...(rankings || [])], Boolean(data.query && !rankings && !failed));
+        publish(data);
+
+        if (data.similar_to && !vectors && !similarityRunning && !similarityFailed) {
+            searchSimilar();
+        }
 
         if (data.query && !rankings && !running && !failed) {
             searchSemantic();

@@ -150,6 +150,25 @@ main {
     position: relative;
 }
 
+.similarity {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--green);
+}
+
+#similarity-title {
+    overflow-wrap: anywhere;
+}
+
+#similarity-status {
+    font-size: 12px;
+    color: var(--muted);
+}
+
 .filter > summary {
     list-style: none;
     border: 1px solid var(--line);
@@ -324,11 +343,18 @@ main {
     margin-right: 14px;
 }
 
-.track-meta a {
+.similar-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--green);
+}
+
+.track-meta a, .similar-button {
     text-decoration: none;
 }
 
-.track-meta a:hover {
+.track-meta a:hover, .similar-button:hover {
     text-decoration: underline;
 }
 

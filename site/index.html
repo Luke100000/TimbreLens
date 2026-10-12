@@ -50,6 +50,13 @@
                     </details>
                     <button id="clear" type="button" class="text-button" hidden>Clear filters</button>
                 </div>
+                <div id="similarity" class="similarity" hidden>
+                    <span>Similar to <strong id="similarity-title"></strong></span>
+                    <button id="clear-similarity" type="button" class="text-button" aria-label="Clear similarity">
+                        Clear
+                    </button>
+                    <span id="similarity-status" role="status"></span>
+                </div>
             </fieldset>
         </form>
     </section>
@@ -94,6 +101,7 @@
                 <span class="artist"></span>
                 <a class="license" target="_blank" rel="noopener noreferrer"></a>
                 <a class="source-link" target="_blank" rel="noopener noreferrer">Source ↗</a>
+                <button class="similar-button" type="button">Similar tracks</button>
                 <details class="credits">
                     <summary>Attribution</summary>
                     <div class="credit-box">
