@@ -1274,6 +1274,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "scipy" },
+    { name = "tqdm" },
     { name = "yt-dlp" },
 ]
 
@@ -1295,6 +1296,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2,<3" },
     { name = "python-dotenv", specifier = ">=1,<2" },
     { name = "scipy", specifier = ">=1.15,<2" },
+    { name = "tqdm", specifier = ">=4.70,<5" },
     { name = "yt-dlp", specifier = ">=2026.8.19" },
 ]
 

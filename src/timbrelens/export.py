@@ -27,17 +27,11 @@ SEARCH_OPTIONS = {
 }
 DISPLAY_FIELDS = (
     "id",
-    "source",
-    "source_id",
     "source_url",
     "title",
     "artist",
-    "composer",
-    "copyright_holder",
     "description",
     "duration",
-    "bpm",
-    "isrc",
     "license",
     "license_url",
     "attribution",
@@ -66,9 +60,6 @@ def _public_track(track: dict) -> dict:
         labels,
         key=lambda label: hashlib.sha256(f"{track['id']}\0{label}".encode()).digest(),
     )
-
-    if track.get("uploaded"):
-        result["uploaded"] = track["uploaded"].isoformat()
 
     result["preview"] = {
         "sha256": track["preview"]["sha256"],

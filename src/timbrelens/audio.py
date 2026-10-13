@@ -175,4 +175,5 @@ def preview(input: Path, output: Path, store: Cache, duration: float = 20.0) -> 
         "start": existing["start_ms"] / 1000,
         "duration": existing["duration_ms"] / 1000,
         "sha256": recipe_hash,
+        "source_sha256": source_hash,
     }

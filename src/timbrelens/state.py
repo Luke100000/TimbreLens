@@ -18,17 +18,23 @@ def load(path: Path) -> Catalog:
     ):
         raise ValueError(f"Unsupported catalog format: {path}")
 
+    records = []
+    for track in catalog["tracks"]:
+        if not isinstance(track, dict) or not isinstance(track.get("duplicates", []), list):
+            raise ValueError(f"Invalid track records: {path}")
+
+        records.extend([track, *track.get("duplicates", [])])
+
     if any(
-        not isinstance(track, dict) or not isinstance(track.get("id"), str)
-        for track in catalog["tracks"]
+        not isinstance(track, dict) or not isinstance(track.get("id"), str) for track in records
     ):
         raise ValueError(f"Invalid track records: {path}")
 
-    ids = [track["id"] for track in catalog["tracks"]]
+    ids = [record["id"] for record in records]
     if len(ids) != len(set(ids)):
         raise ValueError(f"Duplicate track IDs: {path}")
 
-    for track in catalog["tracks"]:
+    for track in records:
         if track.get("uploaded"):
             track["uploaded"] = date.fromisoformat(track["uploaded"])
 
@@ -75,7 +81,14 @@ def save(catalog: Catalog, path: Path) -> None:
 
 
 def merge(catalog: Catalog, tracks: list[Track]) -> Catalog:
-    existing = {track["id"]: track for track in catalog["tracks"]}
+    # Update every source record before grouping identical files again.
+    existing = {}
+    for track in catalog["tracks"]:
+        for record in [track, *track.get("duplicates", [])]:
+            existing[record["id"]] = {
+                field: value for field, value in record.items() if field != "duplicates"
+            }
+
     seen = set()
     for track in tracks:
         if track["id"] in seen:
@@ -101,6 +114,19 @@ def merge(catalog: Catalog, tracks: list[Track]) -> Catalog:
             if same_audio and all(old.get(field) == track.get(field) for field in source_fields):
                 track = {**track, "enrichment": old["enrichment"]}
 
-        existing[track["id"]] = track
+        existing[track["id"]] = dict(track)
 
-    return {"schema_version": 1, "tracks": sorted(existing.values(), key=lambda track: track["id"])}
+    unique = []
+    recordings = {}
+    for track in sorted(existing.values(), key=lambda track: track["id"]):
+        audio_hash = track.get("preview", {}).get("source_sha256")
+        duplicate = recordings.get(audio_hash) if audio_hash else None
+        if duplicate is not None:
+            duplicate.setdefault("duplicates", []).append(track)
+            continue
+
+        unique.append(track)
+        if audio_hash:
+            recordings[audio_hash] = track
+
+    return {"schema_version": 1, "tracks": unique}

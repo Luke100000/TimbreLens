@@ -16,6 +16,7 @@ class Preview(TypedDict):
     start: float
     duration: float
     sha256: str
+    source_sha256: str
 
 
 class Track(TypedDict):
@@ -43,6 +44,7 @@ class Track(TypedDict):
     metadata: dict[str, object]
     preview: NotRequired[Preview]
     enrichment: NotRequired[Enrichment]
+    duplicates: NotRequired[list["Track"]]
 
 
 class Catalog(TypedDict):

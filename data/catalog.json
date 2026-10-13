@@ -10,6 +10,31 @@
       "copyright_holder": "Alexander Nakarada",
       "description": "www.creatorchords.com",
       "duration": 117,
+      "enrichment": {
+        "genres": [
+          "orchestral"
+        ],
+        "input_sha256": "38f443d767fd506b59a07b6b343763d81a5368f04b43b642c0cecfb9fbb996fe",
+        "instruments": [
+          "brass",
+          "cymbals",
+          "percussion",
+          "strings",
+          "timpani"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "triumphant",
+          "urgent"
+        ],
+        "summary": "Sweeping orchestral strings and bold brass drive a majestic cinematic theme over booming percussion and cymbal swells, building a dramatic, heroic atmosphere.",
+        "texture": [
+          "dense",
+          "full",
+          "layered",
+          "reverberant"
+        ]
+      },
       "genres": [
         "Cinematic",
         "Epic"
@@ -59,6 +84,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "85bb2f298d8621a8e2e6630085d8287f51d58731e4c0a69a1a48d7782bc8464d",
+        "source_sha256": "1b7544120eb7c223f88dba101a16ac453d746834335b0df13fbc67288aac00db",
         "start": 90.0
       },
       "source": "creatorchords",
@@ -83,6 +109,28 @@
       "copyright_holder": "Alexander Nakarada",
       "description": "www.creatorchords.com",
       "duration": 87,
+      "enrichment": {
+        "genres": [
+          "percussion"
+        ],
+        "input_sha256": "07f8dfabcb30ef09a9e915b60e6489da5a2f1a269925e05da08b26f81b0d85bc",
+        "instruments": [
+          "cowbell",
+          "hand drums",
+          "percussion",
+          "shaker"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [],
+        "summary": "A dry, close-miked percussion ensemble drives a syncopated groove of hand drums, shakers, and bright metallic hits, creating an earthy, rhythmic texture with no melody or bass.",
+        "texture": [
+          "close",
+          "dry",
+          "layered",
+          "syncopated",
+          "tight"
+        ]
+      },
       "genres": [
         "Ambient",
         "Soundscape",
@@ -134,6 +182,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "954ecf370173a89547d84aa10c8a2dd49219433aa51d16c0203564fb7c2fa305",
+        "source_sha256": "046df76d46f18bbd9027874163359073a9f5d46d5403b8835888366295b9a344",
         "start": 49.0
       },
       "source": "creatorchords",
@@ -157,18 +206,58 @@
       "bpm": 60.0,
       "composer": "Alexander Nakarada",
       "copyright_holder": "Alexander Nakarada",
-      "description": "",
+      "description": "www.creatorchords.com",
       "duration": 30,
+      "enrichment": {
+        "genres": [
+          "dark ambient"
+        ],
+        "input_sha256": "6c0209b9845c4297b251ddf344539e62b15b59e80609ef95118e35dfd108e3b7",
+        "instruments": [
+          "synth"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "foreboding",
+          "ominous",
+          "tense"
+        ],
+        "summary": "A deep, slowly swelling synth drone rumbles with dark, ominous weight, rising and falling in slow waves without rhythm or melody to create a tense, foreboding atmosphere.",
+        "texture": [
+          "deep",
+          "reverberant",
+          "rumbling",
+          "sparse",
+          "sustained"
+        ]
+      },
       "genres": [
         "Horror",
         "Soundscape"
       ],
       "id": "creatorchords:100",
       "instruments": [],
-      "isrc": null,
+      "isrc": "NOTFK1802080",
       "license": "CC-BY-4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "metadata": {
+        "audio_tags": {
+          "album": "Creative Commons",
+          "album_artist": "Alexander Nakarada",
+          "artist": "Alexander Nakarada",
+          "comment": "www.creatorchords.com",
+          "composer": "www.creatorchords.com",
+          "date": "2017",
+          "encoder": "LAME3.99r",
+          "genre": "Horror/Soundscape",
+          "tbpm": "60",
+          "title": "Dark n Deep",
+          "tkey": "D# minor",
+          "tmoo": "SCARY/DARK/NEGATIVE",
+          "track": "146",
+          "tsrc": "NOTFK1802080",
+          "www.serpentsoundstudios.com": "ENG"
+        },
         "bpm": "60",
         "duration": "00:30",
         "genres": [
@@ -191,6 +280,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "9bd1f078e9c5f24fb8fafd5ee2d794b6a40315ded1387ad3e072d29c1bbab6a4",
+        "source_sha256": "3e3305a39a48d6e4a97a492eaf19ecc41a098547401e711f7c51e9c118f6f95c",
         "start": 3.0
       },
       "source": "creatorchords",
@@ -207,6 +297,657 @@
       "uploaded": null
     },
     {
+      "artist": "Alexander Nakarada",
+      "attribution": "Music: Daudir by Alexander Nakarada (https://creatorchords.com)\nLicensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://d19p7hqu4j8vx0.cloudfront.net/media/media/data/mp3s/Daudir.mp3",
+      "bpm": 150.0,
+      "composer": "Alexander Nakarada",
+      "copyright_holder": "Alexander Nakarada",
+      "description": "Comment",
+      "duration": 227,
+      "enrichment": {
+        "genres": [],
+        "input_sha256": "1f5399c49d45728087301d3a3e801c449aa0aeaa372f7db7f19e0074e49145b3",
+        "instruments": [
+          "drone",
+          "percussion",
+          "shaker",
+          "strings",
+          "synth pad"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "ominous"
+        ],
+        "summary": "A low rumbling drone and sustained string pad hover over a steady shaker and hand-drum loop, creating a dark, tense cinematic atmosphere with a slow, brooding pulse.",
+        "texture": [
+          "dense",
+          "layered",
+          "low-frequency",
+          "reverberant",
+          "steady"
+        ]
+      },
+      "genres": [
+        "Ambient",
+        "Cinematic",
+        "Viking"
+      ],
+      "id": "creatorchords:101",
+      "instruments": [],
+      "isrc": "NOTFK2135010",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Creative Commons",
+          "album_artist": "Alexander Nakarada",
+          "artist": "Alexander Nakarada",
+          "comment": "Comment",
+          "composer": "www.creatorchords.com",
+          "date": "2017",
+          "encoder": "LAME3.99r",
+          "genre": "Cinematic/Viking/Ambient",
+          "tbpm": "150",
+          "title": "Daudir",
+          "tkey": "A minor",
+          "tmoo": "DARK/TENSE/NEUTRAL",
+          "track": "402",
+          "tsrc": "NOTFK2135010"
+        },
+        "bpm": "150",
+        "duration": "03:47",
+        "genres": [
+          "Ambient",
+          "Cinematic",
+          "Viking"
+        ],
+        "id": "101",
+        "moods": [
+          "dark",
+          "neutral",
+          "tense"
+        ],
+        "title": "Daudir"
+      },
+      "moods": [
+        "dark",
+        "neutral",
+        "tense"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3919a587cbc42faf394667012d4f13da9fb51b41161bbe29903fe59b51acb3c8",
+        "source_sha256": "932c142c1a051afc6b84f08134783a99d9534944df74cf2b6d441713b4a4a455",
+        "start": 160.0
+      },
+      "source": "creatorchords",
+      "source_id": "101",
+      "source_url": "https://creatorchords.com/music/daudir/",
+      "tags": [
+        "Ambient",
+        "Cinematic",
+        "Viking",
+        "dark",
+        "neutral",
+        "tense"
+      ],
+      "title": "Daudir",
+      "uploaded": null
+    },
+    {
+      "artist": "Alexander Nakarada",
+      "attribution": "Music: Dawn by Alexander Nakarada (https://creatorchords.com)\nLicensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://d19p7hqu4j8vx0.cloudfront.net/media/media/data/mp3s/Dawn.mp3",
+      "bpm": 116.0,
+      "composer": "Alexander Nakarada",
+      "copyright_holder": "Alexander Nakarada",
+      "description": "www.creatorchords.com",
+      "duration": 262,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "orchestral",
+          "soundtrack"
+        ],
+        "input_sha256": "f70a78bd6aa8a9ff69787af95073a9ef4641cc5fcd54027b7b381746c1f7cfea",
+        "instruments": [
+          "brass",
+          "cymbals",
+          "percussion",
+          "strings",
+          "timpani"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "ominous",
+          "tense"
+        ],
+        "summary": "Sweeping orchestral strings and bold brass swell over rolling timpani and crashing cymbals, driving a tense, cinematic crescendo in a reverberant concert space.",
+        "texture": [
+          "dense",
+          "layered",
+          "reverberant",
+          "swelling"
+        ]
+      },
+      "genres": [
+        "Ambient",
+        "Classical",
+        "Piano"
+      ],
+      "id": "creatorchords:102",
+      "instruments": [],
+      "isrc": "NOTFK1602060",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Creative Commons",
+          "album_artist": "Alexander Nakarada",
+          "artist": "Alexander Nakarada",
+          "comment": "www.creatorchords.com",
+          "composer": "www.creatorchords.com",
+          "date": "2017",
+          "encoder": "LAME3.99r",
+          "genre": "Classical/Piano/Ambient",
+          "tbpm": "116",
+          "title": "Dawn",
+          "tkey": "A minor",
+          "tmoo": "DRAMATIC/MAJESTIC/NEGATIVE",
+          "track": "28",
+          "tsrc": "NOTFK1602060",
+          "www.serpentsoundstudios.com": "ENG"
+        },
+        "bpm": "116",
+        "duration": "04:22",
+        "genres": [
+          "Ambient",
+          "Classical",
+          "Piano"
+        ],
+        "id": "102",
+        "moods": [
+          "dramatic",
+          "majestic",
+          "negative"
+        ],
+        "title": "Dawn"
+      },
+      "moods": [
+        "dramatic",
+        "majestic",
+        "negative"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "d9729e0936a6659437d421613a798b9622643234c7b501838a5ccca3638a8885",
+        "source_sha256": "82a39b7183e77d5e609f11e97876b3d42dc89fff431323a9ceb6085227250652",
+        "start": 97.0
+      },
+      "source": "creatorchords",
+      "source_id": "102",
+      "source_url": "https://creatorchords.com/music/dawn/",
+      "tags": [
+        "Ambient",
+        "Classical",
+        "Piano",
+        "dramatic",
+        "majestic",
+        "negative"
+      ],
+      "title": "Dawn",
+      "uploaded": null
+    },
+    {
+      "artist": "Darren Curtis",
+      "attribution": "Title: \"Dark Noir Music \"Seedy Streets\" Royalty Free\"\nArtist: Darren Curtis (https://www.darrencurtismusic.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/desperate-measurez/dark-noir-music-seedy-streets-royalty-free-1",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "🎵 Free High Quality Download Here: www.darrencurtismusic.com\n\n🎧 Get early access to new free music and take part in monthly votes by becoming a Patron: www.patreon.com/darrencurtismusic\n\nThis music is free to use in your projects, even commercial ones. Yes, you can use this music in your Youtube videos and monetize them! Should you use this please credit me as \"Darren Curtis.\"\n\nGet All My Free Music: www.darrencurtismusic.com\nPatreon: www.patreon.com/darrencurtismusic\nMy Youtube: www.youtube.com/user/DesperateMeasurez\nBandcamp: darrencurtis.bandcamp.com/\nMy Facebook: www.facebook.com/DarrenCurtisMusic\n\nCopyright Darren Curtis Music 2022",
+      "duration": 92.134,
+      "enrichment": {
+        "genres": [
+          "noir",
+          "suspense"
+        ],
+        "input_sha256": "1b14f91bd7bc4e372ce63e9b332393d223b07d0609393a4b41a6e3d0e351a87c",
+        "instruments": [
+          "piano",
+          "sound effect",
+          "synth bass",
+          "synth pluck"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "mysterious",
+          "ominous",
+          "suspenseful",
+          "tense"
+        ],
+        "summary": "A brooding piano melody over a low synth bass builds tension, joined by a bright bell-like synth arpeggio and a rising whoosh for a dark, suspenseful spy-thriller atmosphere.",
+        "texture": [
+          "dark",
+          "layered",
+          "reverberant",
+          "sparse"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "darrencurtis:1293160576",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.100"
+        },
+        "license_source": "https://www.darrencurtismusic.com/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "noir music",
+          "free noir theme",
+          "spy music",
+          "dark spy music",
+          "patreon music",
+          "royalty free"
+        ],
+        "uploader": "Darren-Curtis",
+        "uploader_url": "https://soundcloud.com/desperate-measurez"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "24f051a9f4de33f7d8db99a7aed2426af6cc4f61913cb4ede52a6e4af5b59b07",
+        "source_sha256": "e13ed4c023e184e42cc428f115cff893916a7472c178264e87f7481dca26750b",
+        "start": 53.0
+      },
+      "source": "darrencurtis",
+      "source_id": "1293160576",
+      "source_url": "https://soundcloud.com/desperate-measurez/dark-noir-music-seedy-streets-royalty-free-1",
+      "tags": [
+        "Soundtrack",
+        "dark spy music",
+        "free noir theme",
+        "noir music",
+        "patreon music",
+        "royalty free",
+        "spy music"
+      ],
+      "title": "Dark Noir Music \"Seedy Streets\" Royalty Free",
+      "uploaded": "2022-06-23"
+    },
+    {
+      "artist": "Darren Curtis",
+      "attribution": "Title: \"Free Dark Piano \"A Method to the Madness\" Free Royalty Free Music\"\nArtist: Darren Curtis (https://www.darrencurtismusic.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/desperate-measurez/free-dark-piano-a-method-to-the-madness-free-royalty-free-music",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "🎵 Free High Quality Download Here: www.darrencurtismusic.com\n\n🎧 Get early access to new free music and take part in monthly votes by becoming a Patron: www.patreon.com/darrencurtismusic\n\nThis music is free to use in your projects, even commercial ones. Yes, you can use this music in your Youtube videos and monetize them! Should you use this please credit me as \"Darren Curtis.\"\n\nGet All My Free Music: www.darrencurtismusic.com\nPatreon: www.patreon.com/darrencurtismusic\nMy Youtube: www.youtube.com/user/DesperateMeasurez\nBandcamp: darrencurtis.bandcamp.com/\nMy Facebook: www.facebook.com/DarrenCurtisMusic\n\nCopyright Darren Curtis Music 2022",
+      "duration": 180.622,
+      "enrichment": {
+        "genres": [
+          "cinematic"
+        ],
+        "input_sha256": "452e5791e1129fbd0fee2e1aeab7f34b4fd8e1d3088ad3058de71a7958e7ddc7",
+        "instruments": [
+          "music box",
+          "strings",
+          "synth bass",
+          "synth pad"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "eerie",
+          "melancholic",
+          "mysterious",
+          "suspenseful"
+        ],
+        "summary": "A delicate music-box melody chimes above sustained dark strings and a low pulsing bass, creating a mysterious, cinematic atmosphere with slow, hypnotic movement.",
+        "texture": [
+          "atmospheric",
+          "layered",
+          "reverberant",
+          "sparse"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "darrencurtis:1293163579",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.100"
+        },
+        "license_source": "https://www.darrencurtismusic.com/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "dark music",
+          "true crime music",
+          "true crime theme",
+          "noir music",
+          "dark noir music",
+          "film noir theme",
+          "patreon music",
+          "royalty free music",
+          "game dev",
+          "rpg music"
+        ],
+        "uploader": "Darren-Curtis",
+        "uploader_url": "https://soundcloud.com/desperate-measurez"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "2b195c4a09f05aaeed6ad776b33d7e041ee8e802baf57ea766b06d75176b7d92",
+        "source_sha256": "5ddbe77af5a494506cc625edc7ddd361f52541bc4aa9abb897de46cc81848d2c",
+        "start": 116.0
+      },
+      "source": "darrencurtis",
+      "source_id": "1293163579",
+      "source_url": "https://soundcloud.com/desperate-measurez/free-dark-piano-a-method-to-the-madness-free-royalty-free-music",
+      "tags": [
+        "Soundtrack",
+        "dark music",
+        "dark noir music",
+        "film noir theme",
+        "game dev",
+        "noir music",
+        "patreon music",
+        "royalty free music",
+        "rpg music",
+        "true crime music",
+        "true crime theme"
+      ],
+      "title": "Free Dark Piano \"A Method to the Madness\" Free Royalty Free Music",
+      "uploaded": "2022-06-23"
+    },
+    {
+      "artist": "Darren Curtis",
+      "attribution": "Title: \"Free Chinese Horror Theme \"Witch by the Sea\" Royalty Free Music\"\nArtist: Darren Curtis (https://www.darrencurtismusic.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/desperate-measurez/free-chinese-horror-theme-witch-by-the-sea-royalty-free-music",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "🎵 Free High Quality Download Here: www.darrencurtismusic.com\n\n🎧 Get early access to new free music and take part in monthly votes by becoming a Patron: www.patreon.com/darrencurtismusic\n\nThis music is free to use in your projects, even commercial ones. Yes, you can use this music in your Youtube videos and monetize them! Should you use this please credit me as \"Darren Curtis.\"\n\nGet All My Free Music: www.darrencurtismusic.com\nPatreon: www.patreon.com/darrencurtismusic\nMy Youtube: www.youtube.com/user/DesperateMeasurez\nBandcamp: darrencurtis.bandcamp.com/\nMy Facebook: www.facebook.com/DarrenCurtisMusic\n\nCopyright Darren Curtis Music 2022",
+      "duration": 156.118,
+      "enrichment": {
+        "genres": [
+          "ambient",
+          "world"
+        ],
+        "input_sha256": "b6900be0e839d48ced13568eae0a72832f94c3cf523ed20b5f7ef5ae0b1e1cf3",
+        "instruments": [
+          "bowed string",
+          "drone",
+          "gong",
+          "percussion",
+          "plucked string"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "eerie",
+          "melancholic",
+          "mysterious",
+          "ominous",
+          "tense"
+        ],
+        "summary": "A mournful bowed string with sliding vibrato wails above rippling plucked-string arpeggios, a low drone, and sparse gong strikes, evoking an eerie, dark Asian-inspired atmosphere.",
+        "texture": [
+          "atmospheric",
+          "layered",
+          "resonant",
+          "reverberant",
+          "sparse"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "darrencurtis:1293166246",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.100"
+        },
+        "license_source": "https://www.darrencurtismusic.com/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "Chinese music",
+          "Chinese horror",
+          "dark Chinese music",
+          "royalty free",
+          "game dev",
+          "dark Asian music",
+          "creepy Asian theme",
+          "horror Asian music",
+          "dark witch music"
+        ],
+        "uploader": "Darren-Curtis",
+        "uploader_url": "https://soundcloud.com/desperate-measurez"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "ed4e1d0fede238a9c81b693d70b234e29d6d09b9c5b363b269e01c54fab6279b",
+        "source_sha256": "ccb0265945742a1952d2564f522efe86fcd3026f38ff063f6cc9d6e9d011e38a",
+        "start": 111.0
+      },
+      "source": "darrencurtis",
+      "source_id": "1293166246",
+      "source_url": "https://soundcloud.com/desperate-measurez/free-chinese-horror-theme-witch-by-the-sea-royalty-free-music",
+      "tags": [
+        "Chinese horror",
+        "Chinese music",
+        "Soundtrack",
+        "creepy Asian theme",
+        "dark Asian music",
+        "dark Chinese music",
+        "dark witch music",
+        "game dev",
+        "horror Asian music",
+        "royalty free"
+      ],
+      "title": "Free Chinese Horror Theme \"Witch by the Sea\" Royalty Free Music",
+      "uploaded": "2022-06-23"
+    },
+    {
+      "artist": "Darren Curtis",
+      "attribution": "Title: \"Free Pirate Theme \"A Robust Crew\" Royalty Free Music\"\nArtist: Darren Curtis (https://www.darrencurtismusic.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/desperate-measurez/free-pirate-theme-a-robust-crew-royalty-free-music",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "🎵 Free High Quality Download Here: www.darrencurtismusic.com\n\n🎧 Get early access to new free music and take part in monthly votes by becoming a Patron: www.patreon.com/darrencurtismusic\n\nThis music is free to use in your projects, even commercial ones. Yes, you can use this music in your Youtube videos and monetize them! Should you use this please credit me as \"Darren Curtis.\"\n\nGet All My Free Music: www.darrencurtismusic.com\nPatreon: www.patreon.com/darrencurtismusic\nMy Youtube: www.youtube.com/user/DesperateMeasurez\nBandcamp: darrencurtis.bandcamp.com/\nMy Facebook: www.facebook.com/DarrenCurtisMusic\n\nCopyright Darren Curtis Music 2022",
+      "duration": 136.822,
+      "enrichment": {
+        "genres": [
+          "celtic",
+          "folk"
+        ],
+        "input_sha256": "53db447f613653f33fd2d93d05738bd0f34dde42e96efb4e45a28d11271d9647",
+        "instruments": [
+          "acoustic guitar",
+          "fiddle",
+          "hand drum",
+          "percussion"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "adventurous",
+          "joyful",
+          "lively",
+          "playful",
+          "spirited"
+        ],
+        "summary": "A lively fiddle leads a jaunty folk melody over strummed acoustic guitar and steady hand drums, creating a bright, spirited nautical adventure feel.",
+        "texture": [
+          "acoustic",
+          "bright",
+          "dry",
+          "layered",
+          "rhythmic"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "darrencurtis:1293224569",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.100"
+        },
+        "license_source": "https://www.darrencurtismusic.com/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "pirate music",
+          "pirate theme",
+          "pirate crew",
+          "fantasy music",
+          "royalty free",
+          "patreon music",
+          "game dev",
+          "rpg music"
+        ],
+        "uploader": "Darren-Curtis",
+        "uploader_url": "https://soundcloud.com/desperate-measurez"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "5680e2ffd7a4534ba89acfa69072c5b8b47e61b2c76622e73779a8abf9bdc5f6",
+        "source_sha256": "b0f5596d7fbae6d619196db3647d21a2949a0186e964e7923601c9b87894e433",
+        "start": 24.0
+      },
+      "source": "darrencurtis",
+      "source_id": "1293224569",
+      "source_url": "https://soundcloud.com/desperate-measurez/free-pirate-theme-a-robust-crew-royalty-free-music",
+      "tags": [
+        "Soundtrack",
+        "fantasy music",
+        "game dev",
+        "patreon music",
+        "pirate crew",
+        "pirate music",
+        "pirate theme",
+        "royalty free",
+        "rpg music"
+      ],
+      "title": "Free Pirate Theme \"A Robust Crew\" Royalty Free Music",
+      "uploaded": "2022-06-23"
+    },
+    {
+      "artist": "Darren Curtis",
+      "attribution": "Title: \"Free Cowboy Western Theme \"Hard Justice\" Royalty Free Music\"\nArtist: Darren Curtis (https://www.darrencurtismusic.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/desperate-measurez/free-cowboy-western-theme-hard-justice-royalty-free-music",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "🎵 Free High Quality Download Here: www.darrencurtismusic.com\n\n🎧 Get early access to new free music and take part in monthly votes by becoming a Patron: www.patreon.com/darrencurtismusic\n\nThis music is free to use in your projects, even commercial ones. Yes, you can use this music in your Youtube videos and monetize them! Should you use this please credit me as \"Darren Curtis.\"\n\nGet All My Free Music: www.darrencurtismusic.com\nPatreon: www.patreon.com/darrencurtismusic\nMy Youtube: www.youtube.com/user/DesperateMeasurez\nBandcamp: darrencurtis.bandcamp.com/\nMy Facebook: www.facebook.com/DarrenCurtisMusic\n\nCopyright Darren Curtis Music 2022",
+      "duration": 144.526,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "folk"
+        ],
+        "input_sha256": "3cdb95a70c63edca7018b9f837abdcb5321a8f03663d3f532999f6115d8b2cbb",
+        "instruments": [
+          "drone",
+          "drum",
+          "synth pad",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "atmospheric",
+          "dramatic",
+          "lonely",
+          "melancholic",
+          "wistful"
+        ],
+        "summary": "A solo violin plays a plaintive, folk-like melody over a low sustained drone and slow, deep drum pulses, evoking a wide, lonely western landscape.",
+        "texture": [
+          "dark",
+          "reverberant",
+          "spacious",
+          "sparse",
+          "sustained"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "darrencurtis:1293232630",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.100"
+        },
+        "license_source": "https://www.darrencurtismusic.com/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "western",
+          "cowboy theme",
+          "cowboy music",
+          "american western",
+          "rpg music",
+          "patreon",
+          "royalty free",
+          "wild west theme",
+          "wild west music"
+        ],
+        "uploader": "Darren-Curtis",
+        "uploader_url": "https://soundcloud.com/desperate-measurez"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "019548c501d624f5e06d03158d151bd4722f27ad5efbcf319afbda7eaa61ee2c",
+        "source_sha256": "9a5cfcd70b4c64f15e8dad2de7922ee26c352857d4d43aa2032f3ddc56caf1bd",
+        "start": 104.0
+      },
+      "source": "darrencurtis",
+      "source_id": "1293232630",
+      "source_url": "https://soundcloud.com/desperate-measurez/free-cowboy-western-theme-hard-justice-royalty-free-music",
+      "tags": [
+        "Soundtrack",
+        "american western",
+        "cowboy music",
+        "cowboy theme",
+        "patreon",
+        "royalty free",
+        "rpg music",
+        "western",
+        "wild west music",
+        "wild west theme"
+      ],
+      "title": "Free Cowboy Western Theme \"Hard Justice\" Royalty Free Music",
+      "uploaded": "2022-06-23"
+    },
+    {
       "artist": "Bryan Teoh",
       "attribution": "",
       "audio_url": "https://raw.githubusercontent.com/0lhi/FreePD/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Alls%20Fair%20In%20Love.mp3",
@@ -215,6 +956,36 @@
       "copyright_holder": "",
       "description": "This piece was composed and dedicated to the Public Domain in 2020.",
       "duration": 239.448,
+      "enrichment": {
+        "genres": [
+          "cartoon music",
+          "orchestral",
+          "soundtrack"
+        ],
+        "input_sha256": "d447b0f246c438eaa5c4876139b2ba80adacb40589fe0af7d8a6eb35d82ccdc0",
+        "instruments": [
+          "light percussion",
+          "pizzicato strings",
+          "tuba",
+          "woodwinds"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "lighthearted",
+          "playful",
+          "quirky",
+          "whimsical"
+        ],
+        "summary": "A whimsical orchestral cue bounces along with staccato woodwinds, pizzicato strings and a tuba bassline over light percussion, creating a playful, cartoonish atmosphere.",
+        "texture": [
+          "bouncy",
+          "dry",
+          "lighter than expected density in the low end",
+          "sparse",
+          "staccato"
+        ]
+      },
       "genres": [],
       "id": "freepd:Comedy/Alls Fair In Love.mp3",
       "instruments": [],
@@ -248,6 +1019,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "81409a20cd310d1738b404923d4443094e233b06d3be906821a90c9ec9264b77",
+        "source_sha256": "8f8ff32f7b52535ae90336c410f0cd26c8190869cb6ef4382b5fddc9b29eff53",
         "start": 169.0
       },
       "source": "freepd",
@@ -268,6 +1040,33 @@
       "copyright_holder": "",
       "description": "",
       "duration": 66.3494,
+      "enrichment": {
+        "genres": [
+          "orchestral"
+        ],
+        "input_sha256": "4c9c32313bfe19668262272ebd36f6ccfb72ed5e2b058a6fa9509eb290003c01",
+        "instruments": [
+          "brass",
+          "percussion",
+          "piano",
+          "strings",
+          "woodwinds"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "energetic",
+          "joyful",
+          "playful",
+          "whimsical"
+        ],
+        "summary": "A brisk, playful orchestral piece drives forward with bouncing strings, bright woodwinds, punchy brass, and crisp percussion in a lively, cartoon-like chase.",
+        "texture": [
+          "bright",
+          "crisp",
+          "dense",
+          "layered"
+        ]
+      },
       "genres": [
         "Soundtrack"
       ],
@@ -296,6 +1095,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "2f9521a46db55a3ac73bd99203192aa03018bd87a28ae604e427b233c2c1d29c",
+        "source_sha256": "7a62538c2c1467340e10c7500c1f266fb6466756699934e9d766bf08954482f0",
         "start": 43.0
       },
       "source": "freepd",
@@ -309,6 +1109,681 @@
     },
     {
       "artist": "Kevin MacLeod",
+      "attribution": "",
+      "audio_url": "https://raw.githubusercontent.com/0lhi/FreePD/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Baltic%20Levity.mp3",
+      "bpm": null,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "",
+      "description": "USUAN1100312 - incompetech.com",
+      "duration": 48.048,
+      "enrichment": {
+        "genres": [
+          "circus",
+          "comedy",
+          "folk"
+        ],
+        "input_sha256": "e99b3396dab7db5f4c8c256e32d4f527e639865043ad3e38871f0838c0815457",
+        "instruments": [
+          "accordion",
+          "bass",
+          "percussion"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "playful",
+          "quirky",
+          "silly",
+          "whimsical"
+        ],
+        "summary": "A brisk, staccato accordion melody bounces over a simple bass and light percussion, giving the piece a quirky, circus-like, comedic atmosphere.",
+        "texture": [
+          "bouncy",
+          "dry",
+          "sparse",
+          "staccato"
+        ]
+      },
+      "genres": [
+        "Bizarre"
+      ],
+      "id": "freepd:Comedy/Baltic Levity.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Comedic",
+          "artist": "Kevin MacLeod",
+          "comment": "USUAN1100312 - incompetech.com",
+          "date": "2007",
+          "encoded_by": "iTunes v7.0.2.16",
+          "genre": "Bizarre",
+          "itunnorm": "00000184 00000125 000014D2 00000A97 00005DD8 00001518 00004C1F 000044A6 00003420 00003420",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 000006F2 00000000002327FE 00000000 001D3580 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tbp": "90",
+          "tcm": "Kevin MacLeod",
+          "title": "Baltic Levity"
+        },
+        "collections": [
+          {
+            "name": "Comedy",
+            "url": "https://github.com/0lhi/FreePD/tree/cf011c7016595833b550a88ff127f089188b25f8/Comedy"
+          }
+        ],
+        "commit": "cf011c7016595833b550a88ff127f089188b25f8",
+        "path": "Comedy/Baltic Levity.mp3",
+        "repository": "0lhi/FreePD"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "065333a20a8c2f4fe2d42fd94df80e66a86943116ebbe927f885d2bd2a1adceb",
+        "source_sha256": "04816c4bf137a4857e1ec8f17b226b84183452c33195869bdd64276851df3fe0",
+        "start": 2.0
+      },
+      "source": "freepd",
+      "source_id": "Comedy/Baltic Levity.mp3",
+      "source_url": "https://github.com/0lhi/FreePD/blob/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Baltic%20Levity.mp3",
+      "tags": [
+        "Comedy"
+      ],
+      "title": "Baltic Levity",
+      "uploaded": null
+    },
+    {
+      "artist": "Rafael Krux",
+      "attribution": "",
+      "audio_url": "https://raw.githubusercontent.com/0lhi/FreePD/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Barnville.mp3",
+      "bpm": null,
+      "composer": "Rafael Krux",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 101.74695,
+      "enrichment": {
+        "genres": [
+          "comedy"
+        ],
+        "input_sha256": "55651ac1204d9c6bfcf08f0ab7630545ef9a63d8f8fd6ed08934a918575fa8a4",
+        "instruments": [
+          "bass",
+          "drums",
+          "piano"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "lighthearted",
+          "playful",
+          "whimsical"
+        ],
+        "summary": "A bright staccato piano plays a jaunty, syncopated melody over a walking bassline and crisp drum kit, giving a lighthearted, comedic swing feel.",
+        "texture": [
+          "bouncy",
+          "dry",
+          "light",
+          "staccato"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "freepd:Comedy/Barnville.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "freepd.com",
+          "artist": "Rafael Krux",
+          "date": "2018",
+          "encoded_by": "iTunes 12.8.0.150",
+          "genre": "Soundtrack",
+          "itunnorm": "000003C8 0000049C 00002D18 00004447 00008BE5 0000CA72 00007FFF 00007FFF 000016A7 00003DD6",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 00000744 0000000000446E2C 00000000 003DF94F 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tcm": "Rafael Krux",
+          "title": "Barnville"
+        },
+        "collections": [
+          {
+            "name": "Comedy",
+            "url": "https://github.com/0lhi/FreePD/tree/cf011c7016595833b550a88ff127f089188b25f8/Comedy"
+          }
+        ],
+        "commit": "cf011c7016595833b550a88ff127f089188b25f8",
+        "path": "Comedy/Barnville.mp3",
+        "repository": "0lhi/FreePD"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "cb4295a8a0a4567200b1115aa17d1ba69149b164fc0ad92dcbe0dc36bdcb9ce0",
+        "source_sha256": "05fd91f109a158d87fb67ab9d66ae5d1a001fec84012197ca3b4be6ad2636f20",
+        "start": 75.0
+      },
+      "source": "freepd",
+      "source_id": "Comedy/Barnville.mp3",
+      "source_url": "https://github.com/0lhi/FreePD/blob/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Barnville.mp3",
+      "tags": [
+        "Comedy"
+      ],
+      "title": "Barnville",
+      "uploaded": null
+    },
+    {
+      "artist": "Kevin MacLeod",
+      "attribution": "",
+      "audio_url": "https://raw.githubusercontent.com/0lhi/FreePD/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Barroom%20Ballet.mp3",
+      "bpm": null,
+      "composer": "Kevin MacLeod",
+      "copyright_holder": "",
+      "description": "This piece has been used in many \"silent film\" type pieces, and is applicable for very spritely scenes. Source: Kevin MacLeod",
+      "duration": 56.592,
+      "enrichment": {
+        "genres": [
+          "comedy music",
+          "ragtime",
+          "silent film score"
+        ],
+        "input_sha256": "92ed6d527006392daaefa97f5d28bbe3656bad2bf685ac62ec36a84659794555",
+        "instruments": [
+          "piano"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "lively",
+          "playful",
+          "whimsical"
+        ],
+        "summary": "A bright solo piano plays a brisk, bouncy ragtime-style tune with staccato left-hand chords and a playful right-hand melody, evoking silent-film slapstick comedy.",
+        "texture": [
+          "bright",
+          "dry",
+          "sparse",
+          "staccato"
+        ]
+      },
+      "genres": [
+        "Simple"
+      ],
+      "id": "freepd:Comedy/Barroom Ballet.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Free PD",
+          "artist": "Kevin MacLeod",
+          "comment": "This piece has been used in many \"silent film\" type pieces, and is applicable for very spritely scenes. Source: Kevin MacLeod",
+          "date": "2007",
+          "encoded_by": "iTunes v7.0.2.16",
+          "genre": "Simple",
+          "itunnorm": "00000256 00000221 000032F7 00002BCD 0000D398 0000D398 00007D4A 0000792B 00008208 0000D380",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 00000B48 00000000002965A8 00000000 00226C80 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tbp": "115",
+          "tcm": "Kevin MacLeod",
+          "title": "Barroom Ballet"
+        },
+        "collections": [
+          {
+            "name": "Comedy",
+            "url": "https://github.com/0lhi/FreePD/tree/cf011c7016595833b550a88ff127f089188b25f8/Comedy"
+          }
+        ],
+        "commit": "cf011c7016595833b550a88ff127f089188b25f8",
+        "path": "Comedy/Barroom Ballet.mp3",
+        "repository": "0lhi/FreePD"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "087647beffb8ecadd1fab16f0825a353f57a21779b138ede07971519ff36c2db",
+        "source_sha256": "f2679ace3c1756ee30392e625f89ba5d0a57b8a5e95ec43744b7d13c2fbd9d53",
+        "start": 35.0
+      },
+      "source": "freepd",
+      "source_id": "Comedy/Barroom Ballet.mp3",
+      "source_url": "https://github.com/0lhi/FreePD/blob/cf011c7016595833b550a88ff127f089188b25f8/Comedy/Barroom%20Ballet.mp3",
+      "tags": [
+        "Comedy"
+      ],
+      "title": "Barroom Ballet",
+      "uploaded": null
+    },
+    {
+      "artist": "Justin Allan Arnold",
+      "attribution": "Title: \"Fironzelle's Golden Conceit\"\nArtist: Justin Allan Arnold (https://www.ifnessfreemusic.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://justinallanarnold.bandcamp.com/track/fironzelles-golden-conceit-2",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "How do I properly credit you for using your music?\n[Put Track Title here] by Justin Allan Arnold -\nwww.ifnessfreemusic.com\nLicensed under Creative Commons: By Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\nWhere possible, the URLs should also be hyperlinks. The credit should appear in a place where the consumer can easily see the credit: for example, in the text description box of a YouTube video. Including the credit in the credit reel of a film or video is fine. Likewise, in a podcast, the credit may be spoken at the end of the recording. If you use my music in a medium where it's not possible to display or provide the appropriate credit, you must purchase a non-exclusive non-attribution license for the music. This license costs $19.99 (a separate license is needed for each unattributed track). The license is available on each track's download page.",
+      "duration": 54.5,
+      "enrichment": {
+        "genres": [
+          "classical",
+          "orchestral",
+          "soundtrack"
+        ],
+        "input_sha256": "53b9be29c9f24dcd24d8d5be3f71ab6420d6d9bbc300d40fe1bcb7d0f673b72c",
+        "instruments": [
+          "cello",
+          "pizzicato strings",
+          "string ensemble",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "joyful",
+          "lively",
+          "playful",
+          "whimsical"
+        ],
+        "summary": "A brisk, playful orchestral string ensemble dances through a staccato, contrapuntal melody led by bright violins over lively cello and bass lines, evoking a whimsical classical film score.",
+        "texture": [
+          "contrapuntal",
+          "crisp",
+          "layered",
+          "light",
+          "staccato"
+        ]
+      },
+      "genres": [],
+      "id": "ifness:1170288555",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "collections": [
+          {
+            "name": "Classical Music Compilation #2 - \"Fantasy\" (Royalty Free)",
+            "url": "https://justinallanarnold.bandcamp.com/album/classical-music-compilation-2-fantasy-royalty-free"
+          }
+        ],
+        "license_source": "https://justinallanarnold.bandcamp.com/track/fironzelles-golden-conceit-2"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "7ca22a4432da4ff9ea542eaaa762cb08259044e64f0e895fd0278085f0d5362f",
+        "source_sha256": "d068284ec02782b55c3a17c9dbaa9c295d83ad8951f67fccd1a84755bdb1a6d8",
+        "start": 28.0
+      },
+      "source": "ifness",
+      "source_id": "1170288555",
+      "source_url": "https://justinallanarnold.bandcamp.com/track/fironzelles-golden-conceit-2",
+      "tags": [
+        "Mexico",
+        "classical music",
+        "creative commons",
+        "fantasy music",
+        "free download",
+        "free downloads",
+        "king arthur",
+        "orchestral music",
+        "royalty free",
+        "royalty free music",
+        "soundtrack",
+        "strings",
+        "symphonic",
+        "tolkien"
+      ],
+      "title": "Fironzelle's Golden Conceit",
+      "uploaded": "2026-03-02"
+    },
+    {
+      "artist": "Justin Allan Arnold",
+      "attribution": "Title: \"Ascolais\"\nArtist: Justin Allan Arnold (https://www.ifnessfreemusic.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://justinallanarnold.bandcamp.com/track/ascolais-2",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "How do I properly credit you for using your music?\n[Put Track Title here] by Justin Allan Arnold -\nwww.ifnessfreemusic.com\nLicensed under Creative Commons: By Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\nWhere possible, the URLs should also be hyperlinks. The credit should appear in a place where the consumer can easily see the credit: for example, in the text description box of a YouTube video. Including the credit in the credit reel of a film or video is fine. Likewise, in a podcast, the credit may be spoken at the end of the recording. If you use my music in a medium where it's not possible to display or provide the appropriate credit, you must purchase a non-exclusive non-attribution license for the music. This license costs $19.99 (a separate license is needed for each unattributed track). The license is available on each track's download page.",
+      "duration": 124.391,
+      "enrichment": {
+        "genres": [
+          "classical",
+          "folk",
+          "soundtrack"
+        ],
+        "input_sha256": "2ee30faa35d40d326dca0767b311c2a96a3e638215dbe6e3d9a18d6697ee1103",
+        "instruments": [
+          "clarinet",
+          "classical guitar",
+          "woodwind"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "gentle",
+          "melancholic",
+          "reflective",
+          "wistful"
+        ],
+        "summary": "A classical guitar plucks flowing arpeggios beneath a warm, reedy woodwind melody, creating an intimate, folk-tinged acoustic atmosphere with a wistful, lyrical character.",
+        "texture": [
+          "acoustic",
+          "dry",
+          "intimate",
+          "sparse",
+          "warm"
+        ]
+      },
+      "genres": [],
+      "id": "ifness:1247422734",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "collections": [
+          {
+            "name": "Classical Music Compilation #2 - \"Fantasy\" (Royalty Free)",
+            "url": "https://justinallanarnold.bandcamp.com/album/classical-music-compilation-2-fantasy-royalty-free"
+          }
+        ],
+        "license_source": "https://justinallanarnold.bandcamp.com/track/ascolais-2"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "5ab1bcf07a5021d6ea54c81b886a37bd0a5ed3337b441bd57ef14e5e97bc4fa0",
+        "source_sha256": "e1fdf4ece0c43edac5ce2ae3b9145d6b45fc90a6468d10b4799f9d9adb77ef70",
+        "start": 47.0
+      },
+      "source": "ifness",
+      "source_id": "1247422734",
+      "source_url": "https://justinallanarnold.bandcamp.com/track/ascolais-2",
+      "tags": [
+        "Mexico",
+        "classical guitar",
+        "classical music",
+        "creative commons",
+        "fantasy music",
+        "free download",
+        "free downloads",
+        "king arthur",
+        "orchestral music",
+        "royalty free",
+        "royalty free music",
+        "soundtrack",
+        "symphonic",
+        "tolkien"
+      ],
+      "title": "Ascolais",
+      "uploaded": "2026-03-02"
+    },
+    {
+      "artist": "Justin Allan Arnold",
+      "attribution": "Title: \"Khazad-dûm\"\nArtist: Justin Allan Arnold (https://www.ifnessfreemusic.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://justinallanarnold.bandcamp.com/track/khazad-d-m-2",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "How do I properly credit you for using your music?\n[Put Track Title here] by Justin Allan Arnold -\nwww.ifnessfreemusic.com\nLicensed under Creative Commons: By Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\nWhere possible, the URLs should also be hyperlinks. The credit should appear in a place where the consumer can easily see the credit: for example, in the text description box of a YouTube video. Including the credit in the credit reel of a film or video is fine. Likewise, in a podcast, the credit may be spoken at the end of the recording. If you use my music in a medium where it's not possible to display or provide the appropriate credit, you must purchase a non-exclusive non-attribution license for the music. This license costs $19.99 (a separate license is needed for each unattributed track). The license is available on each track's download page.",
+      "duration": 121.889,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "classical",
+          "orchestral"
+        ],
+        "input_sha256": "3370937029fdacc1e5227165a83ff07b553b2b6417d7f93557db48f01724e7e5",
+        "instruments": [
+          "brass",
+          "percussion",
+          "strings",
+          "timpani",
+          "woodwinds"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "adventurous",
+          "dramatic",
+          "energetic",
+          "tense",
+          "triumphant"
+        ],
+        "summary": "A brisk orchestral passage driven by swirling strings, bold brass fanfares, and woodwind flourishes, creating a dramatic, adventurous cinematic atmosphere with rolling percussion.",
+        "texture": [
+          "bright",
+          "dense",
+          "dynamic",
+          "layered",
+          "reverberant"
+        ]
+      },
+      "genres": [],
+      "id": "ifness:1863376852",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "collections": [
+          {
+            "name": "Classical Music Compilation #2 - \"Fantasy\" (Royalty Free)",
+            "url": "https://justinallanarnold.bandcamp.com/album/classical-music-compilation-2-fantasy-royalty-free"
+          }
+        ],
+        "license_source": "https://justinallanarnold.bandcamp.com/track/khazad-d-m-2"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3730b200c32d0ed4361bad404637277edb3c62167cef407a0ea77d6d806ce056",
+        "source_sha256": "a5e9b841b11127c64747571644a58c115b4d86d8374c2d8e621cebc441c0abe8",
+        "start": 20.0
+      },
+      "source": "ifness",
+      "source_id": "1863376852",
+      "source_url": "https://justinallanarnold.bandcamp.com/track/khazad-d-m-2",
+      "tags": [
+        "Mexico",
+        "classical music",
+        "creative commons",
+        "fantasy music",
+        "free download",
+        "free downloads",
+        "king arthur",
+        "orchestral music",
+        "royalty free",
+        "royalty free music",
+        "soundtrack",
+        "symphonic",
+        "tolkien"
+      ],
+      "title": "Khazad-dûm",
+      "uploaded": "2026-03-02"
+    },
+    {
+      "artist": "Justin Allan Arnold",
+      "attribution": "Title: \"Merlin and Nimue\"\nArtist: Justin Allan Arnold (https://www.ifnessfreemusic.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://justinallanarnold.bandcamp.com/track/merlin-and-nimue-2",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "How do I properly credit you for using your music?\n[Put Track Title here] by Justin Allan Arnold -\nwww.ifnessfreemusic.com\nLicensed under Creative Commons: By Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\nWhere possible, the URLs should also be hyperlinks. The credit should appear in a place where the consumer can easily see the credit: for example, in the text description box of a YouTube video. Including the credit in the credit reel of a film or video is fine. Likewise, in a podcast, the credit may be spoken at the end of the recording. If you use my music in a medium where it's not possible to display or provide the appropriate credit, you must purchase a non-exclusive non-attribution license for the music. This license costs $19.99 (a separate license is needed for each unattributed track). The license is available on each track's download page.",
+      "duration": 227.0,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "classical",
+          "film score",
+          "orchestral"
+        ],
+        "input_sha256": "0c89efd09a333bc5901d21f48992c9edab338561fe35cedf45d11129f642fa68",
+        "instruments": [
+          "brass",
+          "percussion",
+          "strings",
+          "timpani"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "dramatic",
+          "epic",
+          "majestic",
+          "tense"
+        ],
+        "summary": "Sweeping orchestral strings and swelling brass drive a dramatic, cinematic passage with rich reverberation, deep low-end rumble, and a dark, heroic atmosphere.",
+        "texture": [
+          "dense",
+          "layered",
+          "reverberant",
+          "rich"
+        ]
+      },
+      "genres": [],
+      "id": "ifness:2433959153",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "collections": [
+          {
+            "name": "Classical Music Compilation #2 - \"Fantasy\" (Royalty Free)",
+            "url": "https://justinallanarnold.bandcamp.com/album/classical-music-compilation-2-fantasy-royalty-free"
+          }
+        ],
+        "license_source": "https://justinallanarnold.bandcamp.com/track/merlin-and-nimue-2"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "e9f4629c48a7ae8946d27ddb69f1b4ed2452a73c9f69c7347df4d9f218d79fa8",
+        "source_sha256": "374056f5218b716857a43f127c86593a83ff603ff65701d256c4fbfa28e86d75",
+        "start": 172.0
+      },
+      "source": "ifness",
+      "source_id": "2433959153",
+      "source_url": "https://justinallanarnold.bandcamp.com/track/merlin-and-nimue-2",
+      "tags": [
+        "Mexico",
+        "classical music",
+        "creative commons",
+        "fantasy music",
+        "free download",
+        "free downloads",
+        "king arthur",
+        "orchestral music",
+        "royalty free",
+        "royalty free music",
+        "soundtrack",
+        "symphonic",
+        "tolkien"
+      ],
+      "title": "Merlin and Nimue",
+      "uploaded": "2026-03-02"
+    },
+    {
+      "artist": "Justin Allan Arnold",
+      "attribution": "Title: \"Miraldra's Enchantment\"\nArtist: Justin Allan Arnold (https://www.ifnessfreemusic.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://justinallanarnold.bandcamp.com/track/miraldras-enchantment-2",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "How do I properly credit you for using your music?\n[Put Track Title here] by Justin Allan Arnold -\nwww.ifnessfreemusic.com\nLicensed under Creative Commons: By Attribution 4.0\ncreativecommons.org/licenses/by/4.0/\nWhere possible, the URLs should also be hyperlinks. The credit should appear in a place where the consumer can easily see the credit: for example, in the text description box of a YouTube video. Including the credit in the credit reel of a film or video is fine. Likewise, in a podcast, the credit may be spoken at the end of the recording. If you use my music in a medium where it's not possible to display or provide the appropriate credit, you must purchase a non-exclusive non-attribution license for the music. This license costs $19.99 (a separate license is needed for each unattributed track). The license is available on each track's download page.",
+      "duration": 108.5,
+      "enrichment": {
+        "genres": [
+          "classical",
+          "orchestral",
+          "soundtrack"
+        ],
+        "input_sha256": "8b401d4cda281186ca5364ba2f409f10d1919a710457113a3bf47ffd40aa3c87",
+        "instruments": [
+          "cello",
+          "double bass",
+          "strings",
+          "viola",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "joyful",
+          "playful",
+          "uplifting",
+          "whimsical"
+        ],
+        "summary": "A lively orchestral string ensemble plays a brisk, dancing melody with crisp staccato bowing over warm sustained harmonies, creating a bright, storybook classical atmosphere.",
+        "texture": [
+          "acoustic",
+          "bright",
+          "crisp",
+          "layered",
+          "resonant"
+        ]
+      },
+      "genres": [],
+      "id": "ifness:2798579092",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "collections": [
+          {
+            "name": "Classical Music Compilation #2 - \"Fantasy\" (Royalty Free)",
+            "url": "https://justinallanarnold.bandcamp.com/album/classical-music-compilation-2-fantasy-royalty-free"
+          }
+        ],
+        "license_source": "https://justinallanarnold.bandcamp.com/track/miraldras-enchantment-2"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "f6a6c8399757685fe7ab31e2ee7cfd4dcc4a6ee8731efdfe83e56c183b290762",
+        "source_sha256": "fcac352352b3446c22bc78322c7581cca5622a5a26a2aa4c6076753c1f255853",
+        "start": 75.0
+      },
+      "source": "ifness",
+      "source_id": "2798579092",
+      "source_url": "https://justinallanarnold.bandcamp.com/track/miraldras-enchantment-2",
+      "tags": [
+        "Mexico",
+        "classical music",
+        "creative commons",
+        "fantasy music",
+        "free download",
+        "free downloads",
+        "king arthur",
+        "orchestral music",
+        "royalty free",
+        "royalty free music",
+        "soundtrack",
+        "symphonic",
+        "tolkien"
+      ],
+      "title": "Miraldra's Enchantment",
+      "uploaded": "2026-03-02"
+    },
+    {
+      "artist": "Kevin MacLeod",
       "attribution": "\"C-Funk\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttps://creativecommons.org/licenses/by/4.0/",
       "audio_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/C-Funk.mp3",
       "bpm": 117.0,
@@ -318,34 +1793,23 @@
       "duration": 170,
       "enrichment": {
         "genres": [
-          "disco",
-          "funk"
+          "soul"
         ],
-        "input_sha256": "cec265ddb3c369b75b28d50546a7f58986de500391eab5d9dc1eaae06afd9bf7",
+        "input_sha256": "911167b5ee12e1839220c4850ec047dcf8b803c508ab960ccf6ec1d98d730511",
         "instruments": [
-          "bass guitar",
-          "bongo",
-          "drum kit",
-          "electric guitar",
-          "percussion",
-          "saxophone",
-          "trumpet"
+          "sax"
         ],
-        "model": "google/gemini-3.8-flash",
+        "model": "xiaomi/mimo-v2.6-flash",
         "moods": [
-          "confident",
-          "cool",
           "energetic",
-          "funky",
-          "lively"
+          "playful"
         ],
-        "summary": "Upbeat retro 1970s funk driven by a driving rhythm section, rhythmic wah-wah guitar, punchy brass stabs, and vibrant percussion creating a cool, energetic vibe.",
+        "summary": "A tight funk groove driven by syncopated electric bass, congas and drum kit, with muted rhythm guitar and bright brass stabs adding punchy, layered accents.",
         "texture": [
-          "bright",
-          "dynamic",
+          "dry",
           "layered",
           "punchy",
-          "rhythmic"
+          "syncopated"
         ]
       },
       "genres": [
@@ -399,6 +1863,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "0e7e5c836a44a4d45b1fe5655369e3d2fbaac62e01d3c96491b8f7faca517ee6",
+        "source_sha256": "986a66e4b1cfd70b7e805df67b1e5a9f85f7d2933e1d1b95ba4cfc1c5fb9e046",
         "start": 52.0
       },
       "source": "incompetech",
@@ -428,6 +1893,26 @@
       "copyright_holder": "Kevin MacLeod",
       "description": "Funtastic little piece written for a movie trailer's more quirky section.",
       "duration": 48,
+      "enrichment": {
+        "genres": [
+          "funk"
+        ],
+        "input_sha256": "44cf292da5d41dfa8f21220569d6073fa862cbbcf2ffbcc9e38348d92a1ba596",
+        "instruments": [],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "lighthearted",
+          "playful"
+        ],
+        "summary": "A playful pop groove driven by strummed acoustic guitar, punchy bass, and crisp drums, topped with a quirky staccato keyboard melody.",
+        "texture": [
+          "bright",
+          "dry",
+          "layered",
+          "staccato",
+          "tight"
+        ]
+      },
       "genres": [
         "Pop"
       ],
@@ -478,6 +1963,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "e1728e3d7d84a5ecdd87053a78db3785b84697e30aa764baa5accdee059d55e1",
+        "source_sha256": "be2c30dd609ae6db0e1fbd4ee4269f7c28b293313b1b667e973d612851e31170",
         "start": 0.0
       },
       "source": "incompetech",
@@ -505,6 +1991,23 @@
       "copyright_holder": "Kevin MacLeod",
       "description": "Simple piano line with dark atmospherics in the background. It says \"Zombie\", but it is useful for any number of creepy motifs. (This piece is related to Zombie Chase).",
       "duration": 87,
+      "enrichment": {
+        "genres": [
+          "dark ambient"
+        ],
+        "input_sha256": "b51bd9ffc73deab0cf81bc0eb067cec42ac2aee6de4e39d7ddf67c06484cd7fd",
+        "instruments": [],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [],
+        "summary": "A sparse, slow piano melody creeps over a dark, rumbling synth drone, building an eerie, suspenseful horror atmosphere suited to spooky motifs.",
+        "texture": [
+          "atmospheric",
+          "dark",
+          "layered",
+          "reverberant",
+          "sparse"
+        ]
+      },
       "genres": [
         "Horror"
       ],
@@ -517,6 +2020,19 @@
       "license": "CC-BY-4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "metadata": {
+        "audio_tags": {
+          "album": "Scoring: Open, Close, and Transitions",
+          "artist": "Kevin MacLeod",
+          "comment": "incompetech.com",
+          "date": "2006",
+          "encoded_by": "iTunes v7.0.0.70",
+          "genre": "Soundtrack",
+          "itunnorm": "0000002E 00000029 000002FE 00000351 000109EB 0000FA68 00002D6A 00003475 000109EB 000105A1",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 00000714 00000000003A64DC 00000000 0034DEB2 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tcm": "Kevin MacLeod",
+          "title": "Zombie Hoodoo"
+        },
         "bpm": null,
         "collection": "42",
         "description": "Simple piano line with dark atmospherics in the background. It says \"Zombie\", but it is useful for any number of creepy motifs. (This piece is related to Zombie Chase).",
@@ -543,6 +2059,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "9aab9ad10bbcc4f42e4f788cd0d8539c91af0185b0af2ae8a0458456454f0fae",
+        "source_sha256": "1c153a385e8eb3c45b9adb333c0a3dfc77af4fda5bb58cef01fb8bda5cdc13fa",
         "start": 52.0
       },
       "source": "incompetech",
@@ -571,6 +2088,29 @@
       "copyright_holder": "Kevin MacLeod",
       "description": "Aggressive, but smooth action sequence; earthy and powerful, using the same piano theme as Zombie Hoodoo.",
       "duration": 143,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "soundtrack"
+        ],
+        "input_sha256": "68b84147296ed428e300df0652a7ab28a21b952cbaa8a2da555defff60b0f2ab",
+        "instruments": [
+          "synth bass"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "ominous",
+          "tense"
+        ],
+        "summary": "A low, repetitive piano ostinato drives forward over pounding tribal percussion and a dark synth bass, creating a tense, earthy, and ominous atmosphere.",
+        "texture": [
+          "gritty",
+          "layered",
+          "low-end heavy",
+          "pulsing",
+          "repetitive"
+        ]
+      },
       "genres": [
         "Horror"
       ],
@@ -584,6 +2124,19 @@
       "license": "CC-BY-4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "metadata": {
+        "audio_tags": {
+          "album": "Scoring: Action",
+          "artist": "Kevin MacLeod",
+          "date": "2006",
+          "encoded_by": "iTunes v7.0.0.70",
+          "genre": "Soundtrack",
+          "itunnorm": "0000008E 00000071 00000B63 000009E2 00011214 00008339 000071F1 00006DD0 0000F23E 00020F72",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 00000AC7 0000000000607D29 00000000 00576FAD 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tbp": "108",
+          "tcm": "Kevin MacLeod",
+          "title": "Zombie Chase"
+        },
         "bpm": null,
         "collection": "33",
         "description": "Aggressive, but smooth action sequence; earthy and powerful, using the same piano theme as Zombie Hoodoo.",
@@ -611,6 +2164,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "031aa59660c419cb8ee07f4c4ac3cf0191ce25b6dacdce3a43830f65b6507450",
+        "source_sha256": "6c021c136816ea6874b651bce896a85d2ffd5bc3ff98352c49e7094a71b22ea4",
         "start": 106.0
       },
       "source": "incompetech",
@@ -640,6 +2194,26 @@
       "copyright_holder": "Kevin MacLeod",
       "description": "Light and cheery. Appropriate for nearly any application.",
       "duration": 50,
+      "enrichment": {
+        "genres": [
+          "ragtime"
+        ],
+        "input_sha256": "db8492a537e2d27cc76432b71db5c59117b638d65c4658b37cd1ba2b4012823c",
+        "instruments": [],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "lighthearted",
+          "playful"
+        ],
+        "summary": "A solo acoustic piano plays a brisk, syncopated ragtime melody over a steady stride bass, creating a cheerful, bouncy, and humorous silent-film atmosphere.",
+        "texture": [
+          "crisp",
+          "dry",
+          "percussive",
+          "sparse",
+          "syncopated"
+        ]
+      },
       "genres": [
         "Silent Film Score"
       ],
@@ -651,6 +2225,19 @@
       "license": "CC-BY-4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "metadata": {
+        "audio_tags": {
+          "album": "Scoring - Silent Film: Bright",
+          "artist": "Kevin MacLeod",
+          "comment": "incompetech.com",
+          "date": "2006",
+          "encoded_by": "iTunes v7.0.0.70",
+          "genre": "Soundtrack",
+          "itunnorm": "00000107 000000D7 00000BAD 0000110B 0000B20F 00005829 00004B12 0000451E 00005A68 000098C1",
+          "itunpgap": "0",
+          "itunsmpb": "00000000 00000210 000007B0 00000000002172C0 00000000 001904A4 00000000 00000000 00000000 00000000 00000000 00000000",
+          "tcm": "Kevin MacLeod",
+          "title": "Work is Work FX"
+        },
         "bpm": "94",
         "collection": "31",
         "description": "Light and cheery. Appropriate for nearly any application.",
@@ -675,6 +2262,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "43e32a812755a53ea1d4ced0dcddf12631a9394ad25c23209f9372b56651bf86",
+        "source_sha256": "55be6ce6d020734e755c86c15f450db61d65ff19e66fe5ea998d0332ce70e235",
         "start": 26.0
       },
       "source": "incompetech",
@@ -692,6 +2280,2435 @@
       "uploaded": "2006-01-01"
     },
     {
+      "artist": "James Richardson",
+      "attribution": "Title: \"In Somniloquy\"\nArtist: James Richardson (https://kingjamesroyaltyfreemusic.blogspot.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/kingjamesroyaltyfree/in-somniloquy",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A chilling and dark piece for solo cello and strings. \n\nComposed and recorded by James Richardson\n\n\nAlbum art photography by Sebastian Engler",
+      "duration": 122.89,
+      "enrichment": {
+        "genres": [
+          "contemporary classical"
+        ],
+        "input_sha256": "c13e8b3c373a03c77c383fb592834075fa4a463c4f8f6455d328eff486f88668",
+        "instruments": [
+          "cello",
+          "string ensemble"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "melancholic",
+          "ominous",
+          "somber",
+          "tense"
+        ],
+        "summary": "A solo cello and sustained string ensemble play a slow, mournful minor-key melody, creating a dark, brooding, and tense atmosphere with rich acoustic resonance.",
+        "texture": [
+          "dense",
+          "layered",
+          "reverberant",
+          "sustained",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "kingjames:302718543",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "license_source": "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html",
+        "soundcloud_license": "cc-by-nc-sa",
+        "tags": [],
+        "uploader": "KING JAMES | Royalty Free",
+        "uploader_url": "https://soundcloud.com/kingjamesroyaltyfree"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3e2445d3f754fc44ce5f3668a02aebc5b6993daeb37f59dbac2155e61ac2aeaf",
+        "source_sha256": "8eec2735fe519d3743cd5574cba36273fc0dfffef8d2902db20539e4e0396246",
+        "start": 41.0
+      },
+      "source": "kingjames",
+      "source_id": "302718543",
+      "source_url": "https://soundcloud.com/kingjamesroyaltyfree/in-somniloquy",
+      "tags": [
+        "Soundtrack"
+      ],
+      "title": "In Somniloquy",
+      "uploaded": "2017-01-14"
+    },
+    {
+      "artist": "James Richardson",
+      "attribution": "Title: \"The Shoreline\"\nArtist: James Richardson (https://kingjamesroyaltyfreemusic.blogspot.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/kingjamesroyaltyfree/the-shoreline",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A cheerful, playful piece that slowly unfolds between xylophone, woodwind and strings.",
+      "duration": 104.708,
+      "enrichment": {
+        "genres": [
+          "orchestral"
+        ],
+        "input_sha256": "c3e8bbe84273f7c9efc64c0c6511f962c0296020b6e1cb858888894b0d906a02",
+        "instruments": [
+          "cello",
+          "clarinet",
+          "oboe",
+          "strings",
+          "violin",
+          "woodwind",
+          "xylophone"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "lighthearted",
+          "playful",
+          "uplifting",
+          "whimsical"
+        ],
+        "summary": "A bright mallet percussion melody dances over warm sustained strings and a smooth reedy woodwind line, giving a cheerful, playful orchestral character.",
+        "texture": [
+          "bright",
+          "layered",
+          "resonant",
+          "smooth",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "kingjames:305295859",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "license_source": "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [
+          "Xylophone",
+          "Soundtrack",
+          "Films",
+          "Woodwind",
+          "Cello",
+          "Violin",
+          "Strings",
+          "Oboe",
+          "Clarinet ",
+          "media",
+          "Title",
+          "Theme",
+          "Credits",
+          "Movie ",
+          "TV"
+        ],
+        "uploader": "KING JAMES | Royalty Free",
+        "uploader_url": "https://soundcloud.com/kingjamesroyaltyfree"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3971bee0adf94652127678f90ca303baf408f367b45172a97d16ef7576214677",
+        "source_sha256": "0cfd063e0f4b5c13d2f77908f6aa8fb90ca6988a0590a1a6d1631e43288d9133",
+        "start": 66.0
+      },
+      "source": "kingjames",
+      "source_id": "305295859",
+      "source_url": "https://soundcloud.com/kingjamesroyaltyfree/the-shoreline",
+      "tags": [
+        "Cello",
+        "Clarinet",
+        "Credits",
+        "Films",
+        "Movie",
+        "Oboe",
+        "Soundtrack",
+        "Strings",
+        "TV",
+        "Theme",
+        "Title",
+        "Violin",
+        "Woodwind",
+        "Xylophone",
+        "media"
+      ],
+      "title": "The Shoreline",
+      "uploaded": "2017-01-30"
+    },
+    {
+      "artist": "James Richardson",
+      "attribution": "Title: \"MK Variation I\"\nArtist: James Richardson (https://kingjamesroyaltyfreemusic.blogspot.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/kingjamesroyaltyfree/mk-variation-i",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 75.187,
+      "enrichment": {
+        "genres": [
+          "contemporary classical"
+        ],
+        "input_sha256": "78447554a083281868bd57e976a22ca3d0345e4ee64a4e08cff9f19817fd8325",
+        "instruments": [
+          "piano"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "gentle",
+          "hopeful",
+          "melancholic",
+          "reflective",
+          "tender"
+        ],
+        "summary": "A solo acoustic piano plays a lyrical melody over flowing arpeggios, creating a gentle, reflective, and cinematic atmosphere.",
+        "texture": [
+          "arpeggiated",
+          "flowing",
+          "resonant",
+          "smooth",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "kingjames:307931473",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "license_source": "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [],
+        "uploader": "KING JAMES | Royalty Free",
+        "uploader_url": "https://soundcloud.com/kingjamesroyaltyfree"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "71f3a854a58db708a5a9b8183f573921dc5b93e64ad8b06df8906883ea193b5d",
+        "source_sha256": "5dbc86632a52f88186f52c4885e3b6e7d5fd6f00dbfcac76ebc20b121eeb4243",
+        "start": 37.0
+      },
+      "source": "kingjames",
+      "source_id": "307931473",
+      "source_url": "https://soundcloud.com/kingjamesroyaltyfree/mk-variation-i",
+      "tags": [
+        "Soundtrack"
+      ],
+      "title": "MK Variation I",
+      "uploaded": "2017-02-15"
+    },
+    {
+      "artist": "James Richardson",
+      "attribution": "Title: \"MK Main Theme\"\nArtist: James Richardson (https://kingjamesroyaltyfreemusic.blogspot.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/kingjamesroyaltyfree/mk-main-theme",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 65.441,
+      "enrichment": {
+        "genres": [
+          "neoclassical"
+        ],
+        "input_sha256": "c7732a845a996225acfd862d22571294645fe3413b3638ed834375970f8af374",
+        "instruments": [
+          "piano"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "gentle",
+          "melancholic",
+          "nostalgic",
+          "reflective",
+          "tender"
+        ],
+        "summary": "A solo acoustic piano plays a gentle, flowing melody over rolling chords in a warm, intimate space, conveying a tender and reflective mood.",
+        "texture": [
+          "intimate",
+          "legato",
+          "reverberant",
+          "sparse",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "kingjames:307931478",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "license_source": "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [],
+        "uploader": "KING JAMES | Royalty Free",
+        "uploader_url": "https://soundcloud.com/kingjamesroyaltyfree"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "ff62fcd933705810f0be1a7c88545a24bb6cdcd4c7b25142376be02a33937a39",
+        "source_sha256": "a33dc92462b1b247d71cfc8fede2e94220c89e196a7236d81ed6741058399fcb",
+        "start": 25.0
+      },
+      "source": "kingjames",
+      "source_id": "307931478",
+      "source_url": "https://soundcloud.com/kingjamesroyaltyfree/mk-main-theme",
+      "tags": [
+        "Soundtrack"
+      ],
+      "title": "MK Main Theme",
+      "uploaded": "2017-02-15"
+    },
+    {
+      "artist": "James Richardson",
+      "attribution": "Title: \"Gravity\"\nArtist: James Richardson (https://kingjamesroyaltyfreemusic.blogspot.com/)\nLicensed under Creative Commons By Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/",
+      "audio_url": "https://soundcloud.com/kingjamesroyaltyfree/gravity-demo",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "The final scene and end credits composed for the BBC documentary \"Gravity and Me: The Force That Shapes Our Lives\"\n\nMusic composed and recorded by James Richardson",
+      "duration": 103.585,
+      "enrichment": {
+        "genres": [
+          "contemporary classical"
+        ],
+        "input_sha256": "927e6134cc0c19b644abfaa050cc30ba2a9d1f8bdc5bfe1a991bcb5a72bac164",
+        "instruments": [
+          "piano",
+          "strings"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "calm",
+          "hopeful",
+          "melancholic",
+          "reflective",
+          "tender"
+        ],
+        "summary": "A flowing acoustic piano plays gentle arpeggios over warm, sustained orchestral strings, creating a reflective, cinematic atmosphere with a slow, unhurried pulse and no percussion.",
+        "texture": [
+          "flowing",
+          "layered",
+          "reverberant",
+          "sparse",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "kingjames:308699107",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "LAME3.99r"
+        },
+        "license_source": "https://kingjamesroyaltyfreemusic.blogspot.com/p/what-does-royalty-free-mean.html",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [],
+        "uploader": "KING JAMES | Royalty Free",
+        "uploader_url": "https://soundcloud.com/kingjamesroyaltyfree"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "2482736e506868419b9b70da1ebc84e75434b3f54af8c8324c409d3ff526953a",
+        "source_sha256": "7e19cf6e791ad7cbcb7b7b5e18c4461c507b47fc20a95c3e110f471ff08afab7",
+        "start": 72.0
+      },
+      "source": "kingjames",
+      "source_id": "308699107",
+      "source_url": "https://soundcloud.com/kingjamesroyaltyfree/gravity-demo",
+      "tags": [
+        "Soundtrack"
+      ],
+      "title": "Gravity",
+      "uploaded": "2017-02-20"
+    },
+    {
+      "artist": "Eino Toivanen",
+      "attribution": "Title: \"NOVOCTO DE\"\nArtist: Eino Toivanen (https://kongano.com/?page_id=16)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://kongano.com/wp-content/uploads/2017/12/Novocto-de.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Minimalistic piece of music. Instruments that used to be pianos playing some puzzling & other-worldly stuff. Mathematics weaving everywhere – new melodies are being born.",
+      "duration": 385.8363,
+      "enrichment": {
+        "genres": [
+          "electronic",
+          "minimalism"
+        ],
+        "input_sha256": "cacebae7b25584670ed0e5045dc93c1cecf91187ae8c0f6c327f2c2e7eefde47",
+        "instruments": [
+          "bell",
+          "synth",
+          "synth pluck"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "contemplative",
+          "curious",
+          "ethereal",
+          "intriguing",
+          "mysterious"
+        ],
+        "summary": "A bright, bell-like synthesizer weaves intricate, interlocking arpeggios in a continuous drumless flow, creating a mysterious, puzzle-like atmosphere of otherworldly melodies.",
+        "texture": [
+          "bright",
+          "dry",
+          "intricate",
+          "layered",
+          "minimal"
+        ]
+      },
+      "genres": [
+        "Ambience"
+      ],
+      "id": "kongano:1500",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "collections": [
+          {
+            "name": "Ambience",
+            "url": "https://kongano.com/?page_id=16"
+          }
+        ],
+        "license_source": "https://kongano.com/?page_id=12"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "3f9098f2b9eeda07c784ae950b1fe214bd9b2a943fec4cd93a3fc534560f9ef7",
+        "source_sha256": "0f5a7bcad03e7fb1a72f44077ab98949fb06e389ca16da50d51b0730855f894c",
+        "start": 305.0
+      },
+      "source": "kongano",
+      "source_id": "1500",
+      "source_url": "https://kongano.com/?page_id=16",
+      "tags": [
+        "Ambience"
+      ],
+      "title": "NOVOCTO DE",
+      "uploaded": null
+    },
+    {
+      "artist": "Eino Toivanen",
+      "attribution": "Title: \"BEYOND THE BITGATE\"\nArtist: Eino Toivanen (https://kongano.com/?page_id=26)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://kongano.com/wp-content/uploads/2018/01/Beyond-the-bitgate.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Heavy & nightmarish synthesizer piece, featuring nasty synthesizers. Heavy & nightmarish kind of feeling. Do you hear them?",
+      "duration": 180.6642,
+      "enrichment": {
+        "genres": [
+          "dark ambient",
+          "drone"
+        ],
+        "input_sha256": "73a5749f186e137386723c5b1d43b029056e22a111bcc77a8fbf0e75216e7435",
+        "instruments": [
+          "synth pad",
+          "synthesizer"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "nightmarish",
+          "ominous",
+          "oppressive",
+          "tense"
+        ],
+        "summary": "A dense wall of heavily distorted synthesizer pads slowly shifts through dark, dissonant chords, creating an oppressive, drumless drone with a gritty, nightmarish atmosphere.",
+        "texture": [
+          "dense",
+          "dissonant",
+          "distorted",
+          "drumless",
+          "gritty",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Electronic"
+      ],
+      "id": "kongano:1503",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "collections": [
+          {
+            "name": "Electronic",
+            "url": "https://kongano.com/?page_id=26"
+          }
+        ],
+        "license_source": "https://kongano.com/?page_id=12"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "fbf85d6f19904b62ee4eaf4f637337a9e27f472c3003dec8a8ee01bafb5059c9",
+        "source_sha256": "e58313baf722fbad76f74f780175d32678f8f326b279def570de564a693dc50b",
+        "start": 140.0
+      },
+      "source": "kongano",
+      "source_id": "1503",
+      "source_url": "https://kongano.com/?page_id=26",
+      "tags": [
+        "Electronic"
+      ],
+      "title": "BEYOND THE BITGATE",
+      "uploaded": null
+    },
+    {
+      "artist": "Eino Toivanen",
+      "attribution": "Title: \"9TH FACE\"\nArtist: Eino Toivanen (https://kongano.com/?page_id=26)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://kongano.com/wp-content/uploads/2017/12/9th-face.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Fun chiptune fun. We got chiptune sounds and an appropriate drum machine. Poppy, yet quirky feel. Time signature of 9/4 probably helps.",
+      "duration": 246.6189,
+      "enrichment": {
+        "genres": [
+          "chiptune",
+          "video game music"
+        ],
+        "input_sha256": "8464023dab093dcd9e2c22d9100d6410739455da82af15bce2b81277a2d78e68",
+        "instruments": [
+          "drum machine",
+          "square wave synth",
+          "synth bass"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "bouncy",
+          "cheerful",
+          "playful",
+          "quirky",
+          "upbeat"
+        ],
+        "summary": "A bright chiptune melody on square-wave synths bounces over a crisp drum machine and buzzy bass, giving a playful, quirky, video-game-like bounce.",
+        "texture": [
+          "8-bit",
+          "bright",
+          "crisp",
+          "dry",
+          "layered",
+          "staccato"
+        ]
+      },
+      "genres": [
+        "Electronic"
+      ],
+      "id": "kongano:1506",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "collections": [
+          {
+            "name": "Electronic",
+            "url": "https://kongano.com/?page_id=26"
+          }
+        ],
+        "license_source": "https://kongano.com/?page_id=12"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "69d155f92c22d7b9e507f7b3351263c6de24c805dd02ca4d5f1db7d63806f1c4",
+        "source_sha256": "f46ee24936757dadb029a699a6cc3e40ffd9fd9b65dbb9709c3d8b5589025f79",
+        "start": 161.0
+      },
+      "source": "kongano",
+      "source_id": "1506",
+      "source_url": "https://kongano.com/?page_id=26",
+      "tags": [
+        "Electronic"
+      ],
+      "title": "9TH FACE",
+      "uploaded": null
+    },
+    {
+      "artist": "Eino Toivanen",
+      "attribution": "Title: \"KATALA KATANA\"\nArtist: Eino Toivanen (https://kongano.com/?page_id=28)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://kongano.com/wp-content/uploads/2018/01/Katala-katana.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Percussion-heavy world music tune. Tribal drumming meets the east. Yes, we got percussions of all sorts, kalimba and low flutes & shamisen. Let the hypnotic dance commence.",
+      "duration": 223.0245,
+      "enrichment": {
+        "genres": [
+          "world"
+        ],
+        "input_sha256": "119501ef8c011b32ce6f9f68028942d52d202e6bdf863063d0f0d035cd586167",
+        "instruments": [
+          "drone",
+          "hand drum",
+          "low flute",
+          "plucked string",
+          "shaker"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "hypnotic",
+          "meditative",
+          "mysterious"
+        ],
+        "summary": "A breathy low flute and a sustained drone float over steady hand drums and shakers, joined by a bright plucked string instrument in a hypnotic, earthy groove.",
+        "texture": [
+          "breathy",
+          "earthy",
+          "layered",
+          "repetitive",
+          "resonant"
+        ]
+      },
+      "genres": [
+        "Ethnic"
+      ],
+      "id": "kongano:1509",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "collections": [
+          {
+            "name": "Ethnic",
+            "url": "https://kongano.com/?page_id=28"
+          }
+        ],
+        "license_source": "https://kongano.com/?page_id=12"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "66eb6ac37f4424621ab998e2264a5088d20ec0055599a2da166ee723cdbfd5df",
+        "source_sha256": "3c508f44f59edcfc34d3027554fccc2b5d2272add7f782c84448265341b4d8a6",
+        "start": 10.0
+      },
+      "source": "kongano",
+      "source_id": "1509",
+      "source_url": "https://kongano.com/?page_id=28",
+      "tags": [
+        "Ethnic"
+      ],
+      "title": "KATALA KATANA",
+      "uploaded": null
+    },
+    {
+      "artist": "Eino Toivanen",
+      "attribution": "Title: \"RAISED EYEBROW AND A NOD\"\nArtist: Eino Toivanen (https://kongano.com/?page_id=36)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://kongano.com/wp-content/uploads/2018/01/Raised-eyebrow-and-a-nod.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "One part vintage RnB, one part bossanova. Pretty laid-back groove. Accordion leads the troops. Also bass, drums and marimba.",
+      "duration": 232.1334,
+      "enrichment": {
+        "genres": [
+          "bossa nova",
+          "lounge",
+          "r&b"
+        ],
+        "input_sha256": "a1509cf5b68ceed908f8e76aa3799277571c42e6259271283cb9805aeddd35a9",
+        "instruments": [
+          "accordion",
+          "bass",
+          "drums",
+          "marimba"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "laid-back",
+          "playful",
+          "relaxed",
+          "warm"
+        ],
+        "summary": "A laid-back groove pairs a reedy accordion melody with marimba, round bass, and crisp drums, creating a warm, playful instrumental with a gentle bossa and vintage R&B sway.",
+        "texture": [
+          "dry",
+          "layered",
+          "rounded",
+          "syncopated",
+          "warm"
+        ]
+      },
+      "genres": [],
+      "id": "kongano:1512",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "collections": [
+          {
+            "name": "Mood",
+            "url": "https://kongano.com/?page_id=36"
+          }
+        ],
+        "license_source": "https://kongano.com/?page_id=12"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "0bb2db209a00f43a8fcfdc682609f35a475eb75396b60c80d8ef9ae90feb57d3",
+        "source_sha256": "78e1ac332e0a5f27f8f71bf75c6cce5d6097a5844e677a31891d1f0194772c9a",
+        "start": 155.0
+      },
+      "source": "kongano",
+      "source_id": "1512",
+      "source_url": "https://kongano.com/?page_id=36",
+      "tags": [
+        "Mood"
+      ],
+      "title": "RAISED EYEBROW AND A NOD",
+      "uploaded": null
+    },
+    {
+      "artist": "Scott Buckley",
+      "attribution": "Title: \"Home Was You (CC-BY)\"\nArtist: Scott Buckley (https://www.scottbuckley.com.au/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/scottbuckley/home-was-you-cc-by",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A peaceful, folksy and nostalgic track for piano, strings and accordion. The backend features some folk percussion, but ending on a calm, introspective piano solo.\n\n🔽Download 'Home Was You' for free from my library here: \n\n🎵 You can also listen here: \n▶ Spotify: https://open.spotify.com/track/2njjUL1fFmRu5LM0bMJ4aR?si=6d1b9f02f024404c\n▶ Apple Music: https://music.apple.com/us/song/home-was-you/6795822970\n▶ Amazon Music: https://music.amazon.com.au/tracks/B0HC2BRNHR\n▶ Tidal: https://tidal.com/track/547344538/u\n▶ Deezer: https://link.deezer.com/s/33YSBXa6xoGALUzV6j1Po\n▶ YouTube: https://youtu.be/izlKYVvsXYE\n\nThis track is released under Creative Commons Attribution, meaning you can use the track in your projects (including commercial projects) as long as you credit me. More info here: https://www.scottbuckley.com.au/library/using-this-music/\n\n📌Attribution format: 'Home Was You' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au\n\n📌YouTubers! Credits MUST appear in your video description. If you don't, you will likely get a copyright claim from me. To have the claim removed, follow these quick instructions: https://www.scottbuckley.com.au/library/copyright-claims-release/",
+      "duration": 269.446,
+      "enrichment": {
+        "genres": [
+          "folk",
+          "orchestral"
+        ],
+        "input_sha256": "2865248f6dd19f112858cba330a4f3066a33f0ea357e3d9ae50bfa8646277085",
+        "instruments": [
+          "acoustic guitar",
+          "bass",
+          "percussion",
+          "piano",
+          "strings"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "hopeful",
+          "nostalgic",
+          "reflective",
+          "tender",
+          "warm"
+        ],
+        "summary": "Layered strings and a lyrical piano melody flow over strummed acoustic guitar, warm bass and light hand percussion, giving this folk-orchestral piece a gentle, nostalgic and tenderly reflective atmosphere.",
+        "texture": [
+          "acoustic",
+          "gentle",
+          "layered",
+          "resonant",
+          "warm"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "scottbuckley:2372495597",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "www.scottbuckley.com.au/library",
+          "artist": "Scott Buckley",
+          "date": "2026",
+          "encoder": "Lavf62.12.100",
+          "genre": "Soundtrack",
+          "title": "Home Was You"
+        },
+        "license_source": "https://www.scottbuckley.com.au/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "folk",
+          "orchestral",
+          "piano"
+        ],
+        "uploader": "Scott Buckley",
+        "uploader_url": "https://soundcloud.com/scottbuckley"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "56f3b25874e8caceb28479376dc13e3cb8f1c7e7fed866b41402aa70894f46b5",
+        "source_sha256": "d31f29bacde7e96d2680a2ea99914438c68e6635a6c0456e93cdc1f83d646982",
+        "start": 178.0
+      },
+      "source": "scottbuckley",
+      "source_id": "2372495597",
+      "source_url": "https://soundcloud.com/scottbuckley/home-was-you-cc-by",
+      "tags": [
+        "Soundtrack",
+        "folk",
+        "orchestral",
+        "piano"
+      ],
+      "title": "Home Was You (CC-BY)",
+      "uploaded": "2026-07-31"
+    },
+    {
+      "artist": "Scott Buckley",
+      "attribution": "Title: \"Anabasis I\"\nArtist: Scott Buckley (https://www.scottbuckley.com.au/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/scottbuckley/anabasis-i",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "An experimental classical album, exploring the use of a graphical score created by the frottage of a weaving sculpture by Amanda Buckley. Each work on the album respresents an attempt to recreate the rubbing into music in a different way.\n\n'The Weight of Air' was created for an exhibition of the same name, by Amanda Buckley - shown in the Webb Gallery at QCAD (Griffith University, Brisbane) in September/October 2026.",
+      "duration": 560.774,
+      "enrichment": {
+        "genres": [
+          "avant-garde",
+          "contemporary classical",
+          "neoclassical"
+        ],
+        "input_sha256": "59a788d06b3fe8498bf99e6c143f52e5dc9d42ce30b0a1719154dbee3c87c576",
+        "instruments": [
+          "bowed strings",
+          "string orchestra"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "ominous",
+          "suspenseful",
+          "tense",
+          "uneasy"
+        ],
+        "summary": "A dense string orchestra sustains dissonant, slowly swelling clusters in a reverberant space, building a tense, cinematic atmosphere without percussion or a clear melody.",
+        "texture": [
+          "dense",
+          "dissonant",
+          "layered",
+          "reverberant",
+          "sustained",
+          "swelling"
+        ]
+      },
+      "genres": [
+        "Classical"
+      ],
+      "id": "scottbuckley:2406710070",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "Lavf62.12.100"
+        },
+        "license_source": "https://www.scottbuckley.com.au/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "neoclassical",
+          "string orchestra"
+        ],
+        "uploader": "Scott Buckley",
+        "uploader_url": "https://soundcloud.com/scottbuckley"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "ebe860aa06e71e329df1edcc091e29d4f1e476d7eb3350fc302b0011a1dce97e",
+        "source_sha256": "32184683b2ec94c86a91c3e734c909cfdf408d7cecae8771247bc98c09095879",
+        "start": 39.0
+      },
+      "source": "scottbuckley",
+      "source_id": "2406710070",
+      "source_url": "https://soundcloud.com/scottbuckley/anabasis-i",
+      "tags": [
+        "Classical",
+        "neoclassical",
+        "string orchestra"
+      ],
+      "title": "Anabasis I",
+      "uploaded": "2026-09-24"
+    },
+    {
+      "artist": "Scott Buckley",
+      "attribution": "Title: \"Katabasis I\"\nArtist: Scott Buckley (https://www.scottbuckley.com.au/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/scottbuckley/katabasis-i",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "An experimental classical album, exploring the use of a graphical score created by the frottage of a weaving sculpture by Amanda Buckley. Each work on the album respresents an attempt to recreate the rubbing into music in a different way.\n\n'The Weight of Air' was created for an exhibition of the same name, by Amanda Buckley - shown in the Webb Gallery at QCAD (Griffith University, Brisbane) in September/October 2026.",
+      "duration": 589.761,
+      "enrichment": {
+        "genres": [
+          "contemporary classical",
+          "orchestral"
+        ],
+        "input_sha256": "47b4aeb32e1c2e863bf2cce60893c6bed04d1d7a8f0db785182334a7426ba8db",
+        "instruments": [
+          "bowed strings",
+          "cellos",
+          "string ensemble",
+          "violas",
+          "violins"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "brooding",
+          "dramatic",
+          "mysterious",
+          "somber",
+          "tense"
+        ],
+        "summary": "A dense string orchestra sustains slow, dissonant swells in a reverberant space, building a brooding, cinematic atmosphere without percussion or a steady pulse.",
+        "texture": [
+          "dense",
+          "dissonant",
+          "layered",
+          "reverberant",
+          "sustained",
+          "swelling"
+        ]
+      },
+      "genres": [
+        "Classical"
+      ],
+      "id": "scottbuckley:2406710073",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "Lavf62.12.100"
+        },
+        "license_source": "https://www.scottbuckley.com.au/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "neoclassical",
+          "string orchestra"
+        ],
+        "uploader": "Scott Buckley",
+        "uploader_url": "https://soundcloud.com/scottbuckley"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "9d5746dfa7ebc5cdd1c6fc96e499328ae7df52802a07ab063bbdd1e40040b2cf",
+        "source_sha256": "d561ff08d41402eb2a69ae7fd39c2ef45580df4e0098add33782264d2b2e94eb",
+        "start": 94.0
+      },
+      "source": "scottbuckley",
+      "source_id": "2406710073",
+      "source_url": "https://soundcloud.com/scottbuckley/katabasis-i",
+      "tags": [
+        "Classical",
+        "neoclassical",
+        "string orchestra"
+      ],
+      "title": "Katabasis I",
+      "uploaded": "2026-09-24"
+    },
+    {
+      "artist": "Scott Buckley",
+      "attribution": "Title: \"Anabasis II\"\nArtist: Scott Buckley (https://www.scottbuckley.com.au/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/scottbuckley/anabasis-ii",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "An experimental classical album, exploring the use of a graphical score created by the frottage of a weaving sculpture by Amanda Buckley. Each work on the album respresents an attempt to recreate the rubbing into music in a different way.\n\n'The Weight of Air' was created for an exhibition of the same name, by Amanda Buckley - shown in the Webb Gallery at QCAD (Griffith University, Brisbane) in September/October 2026.",
+      "duration": 329.458,
+      "enrichment": {
+        "genres": [
+          "avant-garde",
+          "contemporary classical"
+        ],
+        "input_sha256": "9d2314ed7c9fa759aa32ef3e480ede710489d97755b2a928877ebd7f3a8c0083",
+        "instruments": [
+          "cello",
+          "double bass",
+          "string orchestra",
+          "viola",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "suspenseful",
+          "tense",
+          "uneasy"
+        ],
+        "summary": "A dense string orchestra swirls with dissonant tremolos and high sustained lines, swelling into sharp dramatic accents within a reverberant concert space.",
+        "texture": [
+          "dense",
+          "dissonant",
+          "layered",
+          "reverberant",
+          "swelling"
+        ]
+      },
+      "genres": [
+        "Classical"
+      ],
+      "id": "scottbuckley:2406710076",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "Lavf62.12.100"
+        },
+        "license_source": "https://www.scottbuckley.com.au/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "neoclassical",
+          "string orchestra"
+        ],
+        "uploader": "Scott Buckley",
+        "uploader_url": "https://soundcloud.com/scottbuckley"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "52755cff1363ab003bdce3c48fbe2e886bc72e01dd6b2b15f4d47ebb0dd18106",
+        "source_sha256": "a77beb75bf84ca73390338faa40b1eeb826bc1e6248071940f21e77fe08de8d8",
+        "start": 178.0
+      },
+      "source": "scottbuckley",
+      "source_id": "2406710076",
+      "source_url": "https://soundcloud.com/scottbuckley/anabasis-ii",
+      "tags": [
+        "Classical",
+        "neoclassical",
+        "string orchestra"
+      ],
+      "title": "Anabasis II",
+      "uploaded": "2026-09-24"
+    },
+    {
+      "artist": "Scott Buckley",
+      "attribution": "Title: \"Katabasis II\"\nArtist: Scott Buckley (https://www.scottbuckley.com.au/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/scottbuckley/katabasis-ii",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "An experimental classical album, exploring the use of a graphical score created by the frottage of a weaving sculpture by Amanda Buckley. Each work on the album respresents an attempt to recreate the rubbing into music in a different way.\n\n'The Weight of Air' was created for an exhibition of the same name, by Amanda Buckley - shown in the Webb Gallery at QCAD (Griffith University, Brisbane) in September/October 2026.",
+      "duration": 411.046,
+      "enrichment": {
+        "genres": [
+          "contemporary classical",
+          "experimental"
+        ],
+        "input_sha256": "66c26474538b92664403eb85f155b36a952a0682b48c140efdcf0b072915107d",
+        "instruments": [
+          "bowed strings",
+          "cello",
+          "string ensemble",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "ominous",
+          "somber",
+          "tense",
+          "uneasy"
+        ],
+        "summary": "A dense string orchestra sustains slow, dissonant chords that swell and recede, creating a dark, tense atmosphere without percussion or a distinct melody.",
+        "texture": [
+          "dense",
+          "dissonant",
+          "layered",
+          "reverberant",
+          "sustained"
+        ]
+      },
+      "genres": [
+        "Classical"
+      ],
+      "id": "scottbuckley:2406710079",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "encoder": "Lavf62.12.100"
+        },
+        "license_source": "https://www.scottbuckley.com.au/",
+        "soundcloud_license": "cc-by",
+        "tags": [
+          "neoclassical",
+          "string orchestra"
+        ],
+        "uploader": "Scott Buckley",
+        "uploader_url": "https://soundcloud.com/scottbuckley"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "588a0c860ed23e5d5de1b1bf0666ce390339819ce575dda153a2d0b38b6c087a",
+        "source_sha256": "e7945feea59476b315119575f0543b4d8b57f47750e272599346fe2871a1f34c",
+        "start": 244.0
+      },
+      "source": "scottbuckley",
+      "source_id": "2406710079",
+      "source_url": "https://soundcloud.com/scottbuckley/katabasis-ii",
+      "tags": [
+        "Classical",
+        "neoclassical",
+        "string orchestra"
+      ],
+      "title": "Katabasis II",
+      "uploaded": "2026-09-24"
+    },
+    {
+      "artist": "Tanner Helland",
+      "attribution": "Title: \"A Memory Away\"\nArtist: Tanner Helland (https://tannerhelland.com/music.html)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://raw.githubusercontent.com/tannerhelland/free-music/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/A%20Memory%20Away.mp3",
+      "bpm": null,
+      "composer": "Tanner Helland",
+      "copyright_holder": "©2010 Tanner Helland",
+      "description": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+      "duration": 125.5,
+      "enrichment": {
+        "genres": [
+          "instrumental rock",
+          "rock"
+        ],
+        "input_sha256": "d316d1b4bda6c80601d24b85356b3132ce752cb3c59842cc721739c386a5933f",
+        "instruments": [
+          "bass guitar",
+          "drums",
+          "electric guitar"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "driving",
+          "energetic",
+          "triumphant",
+          "uplifting"
+        ],
+        "summary": "A distorted electric guitar plays a soaring, sustained melody over a driving rock rhythm of punchy drums and bass, creating an energetic, anthemic instrumental.",
+        "texture": [
+          "distorted",
+          "layered",
+          "punchy",
+          "sustained"
+        ]
+      },
+      "genres": [
+        "Game"
+      ],
+      "id": "tannerhelland:mp3/A Memory Away.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Songs from an American Video Game",
+          "album_artist": "Tanner Helland",
+          "artist": "Tanner Helland",
+          "band": "Tanner Helland",
+          "comment": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+          "composer": "Tanner Helland",
+          "copyright": "©2010 Tanner Helland",
+          "copyright message": "©2010 Tanner Helland",
+          "date": "2010",
+          "encoder": "LAME3.98r",
+          "genre": "Game",
+          "original artist(s)": "Tanner Helland",
+          "title": "A Memory Away",
+          "tope": "Tanner Helland"
+        },
+        "collections": [
+          {
+            "name": "mp3",
+            "url": "https://github.com/tannerhelland/free-music/tree/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3"
+          }
+        ],
+        "commit": "f6bfe16f49feab2181075ab86b13b24740592aa6",
+        "creator_url": "https://tannerhelland.com/music.html",
+        "path": "mp3/A Memory Away.mp3",
+        "repository": "tannerhelland/free-music"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "b1ce21a7892b439e0da295cd17e3258374209ec8b994a34cad529cb5eee40d1f",
+        "source_sha256": "7f2bd5e82609bc8de59896547c000ae2058de4a7e0dead57a0a347ef3b49588f",
+        "start": 52.0
+      },
+      "source": "tannerhelland",
+      "source_id": "mp3/A Memory Away.mp3",
+      "source_url": "https://github.com/tannerhelland/free-music/blob/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/A%20Memory%20Away.mp3",
+      "tags": [
+        "mp3"
+      ],
+      "title": "A Memory Away",
+      "uploaded": null
+    },
+    {
+      "artist": "Tanner Helland",
+      "attribution": "Title: \"Assault on Mist Castle\"\nArtist: Tanner Helland (https://tannerhelland.com/music.html)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://raw.githubusercontent.com/tannerhelland/free-music/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Assault%20on%20Mist%20Castle.mp3",
+      "bpm": null,
+      "composer": "Tanner Helland",
+      "copyright_holder": "©2010 Tanner Helland",
+      "description": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+      "duration": 160.75,
+      "enrichment": {
+        "genres": [
+          "chiptune",
+          "electronic"
+        ],
+        "input_sha256": "0b0b5374f3459144058ec80250335ee0406993ebc3dac385c7883b7e0c6e56d3",
+        "instruments": [
+          "drum machine",
+          "electronic drums",
+          "synth bass",
+          "synth lead"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "energetic",
+          "playful",
+          "tense",
+          "urgent"
+        ],
+        "summary": "A brisk retro video game track drives forward with a buzzy synth bass, punchy drum machine beats, and bright chiptune-style lead melodies over a steady electronic groove.",
+        "texture": [
+          "bright",
+          "buzzy",
+          "dense",
+          "driving",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Game"
+      ],
+      "id": "tannerhelland:mp3/Assault on Mist Castle.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Tanner Helland (dot) Com Original",
+          "album_artist": "Tanner Helland",
+          "artist": "Tanner Helland",
+          "comment": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+          "composer": "Tanner Helland",
+          "copyright": "©2010 Tanner Helland",
+          "copyright message": "©2010 Tanner Helland",
+          "date": "2010",
+          "encoder": "LAME3.98r",
+          "genre": "Game",
+          "original artist(s)": "Tanner Helland",
+          "title": "Assault on Mist Castle",
+          "tope": "Tanner Helland"
+        },
+        "collections": [
+          {
+            "name": "mp3",
+            "url": "https://github.com/tannerhelland/free-music/tree/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3"
+          }
+        ],
+        "commit": "f6bfe16f49feab2181075ab86b13b24740592aa6",
+        "creator_url": "https://tannerhelland.com/music.html",
+        "path": "mp3/Assault on Mist Castle.mp3",
+        "repository": "tannerhelland/free-music"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "825af2958aa13676958c5084fa47e76960a753664deb507c94640c7b4338beb0",
+        "source_sha256": "1efa5fecf62f3c026e5fa5c1c3a289d1a79fc3ee45fa9137dedc2ec2b2860428",
+        "start": 97.0
+      },
+      "source": "tannerhelland",
+      "source_id": "mp3/Assault on Mist Castle.mp3",
+      "source_url": "https://github.com/tannerhelland/free-music/blob/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Assault%20on%20Mist%20Castle.mp3",
+      "tags": [
+        "mp3"
+      ],
+      "title": "Assault on Mist Castle",
+      "uploaded": null
+    },
+    {
+      "artist": "Tanner Helland",
+      "attribution": "Title: \"Carol of the Bells\"\nArtist: Tanner Helland (https://tannerhelland.com/music.html)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://raw.githubusercontent.com/tannerhelland/free-music/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Carol%20of%20the%20Bells%20%28Christmas%29.mp3",
+      "bpm": null,
+      "composer": "Mykola Leontovych",
+      "copyright_holder": "©2010 Tanner Helland",
+      "description": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+      "duration": 129.845986,
+      "enrichment": {
+        "genres": [
+          "electronic",
+          "heavy metal",
+          "rock"
+        ],
+        "input_sha256": "52662e7a9d35857e6a2e9b317cf11b5bb406973e806f3cca30b035d149fb1989",
+        "instruments": [
+          "bass guitar",
+          "drum kit",
+          "electric guitar",
+          "synth lead",
+          "synth pad"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "energetic",
+          "festive",
+          "intense",
+          "triumphant",
+          "urgent"
+        ],
+        "summary": "A brisk rock arrangement pairs a bright, rapid synth lead with distorted electric guitar power chords, punchy bass, and a tight drum kit for urgent, festive energy.",
+        "texture": [
+          "bright",
+          "dense",
+          "distorted",
+          "driving",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Holiday"
+      ],
+      "id": "tannerhelland:mp3/Carol of the Bells (Christmas).mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Tanner Helland (dot) Com Remix",
+          "album_artist": "Tanner Helland",
+          "artist": "Tanner Helland",
+          "comment": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+          "composer": "Mykola Leontovych",
+          "copyright": "©2010 Tanner Helland",
+          "copyright message": "©2011 Tanner Helland",
+          "date": "2010",
+          "encoder": "LAME3.98r",
+          "genre": "Holiday",
+          "original artist(s)": "Tanner Helland",
+          "title": "Carol of the Bells"
+        },
+        "collections": [
+          {
+            "name": "mp3",
+            "url": "https://github.com/tannerhelland/free-music/tree/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3"
+          }
+        ],
+        "commit": "f6bfe16f49feab2181075ab86b13b24740592aa6",
+        "creator_url": "https://tannerhelland.com/music.html",
+        "path": "mp3/Carol of the Bells (Christmas).mp3",
+        "repository": "tannerhelland/free-music"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "b46007f1d7c1f64d5abd455a05662c4862106d7822b7758f89c945e43bb885f4",
+        "source_sha256": "49da3a6863884e343c376e1a7219c326f204aea742a4eb1e984991909286751b",
+        "start": 94.0
+      },
+      "source": "tannerhelland",
+      "source_id": "mp3/Carol of the Bells (Christmas).mp3",
+      "source_url": "https://github.com/tannerhelland/free-music/blob/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Carol%20of%20the%20Bells%20%28Christmas%29.mp3",
+      "tags": [
+        "mp3"
+      ],
+      "title": "Carol of the Bells",
+      "uploaded": null
+    },
+    {
+      "artist": "Tanner Helland",
+      "attribution": "Title: \"Clowns\"\nArtist: Tanner Helland (https://tannerhelland.com/music.html)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://raw.githubusercontent.com/tannerhelland/free-music/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Clowns.mp3",
+      "bpm": null,
+      "composer": "Tanner Helland",
+      "copyright_holder": "©2010 Tanner Helland",
+      "description": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+      "duration": 144.585964,
+      "enrichment": {
+        "genres": [
+          "chiptune",
+          "electronic",
+          "rock",
+          "video game music"
+        ],
+        "input_sha256": "b4b6b5c2ba5c2b24eae57ca56bc304e699448ba084970d714e0acc606defe0e3",
+        "instruments": [
+          "bass",
+          "drums",
+          "electric guitar",
+          "synth"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "energetic",
+          "intense",
+          "triumphant",
+          "urgent"
+        ],
+        "summary": "A brisk, driving rock groove pairs distorted electric guitar power chords with bright, rapid chiptune synth arpeggios over punchy drums and bass.",
+        "texture": [
+          "bright",
+          "dense",
+          "distorted",
+          "driving",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Game"
+      ],
+      "id": "tannerhelland:mp3/Clowns.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Tanner Helland (dot) Com Original",
+          "album_artist": "Tanner Helland",
+          "artist": "Tanner Helland",
+          "comment": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+          "composer": "Tanner Helland",
+          "copyright": "©2010 Tanner Helland",
+          "date": "2010",
+          "encoder": "LAME3.98r",
+          "genre": "Game",
+          "title": "Clowns",
+          "tope": "Tanner Helland"
+        },
+        "collections": [
+          {
+            "name": "mp3",
+            "url": "https://github.com/tannerhelland/free-music/tree/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3"
+          }
+        ],
+        "commit": "f6bfe16f49feab2181075ab86b13b24740592aa6",
+        "creator_url": "https://tannerhelland.com/music.html",
+        "path": "mp3/Clowns.mp3",
+        "repository": "tannerhelland/free-music"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "06ec52ed3c85044a5642280bef2e9789c95b5459baa144083eb2a2c911100ef2",
+        "source_sha256": "5654468d39fb6d4d70b6205659dd46982315b30c3424c34f37762071a4db1568",
+        "start": 48.0
+      },
+      "source": "tannerhelland",
+      "source_id": "mp3/Clowns.mp3",
+      "source_url": "https://github.com/tannerhelland/free-music/blob/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Clowns.mp3",
+      "tags": [
+        "mp3"
+      ],
+      "title": "Clowns",
+      "uploaded": null
+    },
+    {
+      "artist": "Tanner Helland",
+      "attribution": "Title: \"Crossroads\"\nArtist: Tanner Helland (https://tannerhelland.com/music.html)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://raw.githubusercontent.com/tannerhelland/free-music/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Crossroads.mp3",
+      "bpm": null,
+      "composer": "Tanner Helland",
+      "copyright_holder": "",
+      "description": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+      "duration": 241.95,
+      "enrichment": {
+        "genres": [
+          "chiptune",
+          "electronic",
+          "video game music"
+        ],
+        "input_sha256": "a8aba82ff905d895bffb69b8f8d36e5363fbe443d57c29858aeeaf087f11f0a0",
+        "instruments": [
+          "electronic drums",
+          "synth bass",
+          "synth lead"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "driving",
+          "energetic",
+          "joyful",
+          "upbeat",
+          "urgent"
+        ],
+        "summary": "A bright, buzzy synth lead plays a fast melody over a pulsing synth bass and a driving four-on-the-floor electronic drum beat, giving an energetic retro video game feel.",
+        "texture": [
+          "bright",
+          "buzzy",
+          "dense",
+          "driving",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Game"
+      ],
+      "id": "tannerhelland:mp3/Crossroads.mp3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Songs from an American Video Game",
+          "album_artist": "Tanner Helland",
+          "artist": "Tanner Helland",
+          "comment": "Downloaded from www.tannerhelland.com and licensed under a Creative Commons Attribution-Share Alike 3.0 United States License",
+          "composer": "Tanner Helland",
+          "copyright message": "©2010 Tanner Helland",
+          "date": "2010",
+          "encoder": "LAME3.98r",
+          "genre": "Game",
+          "original artist(s)": "Tanner Helland",
+          "title": "Crossroads"
+        },
+        "collections": [
+          {
+            "name": "mp3",
+            "url": "https://github.com/tannerhelland/free-music/tree/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3"
+          }
+        ],
+        "commit": "f6bfe16f49feab2181075ab86b13b24740592aa6",
+        "creator_url": "https://tannerhelland.com/music.html",
+        "path": "mp3/Crossroads.mp3",
+        "repository": "tannerhelland/free-music"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "723ee711865ae0154124274eb187b4ed9323ff481d6db69ff47e4bd4b6bfb300",
+        "source_sha256": "64ed14585e8fb03ff2a704a2751d3c60c65f9599b3de3976e59782e898a51dda",
+        "start": 156.0
+      },
+      "source": "tannerhelland",
+      "source_id": "mp3/Crossroads.mp3",
+      "source_url": "https://github.com/tannerhelland/free-music/blob/f6bfe16f49feab2181075ab86b13b24740592aa6/mp3/Crossroads.mp3",
+      "tags": [
+        "mp3"
+      ],
+      "title": "Crossroads",
+      "uploaded": null
+    },
+    {
+      "artist": "Matthew Huffaker",
+      "attribution": "Title: \"As the Smoke Clears\"\nArtist: Matthew Huffaker (https://teknoaxe.com/Link_Code_3.php?q=1&genre=Orchestra)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://teknoaxe.com/direct_download.php?file=As_the_Smoke_Clears.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 87.301225,
+      "enrichment": {
+        "genres": [
+          "soundtrack"
+        ],
+        "input_sha256": "1862225e5efc6c6a6f921c4dd00acfd84b8464368acff0a30f92f0decba29c85",
+        "instruments": [
+          "cello",
+          "orchestra",
+          "strings",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "melancholic",
+          "somber",
+          "yearning"
+        ],
+        "summary": "Sustained orchestral strings play a slow, mournful melody with sweeping swells and rich chordal backing, creating a dramatic, cinematic, and plaintive atmosphere.",
+        "texture": [
+          "layered",
+          "lush",
+          "reverberant",
+          "sweeping"
+        ]
+      },
+      "genres": [
+        "Drama",
+        "Orchestra"
+      ],
+      "id": "teknoaxe:1",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "filename": "As_the_Smoke_Clears.mp3",
+        "license_source": "https://teknoaxe.com/Link_Code_3.php?q=1&genre=Orchestra"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "2d09290ea75369c7ea90d557a07afc4fe7df00108416dd812cf469cecb39d6aa",
+        "source_sha256": "02f5da2448375931d6c55665c703cca00acf8e9450d8eaefee13eb72bde281f3",
+        "start": 1.0
+      },
+      "source": "teknoaxe",
+      "source_id": "1",
+      "source_url": "https://teknoaxe.com/Link_Code_3.php?q=1&genre=Orchestra",
+      "tags": [
+        "Drama",
+        "Orchestra"
+      ],
+      "title": "As the Smoke Clears",
+      "uploaded": null
+    },
+    {
+      "artist": "Matthew Huffaker",
+      "attribution": "Title: \"Shadow Nights mod 1\"\nArtist: Matthew Huffaker (https://teknoaxe.com/Link_Code_3.php?q=2&genre=Techno)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://teknoaxe.com/direct_download.php?file=Shadow_Nights_Mod_.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 258.638375,
+      "enrichment": {
+        "genres": [],
+        "input_sha256": "b9f6b442af0f9d8a0d74aa00b61267e13f94d4f41f586603e12ddc2ffd8d5613",
+        "instruments": [
+          "drum machine",
+          "synth bass",
+          "synth pad"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "driving",
+          "energetic",
+          "tense"
+        ],
+        "summary": "A gritty, distorted synth bass riff drives beneath a fast, punchy breakbeat and a soft atmospheric pad, forming a dark, energetic electronic groove.",
+        "texture": [
+          "distorted",
+          "gritty",
+          "layered",
+          "punchy"
+        ]
+      },
+      "genres": [
+        "Breakbeats",
+        "Downtempo",
+        "Techno"
+      ],
+      "id": "teknoaxe:2",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "filename": "Shadow_Nights_Mod_.mp3",
+        "license_source": "https://teknoaxe.com/Link_Code_3.php?q=2&genre=Techno"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "be56ac52669a4576aa99ed713e2db86e772f9fd789d31450f276344559ed7428",
+        "source_sha256": "70960e2c0101d5082883b76b42d3be4220b18227820779892dde2e9650b74056",
+        "start": 78.0
+      },
+      "source": "teknoaxe",
+      "source_id": "2",
+      "source_url": "https://teknoaxe.com/Link_Code_3.php?q=2&genre=Techno",
+      "tags": [
+        "Breakbeats",
+        "Downtempo",
+        "Techno"
+      ],
+      "title": "Shadow Nights mod 1",
+      "uploaded": null
+    },
+    {
+      "artist": "Matthew Huffaker",
+      "attribution": "Title: \"Crisp Dawn\"\nArtist: Matthew Huffaker (https://teknoaxe.com/Link_Code_3.php?q=3&genre=Orchestra)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://teknoaxe.com/direct_download.php?file=Crisp_Dawn.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 48.0392,
+      "enrichment": {
+        "genres": [
+          "cinematic"
+        ],
+        "input_sha256": "df6743616993756b78d5345771f379cdcfcab2c861c9fb114e43256e71c0b2d3",
+        "instruments": [
+          "percussion",
+          "strings",
+          "timpani"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dark",
+          "dramatic",
+          "ominous",
+          "tense"
+        ],
+        "summary": "Sustained orchestral strings carry a dark, tense melody punctuated by heavy, booming percussion hits, building a dramatic and ominous suspenseful atmosphere.",
+        "texture": [
+          "booming",
+          "dense",
+          "layered",
+          "reverberant",
+          "sustained"
+        ]
+      },
+      "genres": [
+        "Orchestra",
+        "Suspense"
+      ],
+      "id": "teknoaxe:3",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "filename": "Crisp_Dawn.mp3",
+        "license_source": "https://teknoaxe.com/Link_Code_3.php?q=3&genre=Orchestra"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "c43fac7c9d6770b76f1d3acfa8c4973a1af6325d8fb3ff581d948504fbda6634",
+        "source_sha256": "b8cc25a5cbd3e6867fb33938d9acb8c9e6d74403ce6ea9f07c918203850acb69",
+        "start": 21.0
+      },
+      "source": "teknoaxe",
+      "source_id": "3",
+      "source_url": "https://teknoaxe.com/Link_Code_3.php?q=3&genre=Orchestra",
+      "tags": [
+        "Orchestra",
+        "Suspense"
+      ],
+      "title": "Crisp Dawn",
+      "uploaded": null
+    },
+    {
+      "artist": "Matthew Huffaker",
+      "attribution": "Title: \"Super Hero\"\nArtist: Matthew Huffaker (https://teknoaxe.com/Link_Code_3.php?q=4&genre=Orchestra)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://teknoaxe.com/direct_download.php?file=Superhero_Rev_1.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 44.120825,
+      "enrichment": {
+        "genres": [
+          "cinematic",
+          "orchestral"
+        ],
+        "input_sha256": "e7843c16a4c9ca11af1c173a8ff08516b488a6f0468d15af1db8c737afeb6f60",
+        "instruments": [
+          "brass",
+          "percussion",
+          "strings",
+          "timpani"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "heroic",
+          "tense",
+          "urgent"
+        ],
+        "summary": "A driving orchestral action cue features sweeping strings, bold brass fanfares, and pounding timpani building urgent cinematic tension.",
+        "texture": [
+          "dense",
+          "layered",
+          "powerful",
+          "reverberant"
+        ]
+      },
+      "genres": [
+        "Action",
+        "Orchestra"
+      ],
+      "id": "teknoaxe:4",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "filename": "Superhero_Rev_1.mp3",
+        "license_source": "https://teknoaxe.com/Link_Code_3.php?q=4&genre=Orchestra"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "1a8ef1923aec2a72b3ae3c4163c2d34730792e929adb5b2cf2f0127e5fec8387",
+        "source_sha256": "dcd184ac390f896491e651dbd26d53ce0a6aaa56fae02f4d0244eb1df8c21292",
+        "start": 8.0
+      },
+      "source": "teknoaxe",
+      "source_id": "4",
+      "source_url": "https://teknoaxe.com/Link_Code_3.php?q=4&genre=Orchestra",
+      "tags": [
+        "Action",
+        "Orchestra"
+      ],
+      "title": "Super Hero",
+      "uploaded": null
+    },
+    {
+      "artist": "Matthew Huffaker",
+      "attribution": "Title: \"The Persecution of Tom\"\nArtist: Matthew Huffaker (https://teknoaxe.com/Link_Code_3.php?q=5&genre=Techno)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://teknoaxe.com/direct_download.php?file=The_Persecution_of_Tom.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "",
+      "duration": 170.031025,
+      "enrichment": {
+        "genres": [],
+        "input_sha256": "056079629af25d56f004f171ba0a351fba1dbe68a3aff4abeaf5931c39c1d7ee",
+        "instruments": [
+          "drum machine",
+          "percussion",
+          "spoken vocal sample",
+          "synth bass",
+          "synth chords"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "driving",
+          "eerie",
+          "hypnotic",
+          "tense"
+        ],
+        "summary": "A chopped spoken-word sample repeats over a punchy breakbeat, deep synth bass, and bright sustained synth chords, forming a hypnotic, mid-tempo electronic groove.",
+        "texture": [
+          "bright chords",
+          "dry vocal",
+          "layered",
+          "punchy",
+          "repetitive"
+        ]
+      },
+      "genres": [
+        "Breakbeats",
+        "Downtempo",
+        "Techno"
+      ],
+      "id": "teknoaxe:5",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "filename": "The_Persecution_of_Tom.mp3",
+        "license_source": "https://teknoaxe.com/Link_Code_3.php?q=5&genre=Techno"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "e350073d475bfd2fb6b20263280cec2c39a6bbb3148737c51902d6e3fe064561",
+        "source_sha256": "c49d9f60cf910a97e85d30a7312c875b3a197091f7d42e5f93bdf90cb75758b8",
+        "start": 75.0
+      },
+      "source": "teknoaxe",
+      "source_id": "5",
+      "source_url": "https://teknoaxe.com/Link_Code_3.php?q=5&genre=Techno",
+      "tags": [
+        "Breakbeats",
+        "Downtempo",
+        "Techno"
+      ],
+      "title": "The Persecution of Tom",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Beek",
+      "attribution": "Title: \"Silly Duck 8bit\"\nArtist: Tim Beek (https://timbeek.com/royalty-free-music/silly-duck-8bit)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://timbeek-r2-preview.tim-beek666.workers.dev/cc-downloads/447bd773-62f8-445c-b693-57a8c7906c1c/15017835-40d9-4126-a9d2-f74adb9655c6/silly-duck-8bit.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A song about a silly duck being silly. This is the 8Bit version.",
+      "duration": 120.059,
+      "enrichment": {
+        "genres": [
+          "chiptune",
+          "video game music"
+        ],
+        "input_sha256": "fe9fcd5e30135f78678677ef1c1d7de4de5469f805773106aab45a0b572e42f9",
+        "instruments": [
+          "electronic percussion",
+          "synth bass",
+          "synth lead"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "playful"
+        ],
+        "summary": "A brisk chiptune melody on bright square-wave synths bounces over a simple bassline and crisp noise percussion, creating a playful, cartoonish video-game atmosphere.",
+        "texture": [
+          "8-bit",
+          "bouncy",
+          "bright",
+          "dry",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Electronic"
+      ],
+      "id": "timbeek:447bd773-62f8-445c-b693-57a8c7906c1c",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "artist": "Tim Beek"
+        },
+        "creator_url": "https://timbeek.com/",
+        "license_offering": "cc_and_premium",
+        "license_source": "https://timbeek.com/q-and-a",
+        "loopable": false,
+        "pack": null
+      },
+      "moods": [
+        "Cute",
+        "Humorous"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "8c163cbe657eae07cea0ddd8f0f1d85a6bc471727d01785b5d704aab1a608026",
+        "source_sha256": "8ace5f05c468231d9b32846c635b2bcc7145ff0c1e22198b4df52e1a4f3e107b",
+        "start": 26.0
+      },
+      "source": "timbeek",
+      "source_id": "447bd773-62f8-445c-b693-57a8c7906c1c",
+      "source_url": "https://timbeek.com/royalty-free-music/silly-duck-8bit",
+      "tags": [
+        "Cute",
+        "Electronic",
+        "Humorous"
+      ],
+      "title": "Silly Duck 8bit",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Beek",
+      "attribution": "Title: \"Unicorn\"\nArtist: Tim Beek (https://timbeek.com/royalty-free-music/unicorn)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://timbeek-r2-preview.tim-beek666.workers.dev/cc-downloads/4bd7b4f5-4e07-4266-8d8b-a268c37347c0/bd3cf4a0-897f-4b16-bcef-08d886d5bfe3/unicorn.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A cute electronic song",
+      "duration": 30.067,
+      "enrichment": {
+        "genres": [
+          "dance"
+        ],
+        "input_sha256": "f67bcf1acec45a8187603d3329a24ea91ee45453d7632360b753a1695c28a2c5",
+        "instruments": [
+          "electronic drums",
+          "percussion",
+          "synth",
+          "synth bass"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "happy",
+          "lighthearted",
+          "playful",
+          "upbeat"
+        ],
+        "summary": "A bright, plucky synth melody dances over a steady four-on-the-floor electronic beat and warm bass, creating a cheerful, playful dance groove.",
+        "texture": [
+          "bouncy",
+          "bright",
+          "clean",
+          "layered"
+        ]
+      },
+      "genres": [
+        "Electronic"
+      ],
+      "id": "timbeek:4bd7b4f5-4e07-4266-8d8b-a268c37347c0",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "creator_url": "https://timbeek.com/",
+        "license_offering": "cc_and_premium",
+        "license_source": "https://timbeek.com/q-and-a",
+        "loopable": false,
+        "pack": null
+      },
+      "moods": [
+        "Cute"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "56a90dff84a15bfe8dd0dffa40eddec29230954b8de4bef8a0c3e3b446df63da",
+        "source_sha256": "bf2391066fd836b5c5efc13a0ccdfb89e8b6bb476b925a995e4cf21ee375f739",
+        "start": 0.0
+      },
+      "source": "timbeek",
+      "source_id": "4bd7b4f5-4e07-4266-8d8b-a268c37347c0",
+      "source_url": "https://timbeek.com/royalty-free-music/unicorn",
+      "tags": [
+        "Cute",
+        "Electronic"
+      ],
+      "title": "Unicorn",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Beek",
+      "attribution": "Title: \"In the Hall of the Mountain King Synth\"\nArtist: Tim Beek (https://timbeek.com/royalty-free-music/in-the-hall-of-the-mountain-king-synth)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://timbeek-r2-preview.tim-beek666.workers.dev/cc-downloads/5f629bfd-fa66-4a9f-9954-e333091572ec/a248790e-5870-4e62-8dab-1b3ba8ebf640/in-the-hall-of-the-mountain-king-synth.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "This is a synth version of In the Hall of the Mountain King. It was made for a videogame.\n\nSynth, meaning electronic instruments.",
+      "duration": 152.216,
+      "enrichment": {
+        "genres": [],
+        "input_sha256": "b1ba067ccb3f6105761c6666d5c1c0f2ab2587de279f3f8075639d0e10d6a0c8",
+        "instruments": [
+          "drums",
+          "synth",
+          "synth bass"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "tense"
+        ],
+        "summary": "A staccato synth lead traces a creeping, mischievous melody over a pulsing synth bass, joined by crisp electronic drums as the arrangement thickens into a dark, driving groove.",
+        "texture": [
+          "layered",
+          "pulsing",
+          "staccato",
+          "synthetic"
+        ]
+      },
+      "genres": [
+        "Electronic"
+      ],
+      "id": "timbeek:5f629bfd-fa66-4a9f-9954-e333091572ec",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "artist": "Tim Beek",
+          "date": "2021",
+          "genre": "Soundtrack"
+        },
+        "creator_url": "https://timbeek.com/",
+        "license_offering": "cc_and_premium",
+        "license_source": "https://timbeek.com/q-and-a",
+        "loopable": false,
+        "pack": null
+      },
+      "moods": [
+        "Dark",
+        "Driving",
+        "Intense"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "53dd94167b7f9a1123caf8ee6eeca4080231a74da2d070f78ab847dab631a97a",
+        "source_sha256": "1312db31c1c321b25e298c45047df6f61967e41fbacbd14fab058ad93c7f2aa9",
+        "start": 14.0
+      },
+      "source": "timbeek",
+      "source_id": "5f629bfd-fa66-4a9f-9954-e333091572ec",
+      "source_url": "https://timbeek.com/royalty-free-music/in-the-hall-of-the-mountain-king-synth",
+      "tags": [
+        "Dark",
+        "Driving",
+        "Electronic",
+        "Intense"
+      ],
+      "title": "In the Hall of the Mountain King Synth",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Beek",
+      "attribution": "Title: \"Tikking Tak\"\nArtist: Tim Beek (https://timbeek.com/royalty-free-music/tikking-tak)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://timbeek-r2-preview.tim-beek666.workers.dev/cc-downloads/bf375254-7bc3-4fb9-9a40-1c5b17ac6af6/c8fa915d-c6db-43aa-9679-98bdef44ab18/tikking-tak.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Made for a game but didn't make it. A cute orchestral track :)",
+      "duration": 35.135,
+      "enrichment": {
+        "genres": [
+          "orchestral"
+        ],
+        "input_sha256": "651220c5b0072411d24293d9215c29ec4021885060344151a239b7036162966b",
+        "instruments": [
+          "brass",
+          "percussion",
+          "strings",
+          "timpani",
+          "woodwinds"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "lighthearted",
+          "playful",
+          "whimsical"
+        ],
+        "summary": "Playful orchestral strings bounce through staccato and pizzicato figures over light woodwind flourishes, punctuated by timpani and percussion hits in a whimsical, lighthearted cinematic cue.",
+        "texture": [
+          "bouncy",
+          "layered",
+          "light",
+          "reverberant",
+          "staccato"
+        ]
+      },
+      "genres": [
+        "Cinematic"
+      ],
+      "id": "timbeek:bf375254-7bc3-4fb9-9a40-1c5b17ac6af6",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {},
+        "creator_url": "https://timbeek.com/",
+        "license_offering": "cc_and_premium",
+        "license_source": "https://timbeek.com/q-and-a",
+        "loopable": false,
+        "pack": null
+      },
+      "moods": [
+        "Cute"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "276b54078ec03494b30139de960ea7740c4a23b1af202058030654bb010daa34",
+        "source_sha256": "3ad6e94de58531be7abcf5b04d7ceef8bf4b7f9e194f23bd732cc4c9d49105a9",
+        "start": 11.0
+      },
+      "source": "timbeek",
+      "source_id": "bf375254-7bc3-4fb9-9a40-1c5b17ac6af6",
+      "source_url": "https://timbeek.com/royalty-free-music/tikking-tak",
+      "tags": [
+        "Cinematic",
+        "Cute"
+      ],
+      "title": "Tikking Tak",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Beek",
+      "attribution": "Title: \"Silly Duck\"\nArtist: Tim Beek (https://timbeek.com/royalty-free-music/silly-duck)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://timbeek-r2-preview.tim-beek666.workers.dev/cc-downloads/f7c6a382-9599-4cca-bd7e-82a49f775b57/67eb711d-79f9-4755-ad9f-4a542a4615a6/silly-duck.mp3",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "A song about a silly duck being silly",
+      "duration": 120.059,
+      "enrichment": {
+        "genres": [
+          "soundtrack"
+        ],
+        "input_sha256": "c002f735a65941ec7392e1780369d35c56f537ae37c7e0abaaad12f822bf6f3c",
+        "instruments": [
+          "bass",
+          "hand percussion",
+          "pizzicato strings",
+          "xylophone"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "cheerful",
+          "playful"
+        ],
+        "summary": "Bouncy pizzicato strings and a bright xylophone melody skip over a walking bass and crisp hand percussion, giving a light, playful, whimsical bounce.",
+        "texture": [
+          "bouncy",
+          "dry",
+          "layered",
+          "light",
+          "sparse"
+        ]
+      },
+      "genres": [
+        "Cinematic"
+      ],
+      "id": "timbeek:f7c6a382-9599-4cca-bd7e-82a49f775b57",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "artist": "Tim Beek"
+        },
+        "creator_url": "https://timbeek.com/",
+        "license_offering": "cc_and_premium",
+        "license_source": "https://timbeek.com/q-and-a",
+        "loopable": false,
+        "pack": null
+      },
+      "moods": [
+        "Cute",
+        "Humorous"
+      ],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "f1953d8e2223338b898cf541e7d495d8c7af53b7b50319e5af63187096319315",
+        "source_sha256": "39b95c38cb0ec9bac3d250d2656aad7b3cbca146c02369684b239e59cfb832db",
+        "start": 38.0
+      },
+      "source": "timbeek",
+      "source_id": "f7c6a382-9599-4cca-bd7e-82a49f775b57",
+      "source_url": "https://timbeek.com/royalty-free-music/silly-duck",
+      "tags": [
+        "Cinematic",
+        "Cute",
+        "Humorous"
+      ],
+      "title": "Silly Duck",
+      "uploaded": null
+    },
+    {
+      "artist": "Tim Kulig",
+      "attribution": "Title: \"A PIece For Trying\"\nArtist: Tim Kulig (https://timkulig.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/timkuligfreemusic/a-piece-for-trying-1",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Cello, strings, quartet, violin, symphony",
+      "duration": 163.311,
+      "enrichment": {
+        "genres": [
+          "classical"
+        ],
+        "input_sha256": "091248914e1ccba387429684a6a0093c6adbaecc1592a619a7bd70f2c01b28e9",
+        "instruments": [
+          "cello",
+          "string ensemble",
+          "viola",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "playful",
+          "tense"
+        ],
+        "summary": "A lively string ensemble alternates crisp plucked notes with sweeping bowed melodies, creating a dramatic, cinematic atmosphere driven by brisk, dancing momentum.",
+        "texture": [
+          "close",
+          "crisp",
+          "layered",
+          "resonant"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "timkulig:2409909648",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Simple Orchestrations",
+          "artist": "Tim Kulig",
+          "comment": "Cello, strings, quartet, violin, symphony",
+          "date": "2026",
+          "encoder": "Lavf62.12.100",
+          "genre": "Cinematic",
+          "title": "A PIece For Trying"
+        },
+        "license_source": "https://timkulig.com/faq",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [
+          "orchestral,cinematic,cello,violin,orchestra,viola,classic,dramatic"
+        ],
+        "uploader": "Tim Kulig Free Music",
+        "uploader_url": "https://soundcloud.com/timkuligfreemusic"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "9cfda512ab93bbb46848846a8a5415b6bc8d9005de045fe20369c0ef48ae3a8c",
+        "source_sha256": "635acfe11eec2d147daaac724b4ebac1128fce663f88cf9e52525a3f243d8c69",
+        "start": 106.0
+      },
+      "source": "timkulig",
+      "source_id": "2409909648",
+      "source_url": "https://soundcloud.com/timkuligfreemusic/a-piece-for-trying-1",
+      "tags": [
+        "Soundtrack",
+        "cello",
+        "cinematic",
+        "classic",
+        "dramatic",
+        "orchestra",
+        "orchestral",
+        "viola",
+        "violin"
+      ],
+      "title": "A PIece For Trying",
+      "uploaded": "2026-09-29"
+    },
+    {
+      "artist": "Tim Kulig",
+      "attribution": "Title: \"Simple Tension - Short\"\nArtist: Tim Kulig (https://timkulig.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
+      "audio_url": "https://soundcloud.com/timkuligfreemusic/simple-tension-short-7",
+      "bpm": null,
+      "composer": "",
+      "copyright_holder": "",
+      "description": "Tension, simple, orchestral, strings, deep, tremolo, sustained",
+      "duration": 118.119,
+      "enrichment": {
+        "genres": [
+          "contemporary classical"
+        ],
+        "input_sha256": "c89d6a190c8140047d0e733fc1b075a127048be4afadb6aa88a0dc0749596e5e",
+        "instruments": [
+          "cello",
+          "double bass",
+          "viola",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "foreboding",
+          "ominous",
+          "suspenseful",
+          "tense"
+        ],
+        "summary": "Low orchestral strings hold a brooding sustained drone while tremolo violins and violas swell above, creating a dark, suspenseful cinematic atmosphere with no percussion or melody.",
+        "texture": [
+          "dark",
+          "dense",
+          "reverberant",
+          "sustained",
+          "tremolo"
+        ]
+      },
+      "genres": [
+        "Soundtrack"
+      ],
+      "id": "timkulig:2409909651",
+      "instruments": [],
+      "isrc": null,
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "metadata": {
+        "audio_tags": {
+          "album": "Simple Orchestrations",
+          "artist": "Tim Kulig",
+          "comment": "Tension, simple, orchestral, strings, deep, tremolo, sustained",
+          "date": "2026",
+          "encoder": "Lavf62.12.100",
+          "genre": "Cinematic"
+        },
+        "license_source": "https://timkulig.com/faq",
+        "soundcloud_license": "all-rights-reserved",
+        "tags": [
+          "orchestral,cinematic,cello,violin,orchestra,viola,classic,dramatic"
+        ],
+        "uploader": "Tim Kulig Free Music",
+        "uploader_url": "https://soundcloud.com/timkuligfreemusic"
+      },
+      "moods": [],
+      "preview": {
+        "duration": 20.0,
+        "sha256": "ef65bb6130d5a539e6709e3a8822addd9d0552fef3173a5be87d8ca718823e82",
+        "source_sha256": "a3709409bd905230081ad0aaf28d2bcfd9b128f69869bff9eb2c9834765a6949",
+        "start": 3.0
+      },
+      "source": "timkulig",
+      "source_id": "2409909651",
+      "source_url": "https://soundcloud.com/timkuligfreemusic/simple-tension-short-7",
+      "tags": [
+        "Soundtrack",
+        "cello",
+        "cinematic",
+        "classic",
+        "dramatic",
+        "orchestra",
+        "orchestral",
+        "viola",
+        "violin"
+      ],
+      "title": "Simple Tension - Short",
+      "uploaded": "2026-09-29"
+    },
+    {
       "artist": "Tim Kulig",
       "attribution": "Title: \"At the Precipice\"\nArtist: Tim Kulig (https://timkulig.com/)\nLicensed under Creative Commons By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/",
       "audio_url": "https://soundcloud.com/timkuligfreemusic/at-the-precipice-3",
@@ -700,6 +4717,38 @@
       "copyright_holder": "",
       "description": "Brass, strings, big, epic, piano, interlude, orchestra, journey",
       "duration": 170.286,
+      "enrichment": {
+        "genres": [
+          "classical",
+          "orchestral"
+        ],
+        "input_sha256": "1ae340b16aef15a4b5c155111982e69f8adf9b8ffe148985628b9d6779b6656a",
+        "instruments": [
+          "brass",
+          "cello",
+          "percussion",
+          "piano",
+          "strings",
+          "timpani",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "epic",
+          "majestic",
+          "tense",
+          "triumphant"
+        ],
+        "summary": "Flowing piano arpeggios drive beneath soaring strings, swelling brass, and rolling percussion in a sweeping, dramatic orchestral surge.",
+        "texture": [
+          "dense",
+          "dynamic",
+          "layered",
+          "reverberant",
+          "sweeping"
+        ]
+      },
       "genres": [
         "Soundtrack"
       ],
@@ -718,7 +4767,7 @@
           "genre": "Cinematic",
           "title": "At the Precipice"
         },
-        "license_source": "https://timkulig.com/",
+        "license_source": "https://timkulig.com/faq",
         "soundcloud_license": "all-rights-reserved",
         "tags": [
           "orchestral,cinematic,cello,violin,orchestra,viola,classic,dramatic"
@@ -730,6 +4779,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "a56b40087dea007ea30f500734e55ba02f0575bcd154942e33d2bdaf2d316944",
+        "source_sha256": "165fff44fb037cc7be898578ae0812fd0642bf77d6e802cf94b1a8cb5fdac97d",
         "start": 145.0
       },
       "source": "timkulig",
@@ -758,6 +4808,34 @@
       "copyright_holder": "",
       "description": "Brass, strings, staccato, walking, marimba, bells, awkward, simple",
       "duration": 190.348,
+      "enrichment": {
+        "genres": [
+          "orchestral"
+        ],
+        "input_sha256": "561ab55826b6fcc1c53ad9790e1803b4ab054201e73228ffab1ed0cfe02d809e",
+        "instruments": [
+          "bells",
+          "brass",
+          "marimba",
+          "percussion",
+          "strings"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "lighthearted",
+          "playful",
+          "quirky"
+        ],
+        "summary": "A brisk orchestral passage of staccato strings, punchy brass, and marimba-like percussion walks with a playful, slightly awkward cinematic bounce.",
+        "texture": [
+          "crisp",
+          "dry",
+          "layered",
+          "punchy",
+          "staccato"
+        ]
+      },
       "genres": [
         "Soundtrack"
       ],
@@ -775,7 +4853,7 @@
           "encoder": "Lavf62.12.100",
           "genre": "Cinematic"
         },
-        "license_source": "https://timkulig.com/",
+        "license_source": "https://timkulig.com/faq",
         "soundcloud_license": "all-rights-reserved",
         "tags": [
           "orchestral,cinematic,cello,violin,orchestra,viola,classic,dramatic"
@@ -787,6 +4865,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "3672c1df19735634eb9ade009f3176776eabb24e13a2124e094b588492bd6abf",
+        "source_sha256": "5f75e1bdf4ff5c6232f4067a186e83cb9c0f97699dee6149233a627cfccdd519",
         "start": 150.0
       },
       "source": "timkulig",
@@ -815,6 +4894,33 @@
       "copyright_holder": "",
       "description": "Strings, bells, discovery, resolve, modern, orchestra",
       "duration": 60.101,
+      "enrichment": {
+        "genres": [],
+        "input_sha256": "c8931a43988656638d5dca069199685e9bc590c8b296c3f64da4c79fe5ae168e",
+        "instruments": [
+          "bells",
+          "cello",
+          "low drone",
+          "strings",
+          "viola",
+          "violin"
+        ],
+        "model": "xiaomi/mimo-v2.6-flash",
+        "moods": [
+          "dramatic",
+          "mysterious",
+          "resolute",
+          "tense"
+        ],
+        "summary": "A sweeping orchestral string section sustains a dramatic, mysterious melody over a low drone, opening with a bright bell strike and swelling into a tense, cinematic climax.",
+        "texture": [
+          "dense",
+          "layered",
+          "reverberant",
+          "sustained",
+          "warm"
+        ]
+      },
       "genres": [
         "Soundtrack"
       ],
@@ -832,7 +4938,7 @@
           "encoder": "Lavf62.12.100",
           "genre": "Cinematic"
         },
-        "license_source": "https://timkulig.com/",
+        "license_source": "https://timkulig.com/faq",
         "soundcloud_license": "all-rights-reserved",
         "tags": [
           "orchestral,cinematic,cello,violin,orchestra,viola,classic,dramatic"
@@ -844,6 +4950,7 @@
       "preview": {
         "duration": 20.0,
         "sha256": "874704eba8b2592844afb1d5306b851c30df888e19aaa7c31a6fcc6bdd012c68",
+        "source_sha256": "281e38b6a5f9ec89b653799168282b1b25124622aafe2a250cb2cc58548a2d63",
         "start": 27.0
       },
       "source": "timkulig",

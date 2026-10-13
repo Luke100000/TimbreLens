@@ -16,7 +16,6 @@ from timbrelens.crawlers.common import (
     read_robots,
     validate_options,
 )
-from timbrelens.files import sha256
 from timbrelens.http import USER_AGENT, CachedHTTP
 from timbrelens.models import Track
 
@@ -129,7 +128,6 @@ def crawl(
 
     tracks = []
     seen_ids = set()
-    seen_recordings = {}
     skipped = 0
 
     with CachedHTTP(cache / source) as http:
@@ -189,22 +187,8 @@ def crawl(
                     track, stream = result
                     audio = get_audio(http, track, stream)
 
-                recording_id = track["isrc"] or sha256(audio)
-
-                # Compilation uploads may have new platform IDs for identical recordings.
-                duplicate = seen_recordings.get(recording_id)
-                if duplicate:
-                    if duplicate["license"] != track["license"]:
-                        raise ValueError(
-                            f"Conflicting Bandcamp licenses for identical audio: {link}"
-                        )
-
-                    duplicate["metadata"]["collections"].extend(track["metadata"]["collections"])
-                    continue
-
                 # Stream URLs end in numeric IDs, so name the archived audio explicitly.
                 prepare_preview(track, audio, previews, http.cache, duration, extension=".mp3")
-                seen_recordings[recording_id] = track
                 tracks.append(track)
 
                 if limit is not None and len(tracks) >= limit:

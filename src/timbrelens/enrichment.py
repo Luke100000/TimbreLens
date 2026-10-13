@@ -2,19 +2,20 @@ import base64
 import hashlib
 import json
 import os
-import sys
 from pathlib import Path
+from threading import Event
 from typing import Annotated, Literal
 
 from diskcache import Cache
 from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
+from tqdm.contrib.concurrent import thread_map
 
 from timbrelens import state as catalog_state
-from timbrelens.files import preview_path
+from timbrelens.files import preview_path, sha256
 
-DEFAULT_MODEL = "google/gemini-3.8-flash"
+DEFAULT_MODEL = "xiaomi/mimo-v2.6-flash"
 
 PROMPT = """Listen to the music excerpt and describe its audible qualities for a
 music catalog's track cards and search.
@@ -70,17 +71,35 @@ class AudioDescription(BaseModel):
     texture: list[Label] = Field(max_length=6)
 
 
+def apply_description(track: dict, result: dict) -> None:
+    description = dict(result)
+    for field in ("genres", "moods", "instruments", "texture"):
+        source_labels = {value.strip().casefold() for value in track.get(field, [])}
+        description[field] = sorted(
+            {
+                value.strip().casefold()
+                for value in result[field]
+                if value.strip() and value.strip().casefold() not in source_labels
+            }
+        )
+
+    track["enrichment"] = description
+
+
 def enrich(
     state: Path,
     model: str | None = None,
     cache: Path = Path(".cache"),
     limit: int | None = None,
     reasoning_effort: Literal["minimal", "none"] = "minimal",
+    workers: int = 32,
 ) -> None:
     if limit is not None and limit <= 0:
         raise ValueError("Track limit must be positive.")
     if reasoning_effort not in ("minimal", "none"):
         raise ValueError("Reasoning effort must be minimal or none.")
+    if workers <= 0:
+        raise ValueError("Worker count must be positive.")
 
     load_dotenv(".env")
     model = model or os.getenv("OPENROUTER_AUDIO_MODEL") or DEFAULT_MODEL
@@ -95,17 +114,15 @@ def enrich(
             "provider": {"require_parameters": True},
         },
     }
-    client = None
     requested = 0
-    reused = 0
     tracks = sorted(catalog["tracks"], key=lambda track: track["id"])[:limit]
 
-    try:
-        with Cache(str(cache / "enrichment")) as store:
-            for index, track in enumerate(tracks, 1):
-                audio = preview_path(track, state).read_bytes()
-                audio_hash = hashlib.sha256(audio).hexdigest()
-
+    with Cache(str(cache / "enrichment")) as store:
+        try:
+            pending = []
+            schema = AudioDescription.model_json_schema()
+            for track in tracks:
+                path = preview_path(track, state)
                 metadata = {
                     field: track.get(field)
                     for field in (
@@ -118,11 +135,11 @@ def enrich(
                 }
                 metadata = json.dumps(metadata, ensure_ascii=False, sort_keys=True, allow_nan=False)
                 inputs = {
-                    "audio_sha256": audio_hash,
+                    "audio_sha256": sha256(path),
                     "audio_format": "mp3",
                     "metadata": metadata,
                     "prompt": PROMPT,
-                    "schema": AudioDescription.model_json_schema(),
+                    "schema": schema,
                     "options": options,
                 }
                 input_hash = hashlib.sha256(
@@ -134,64 +151,76 @@ def enrich(
                     result = old
 
                 if result is None:
-                    if client is None:
-                        key = os.getenv("OPENROUTER_API_KEY")
-                        if not key:
-                            raise ValueError("Set OPENROUTER_API_KEY in the environment or .env.")
-                        client = OpenAI(
-                            api_key=key, base_url="https://openrouter.ai/api/v1", timeout=180
-                        )
-
-                    print(f"[{index}/{len(tracks)}] Enriching {track['title']}", file=sys.stderr)
-
-                    completion = client.chat.completions.parse(
-                        **options,
-                        messages=[
-                            {"role": "system", "content": PROMPT},
-                            {
-                                "role": "user",
-                                "content": [
-                                    {"type": "text", "text": metadata},
-                                    {
-                                        "type": "input_audio",
-                                        "input_audio": {
-                                            "data": base64.b64encode(audio).decode(),
-                                            "format": "mp3",
-                                        },
-                                    },
-                                ],
-                            },
-                        ],
-                        response_format=AudioDescription,
-                    )
-
-                    if not completion.choices or completion.choices[0].message.parsed is None:
-                        raise ValueError(f"No parsed enrichment returned for {track['id']}.")
-
-                    result = {
-                        **completion.choices[0].message.parsed.model_dump(),
-                        "model": model,
-                        "input_sha256": input_hash,
-                    }
-                    requested += 1
-                else:
-                    reused += 1
-
-                for field in ("genres", "moods", "instruments", "texture"):
-                    source_labels = {value.strip().casefold() for value in track.get(field, [])}
-                    result[field] = sorted(
-                        {
-                            value.strip().casefold()
-                            for value in result[field]
-                            if value.strip() and value.strip().casefold() not in source_labels
-                        }
-                    )
+                    pending.append((input_hash, path, metadata, track))
+                    continue
 
                 store[input_hash] = result
-                track["enrichment"] = result
-                catalog_state.save(catalog, state)
-    finally:
-        if client is not None:
-            client.close()
+                apply_description(track, result)
 
-    print(f"Enriched {requested} tracks; reused {reused} cached results.")
+            if pending:
+                key = os.getenv("OPENROUTER_API_KEY")
+                if not key:
+                    raise ValueError("Set OPENROUTER_API_KEY in the environment or .env.")
+
+                stopped = Event()
+                with OpenAI(
+                    api_key=key, base_url="https://openrouter.ai/api/v1", timeout=180
+                ) as client:
+
+                    def describe(item: tuple[str, Path, str, dict]) -> None:
+                        if stopped.is_set():
+                            return
+
+                        input_hash, path, metadata, track = item
+                        try:
+                            audio = path.read_bytes()
+                            completion = client.chat.completions.parse(
+                                **options,
+                                messages=[
+                                    {"role": "system", "content": PROMPT},
+                                    {
+                                        "role": "user",
+                                        "content": [
+                                            {"type": "text", "text": metadata},
+                                            {
+                                                "type": "input_audio",
+                                                "input_audio": {
+                                                    "data": base64.b64encode(audio).decode(),
+                                                    "format": "mp3",
+                                                },
+                                            },
+                                        ],
+                                    },
+                                ],
+                                response_format=AudioDescription,
+                            )
+
+                            if (
+                                not completion.choices
+                                or completion.choices[0].message.parsed is None
+                            ):
+                                raise ValueError(
+                                    f"No parsed enrichment returned for {track['id']}."
+                                )
+
+                            result = {
+                                **completion.choices[0].message.parsed.model_dump(),
+                                "model": model,
+                                "input_sha256": input_hash,
+                            }
+                            # Cache each success immediately; workers never write the catalog.
+                            store[input_hash] = result
+                            apply_description(track, result)
+                        except Exception:
+                            stopped.set()
+                            raise
+
+                    thread_map(
+                        describe, pending, max_workers=workers, desc="Enriching", unit="request"
+                    )
+                requested = len(pending)
+        finally:
+            if tracks:
+                catalog_state.save(catalog, state)
+
+    print(f"Enriched {requested} tracks; reused {len(tracks) - requested} cached results.")

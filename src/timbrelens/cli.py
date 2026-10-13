@@ -45,9 +45,10 @@ def enrich(
     cache: Path = Path(".cache"),
     limit: int | None = None,
     reasoning_effort: Literal["minimal", "none"] = "minimal",
+    workers: int = 32,
 ):
     """Enrich track metadata through OpenRouter."""
-    enrichment.enrich(state, model, cache, limit, reasoning_effort)
+    enrichment.enrich(state, model, cache, limit, reasoning_effort, workers)
 
 
 @app.command

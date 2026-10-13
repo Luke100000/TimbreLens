@@ -15,7 +15,7 @@ uv sync
 npm ci
 ```
 
-Set `OPENROUTER_API_KEY` in `.env` or the environment for enrichment. Override the default `google/gemini-3.8-flash`
+Set `OPENROUTER_API_KEY` in `.env` or the environment for enrichment. Override the default `xiaomi/mimo-v2.6-flash`
 model with `--model` or `OPENROUTER_AUDIO_MODEL`.
 
 ## Commands
@@ -45,7 +45,11 @@ uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
 uv run timbrelens --help
 ```
 
-`evaluate` writes model comparisons to `evaluation.md`.
+`evaluate` writes model comparisons to `data/evaluation.md`.
+
+Crawling groups byte-identical original audio into one catalog entry, keeping the other source records in
+`duplicates`. The entry with the first ID alphabetically supplies the displayed metadata; each source's links,
+credits, and license remain available in the catalog and local originals. Different encodings stay separate.
 
 ## GitHub Pages
 
