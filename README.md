@@ -53,7 +53,7 @@ credits, and license remain available in the catalog and local originals. Differ
 
 ## GitHub Pages
 
-Pushes to `main` run the [Pages workflow](.github/workflows/pages.yml), which exports and deploys `dist/`. Prepare the
+Pushes to `master` run the [Pages workflow](.github/workflows/pages.yml), which exports and deploys `dist/`. Prepare the
 catalog, previews, and embeddings locally and include them in the checkout. Originals stay local.
 
 ## Checks
