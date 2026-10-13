@@ -1,11 +1,12 @@
 # TimbreLens
 
-Static music search with an offline Python pipeline.
+**[Open TimbreLens](https://luke100000.github.io/TimbreLens/)** to search music by keywords, mood, instruments, or
+similar tracks.
 
-The [Music sources page](site/sources.html) lists collected artists and libraries, their licenses, original websites,
-and collection links, plus larger catalogs to browse directly.
+The [Music sources page](https://luke100000.github.io/TimbreLens/sources.html) lists collected artists and libraries,
+plus larger external catalogs.
 
-## Setup
+## Local setup
 
 Requires Python 3.13+, [uv](https://docs.astral.sh/uv/), FFmpeg/ffprobe, and Node.js 20+. Run commands from the repo
 root. `uv sync` installs [yt-dlp](https://github.com/yt-dlp/yt-dlp) and the other Python dependencies.
@@ -48,13 +49,13 @@ uv run timbrelens --help
 `evaluate` writes model comparisons to `data/evaluation.md`.
 
 Crawling groups byte-identical original audio into one catalog entry, keeping the other source records in
-`duplicates`. The entry with the first ID alphabetically supplies the displayed metadata; each source's links,
-credits, and license remain available in the catalog and local originals. Different encodings stay separate.
+`duplicates`. The entry with the first ID alphabetically supplies the displayed metadata; each source's links, credits,
+and license remain available in the catalog and local originals. Different encodings stay separate.
 
 ## GitHub Pages
 
-Pushes to `master` run the [Pages workflow](.github/workflows/pages.yml), which exports and deploys `dist/`. Prepare the
-catalog, previews, and embeddings locally and include them in the checkout. Originals stay local.
+Pushes to `master` run the [Pages workflow](.github/workflows/pages.yml), which exports and deploys the site.
+Commit the catalog, previews and embeddings. Set the Pages source to **GitHub Actions**.
 
 ## Checks
 

@@ -5,46 +5,37 @@ on:
     branches: [master]
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
           cache: npm
-      - name: Install search index builder
-        run: npm ci
+      - run: npm ci
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
-      - name: Install CLI
-        run: python -m pip install .
-      - name: Export static artifacts
-        run: timbrelens export --output dist
+      - run: python -m pip install .
+      - name: Export site
+        run: timbrelens export
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
