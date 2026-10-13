@@ -1,11 +1,15 @@
 import math
 from pathlib import Path
 from urllib.parse import parse_qs, urljoin, urlsplit
-from urllib.robotparser import RobotFileParser
 
 from bs4 import BeautifulSoup, Tag
 
-from timbrelens.crawlers.common import prepare_previews, validate_options
+from timbrelens.crawlers.common import (
+    licensed_track,
+    prepare_previews,
+    read_robots,
+    validate_options,
+)
 from timbrelens.http import USER_AGENT, CachedHTTP
 from timbrelens.models import Track
 
@@ -37,52 +41,56 @@ def map_track(row: Tag) -> Track:
     if bpm is not None and (not math.isfinite(bpm) or bpm <= 0):
         bpm = None
 
-    return {
-        "id": f"creatorchords:{source_id}",
-        "source": "creatorchords",
-        "source_id": source_id,
-        "source_url": urljoin(BASE, str(link["href"])),
-        "audio_url": urljoin(BASE, str(row["data-src"])),
-        "title": title,
-        "artist": ARTIST,
-        "composer": ARTIST,
-        "copyright_holder": ARTIST,
-        "description": "",
-        "tags": sorted(genres | moods),
-        "genres": sorted(genres),
-        "moods": sorted(moods),
-        "instruments": [],
-        "isrc": None,
-        "uploaded": None,
-        "duration": duration,
-        "bpm": bpm,
-        "license": "CC-BY-4.0",
-        "license_url": LICENSE,
-        "attribution": (
-            f"Music: {title} by {ARTIST} (https://creatorchords.com)\n"
-            "Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\n"
-            f"{LICENSE}"
-        ),
-        "metadata": {
-            "id": source_id,
-            "title": title,
-            "bpm": str(row["data-bpm"]),
-            "duration": str(row["data-dur"]),
+    track = licensed_track(
+        "creatorchords",
+        source_id,
+        title,
+        ARTIST,
+        urljoin(BASE, str(link["href"])),
+        urljoin(BASE, str(row["data-src"])),
+        LICENSE,
+    )
+    track.update(
+        {
+            "composer": ARTIST,
+            "copyright_holder": ARTIST,
+            "tags": sorted(genres | moods),
             "genres": sorted(genres),
             "moods": sorted(moods),
-        },
-    }
+            "duration": duration,
+            "bpm": bpm,
+            "attribution": (
+                f"Music: {title} by {ARTIST} (https://creatorchords.com)\n"
+                "Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0)\n"
+                f"{LICENSE}"
+            ),
+            "metadata": {
+                "id": source_id,
+                "title": title,
+                "bpm": str(row["data-bpm"]),
+                "duration": str(row["data-dur"]),
+                "genres": sorted(genres),
+                "moods": sorted(moods),
+            },
+        }
+    )
+
+    return track
 
 
 def catalog(http: CachedHTTP, refresh: bool = False) -> list[Track]:
     age = 0 if refresh else 86400
-    robots = RobotFileParser()
-    robots.parse(http.get(BASE + "robots.txt", age).read_text().splitlines())
+    robots = read_robots(http, BASE, age)
 
     tracks = []
     seen = set()
+    pages = set()
     url = LIBRARY
     while url:
+        if url in pages or urlsplit(url).hostname != urlsplit(BASE).hostname:
+            raise ValueError(f"Invalid CreatorChords pagination link: {url}")
+
+        pages.add(url)
         if not robots.can_fetch(USER_AGENT, url):
             raise ValueError(f"CreatorChords robots.txt disallows {url}")
 
@@ -118,6 +126,6 @@ def crawl(
     with CachedHTTP(cache / "creatorchords") as http:
         tracks = catalog(http, refresh)[:limit]
 
-        prepare_previews(tracks, http, previews, duration, refresh)
+        prepare_previews(tracks, http, previews, duration)
 
     return tracks

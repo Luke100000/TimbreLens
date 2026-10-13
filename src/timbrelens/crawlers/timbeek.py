@@ -7,8 +7,8 @@ from urllib.parse import quote, urlencode, urlsplit
 
 from bs4 import BeautifulSoup
 
-from timbrelens import audio_metadata
 from timbrelens.crawlers.common import (
+    get_audio,
     licensed_track,
     parse_license,
     prepare_preview,
@@ -31,7 +31,7 @@ def map_track(item: dict) -> Track | None:
 
     audio_url = item["previewUrl"]
     parts = urlsplit(audio_url)
-    # CC downloads and legacy streams contain full audio; paid previews are separate.
+    # Both public CC stream paths contain full audio; paid previews are separate.
     full_audio = parts.path.startswith(f"/cc-downloads/{item['id']}/") or re.fullmatch(
         r"/tracks/[^/]+/versions/[^/]+/legacy-preview/[^/]+\.mp3", parts.path
     )
@@ -57,8 +57,8 @@ def map_track(item: dict) -> Track | None:
         LICENSE,
     )
     track["duration"] = duration
-    track["genres"] = [genre["name"] for genre in item["genres"]]
-    track["moods"] = [mood["name"] for mood in item["moods"]]
+    track["genres"] = sorted({genre["name"] for genre in item["genres"]})
+    track["moods"] = sorted({mood["name"] for mood in item["moods"]})
     track["tags"] = sorted(set(track["genres"] + track["moods"]))
     track["metadata"] = {
         "creator_url": BASE,
@@ -165,11 +165,7 @@ def crawl(
                 raise ValueError(f"Tim Beek audio robots.txt disallows {track['audio_url']}")
 
             print(f"[{index}/{len(tracks)}] {track['title']}", file=sys.stderr)
-            audio = http.get(track["audio_url"], 0 if refresh else 30 * 86400)
-            actual_duration = audio_metadata.read_metadata(audio)["duration"]
-            if actual_duration is None or abs(actual_duration - track["duration"]) > 1:
-                raise ValueError(f"Tim Beek audio does not match the full track duration: {url}")
-
+            audio = get_audio(http, track)
             prepare_preview(track, audio, previews, http.cache, duration)
 
     return list(tracks.values())

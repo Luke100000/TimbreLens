@@ -247,9 +247,6 @@ def embed(
         with atomic_output(target) as temporary:
             temporary.write_text(content, encoding="utf-8")
 
-    for kind in models:
-        (output / f"{kind}.f32.bin").unlink(missing_ok=True)
-
     print(
         f"Embedded {len(tracks)} tracks; generated {len(missing)}, "
         f"reused {len(tasks) - len(missing)} vectors."

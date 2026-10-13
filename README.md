@@ -33,9 +33,8 @@ The local site is at http://127.0.0.1:8000. To crawl individual sources instead 
 ```sh
 uv run timbrelens crawl incompetech --limit 2
 uv run timbrelens crawl creatorchords
-uv run timbrelens crawl silverman
 uv run timbrelens crawl freepd
-uv run timbrelens crawl timkulig
+...
 ```
 
 Other tools:

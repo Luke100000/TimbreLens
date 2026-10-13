@@ -17,7 +17,7 @@ app = App(name="timbrelens", help="Offline audio catalog and static search.")
 def crawl(
     source: Annotated[str, Parameter(choices=CRAWLERS)] = "incompetech",
     state: Path = Path("data/catalog.json"),
-    cache: Path = Path(".cache"),
+    cache: Path = Path(".cache/crawlers"),
     duration: float = 20.0,
     limit: int | None = None,
     refresh: bool = False,
@@ -29,7 +29,7 @@ def crawl(
 @app.command
 def sync(
     state: Path = Path("data/catalog.json"),
-    cache: Path = Path(".cache"),
+    cache: Path = Path(".cache/crawlers"),
     duration: float = 20.0,
     limit: int | None = None,
     refresh: bool = False,

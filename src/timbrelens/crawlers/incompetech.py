@@ -4,7 +4,7 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlencode
 
-from timbrelens.crawlers.common import prepare_previews, validate_options
+from timbrelens.crawlers.common import licensed_track, prepare_previews, validate_options
 from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
 
@@ -43,33 +43,37 @@ def map_track(piece: dict, genres: dict[str, str], collections: dict[str, str]) 
         BASE + "index.html?" + urlencode({"isrc": piece.get("isrc")}) if piece.get("isrc") else BASE
     )
 
-    return {
-        "id": f"incompetech:{source_id}",
-        "source": "incompetech",
-        "source_id": source_id,
-        "source_url": source_url,
-        "audio_url": BASE + "mp3-royaltyfree/" + quote(filename, safe=""),
-        "title": title,
-        "artist": "Kevin MacLeod",
-        "composer": "Kevin MacLeod",
-        "copyright_holder": "Kevin MacLeod",
-        "description": (piece.get("description") or "").strip(),
-        "tags": sorted(set(genre + collection + moods + instruments)),
-        "genres": genre,
-        "moods": moods,
-        "instruments": instruments,
-        "isrc": piece.get("isrc") or None,
-        "uploaded": date.fromisoformat(piece["uploaded"]) if piece.get("uploaded") else None,
-        "duration": duration,
-        "bpm": bpm,
-        "license": "CC-BY-4.0",
-        "license_url": LICENSE,
-        "attribution": (
-            f'"{title}" Kevin MacLeod (incompetech.com)\n'
-            f"Licensed under Creative Commons: By Attribution 4.0 License\n{LICENSE}"
-        ),
-        "metadata": dict(piece),
-    }
+    track = licensed_track(
+        "incompetech",
+        source_id,
+        title,
+        "Kevin MacLeod",
+        source_url,
+        BASE + "mp3-royaltyfree/" + quote(filename, safe=""),
+        LICENSE,
+    )
+    track.update(
+        {
+            "composer": "Kevin MacLeod",
+            "copyright_holder": "Kevin MacLeod",
+            "description": (piece.get("description") or "").strip(),
+            "tags": sorted(set(genre + collection + moods + instruments)),
+            "genres": genre,
+            "moods": moods,
+            "instruments": instruments,
+            "isrc": piece.get("isrc") or None,
+            "uploaded": date.fromisoformat(piece["uploaded"]) if piece.get("uploaded") else None,
+            "duration": duration,
+            "bpm": bpm,
+            "attribution": (
+                f'"{title}" Kevin MacLeod (incompetech.com)\n'
+                f"Licensed under Creative Commons: By Attribution 4.0 License\n{LICENSE}"
+            ),
+            "metadata": dict(piece),
+        }
+    )
+
+    return track
 
 
 def crawl(
@@ -106,6 +110,6 @@ def crawl(
 
         tracks = tracks[:limit]
 
-        prepare_previews(tracks, http, previews, duration, refresh)
+        prepare_previews(tracks, http, previews, duration)
 
     return tracks

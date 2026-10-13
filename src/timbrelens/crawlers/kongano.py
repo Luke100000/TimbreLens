@@ -115,6 +115,6 @@ def crawl(
             if not robots.can_fetch(USER_AGENT, track["audio_url"]):
                 raise ValueError(f"Kongano robots.txt disallows {track['audio_url']}")
 
-        prepare_previews(selected, http, previews, duration, refresh)
+        prepare_previews(selected, http, previews, duration)
 
     return selected

@@ -148,6 +148,6 @@ def crawl(
                 raise ValueError(f"TeknoAXE robots.txt disallows {track['audio_url']}")
 
         # The .php download endpoint returns MP3 audio, not a PHP file.
-        prepare_previews(tracks, http, previews, duration, refresh, extension=".mp3")
+        prepare_previews(tracks, http, previews, duration, extension=".mp3")
 
     return tracks

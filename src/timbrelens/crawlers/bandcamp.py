@@ -4,10 +4,12 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
+import httpx
 from bs4 import BeautifulSoup
 
 from timbrelens.crawlers.common import (
     attribution,
+    get_audio,
     licensed_track,
     parse_license,
     prepare_preview,
@@ -131,15 +133,14 @@ def crawl(
     skipped = 0
 
     with CachedHTTP(cache / source) as http:
-        age = 0 if refresh else 3600
-        audio_age = 0 if refresh else 30 * 86400
+        age = 0 if refresh else 86400
         robots = read_robots(http, url, age)
 
-        def read_page(link: str) -> BeautifulSoup:
+        def read_page(link: str, max_age: float = age) -> BeautifulSoup:
             if not robots.can_fetch(USER_AGENT, link):
                 raise ValueError(f"Bandcamp robots.txt disallows {link}")
 
-            return BeautifulSoup(http.get(link, age).read_text(), "html.parser")
+            return BeautifulSoup(http.get(link, max_age).read_text(), "html.parser")
 
         for release in discover(read_page(url), url):
             page = read_page(release)
@@ -174,8 +175,20 @@ def crawl(
                 seen_ids.add(track["id"])
                 print(f"[{len(tracks) + 1}] {track['title']}", file=sys.stderr)
 
-                # Audio and page metadata must not share a cache key.
-                audio = http.get(stream, audio_age, cache_key=f"audio:{track['audio_url']}")
+                try:
+                    audio = get_audio(http, track, stream)
+                except httpx.HTTPStatusError as error:
+                    if error.response.status_code not in (401, 403):
+                        raise
+
+                    # Cached HTML can outlive its stream token.
+                    result = map_track(read_page(link, 0), link, source, artist, website)
+                    if result is None or result[0]["id"] != track["id"]:
+                        raise ValueError(f"Bandcamp track changed while refreshing audio: {link}")
+
+                    track, stream = result
+                    audio = get_audio(http, track, stream)
+
                 recording_id = track["isrc"] or sha256(audio)
 
                 # Compilation uploads may have new platform IDs for identical recordings.

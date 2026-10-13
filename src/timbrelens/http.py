@@ -49,21 +49,40 @@ class CachedHTTP:
         self.client.close()
         self.cache.close()
 
+    def cached_path(self, cache_key: str, max_age: float | None = None) -> Path | None:
+        metadata = self.cache.get(cache_key)
+        if metadata is None:
+            return None
+
+        if max_age is not None and time.time() - metadata["checked_at"] >= max_age:
+            return None
+
+        path = self.directory / "downloads" / metadata["filename"]
+        return path if path.is_file() else None
+
     def get(
         self,
         url: str,
-        max_age: float = 86400,
+        max_age: float | None = 86400,
         cache_key: str | None = None,
         headers: dict[str, str] | None = None,
+        method: str = "GET",
     ) -> Path:
-        if max_age < 0:
+        if method not in {"GET", "HEAD"}:
+            raise ValueError("Only GET and HEAD requests can be cached.")
+        if max_age is not None and (not math.isfinite(max_age) or max_age < 0):
             raise ValueError("Cache age must be nonnegative.")
 
         cache_key = cache_key or url
+        if method == "HEAD":
+            cache_key = "HEAD:" + cache_key
+
         key = hashlib.sha256(cache_key.encode()).hexdigest()
-        path = self.directory / "downloads" / (key + Path(urlsplit(url).path).suffix)
+        path = self.cached_path(cache_key) or (
+            self.directory / "downloads" / (key + Path(urlsplit(url).path).suffix)
+        )
         metadata = self.cache.get(cache_key) if path.is_file() else None
-        if metadata and time.time() - metadata["checked_at"] < max_age:
+        if metadata and (max_age is None or time.time() - metadata["checked_at"] < max_age):
             return path
 
         headers = dict(headers or {})
@@ -74,7 +93,7 @@ class CachedHTTP:
                 headers["If-Modified-Since"] = metadata["last_modified"]
 
         for attempt in range(4):
-            with self.client.stream("GET", url, headers=headers) as response:
+            with self.client.stream(method, url, headers=headers) as response:
                 retry_after = response.headers.get("Retry-After")
                 if response.status_code == 429 or (
                     response.status_code == 503 and retry_after is not None
@@ -89,13 +108,18 @@ class CachedHTTP:
                         self.cache[cache_key] = metadata
                         return path
 
-                    response.raise_for_status()
+                    # Missing thumbnails can be cached without masking failed GETs.
+                    if method != "HEAD" or response.status_code not in (404, 410):
+                        response.raise_for_status()
 
                     with atomic_output(path) as temporary, temporary.open("wb") as stream:
                         for chunk in response.iter_bytes():
                             stream.write(chunk)
 
                     self.cache[cache_key] = {
+                        "filename": path.name,
+                        "status_code": response.status_code,
+                        "headers": dict(response.headers) if method == "HEAD" else {},
                         "checked_at": time.time(),
                         "etag": response.headers.get("etag"),
                         "last_modified": response.headers.get("last-modified"),

@@ -3,16 +3,14 @@ import re
 from pathlib import Path, PurePosixPath
 from urllib.parse import quote
 
-from timbrelens.crawlers.common import prepare_previews, validate_options
+from timbrelens.crawlers.common import licensed_track, prepare_previews, validate_options
 from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
 
 AUDIO_EXTENSIONS = {".mp3", ".wav", ".flac", ".ogg", ".opus", ".m4a", ".aac", ".aiff"}
 
 
-def map_track(
-    repository: str, source: str, commit: str, path: str, license: str, license_url: str
-) -> Track:
+def map_track(repository: str, source: str, commit: str, path: str, license_url: str) -> Track:
     file = PurePosixPath(path)
     encoded = quote(path, safe="/")
     category = file.parent.as_posix()
@@ -25,41 +23,30 @@ def map_track(
             }
         )
 
-    return {
-        "id": f"{source}:{path}",
-        "source": source,
-        "source_id": path,
-        "source_url": f"https://github.com/{repository}/blob/{commit}/{encoded}",
-        "audio_url": f"https://raw.githubusercontent.com/{repository}/{commit}/{encoded}",
-        "title": "",
-        "artist": "",
-        "composer": "",
-        "copyright_holder": "",
-        "description": "",
-        "tags": [row["name"] for row in collections],
-        "genres": [],
-        "moods": [],
-        "instruments": [],
-        "isrc": None,
-        "uploaded": None,
-        "duration": None,
-        "bpm": None,
-        "license": license,
-        "license_url": license_url,
-        "attribution": "",
-        "metadata": {
-            "repository": repository,
-            "commit": commit,
-            "path": path,
-            "collections": collections,
-        },
+    track = licensed_track(
+        source,
+        path,
+        "",
+        "",
+        f"https://github.com/{repository}/blob/{commit}/{encoded}",
+        f"https://raw.githubusercontent.com/{repository}/{commit}/{encoded}",
+        license_url,
+    )
+    track["attribution"] = ""
+    track["tags"] = [row["name"] for row in collections]
+    track["metadata"] = {
+        "repository": repository,
+        "commit": commit,
+        "path": path,
+        "collections": collections,
     }
+
+    return track
 
 
 def crawl(
     repository: str,
     source: str,
-    license: str,
     license_url: str,
     cache: Path,
     previews: Path,
@@ -83,7 +70,7 @@ def crawl(
 
         revision = json.loads(http.get(f"{api}/commits/{quote(ref, safe='')}", age).read_text())
         commit = revision["sha"]
-        tree = json.loads(http.get(f"{api}/git/trees/{commit}?recursive=1", age).read_text())
+        tree = json.loads(http.get(f"{api}/git/trees/{commit}?recursive=1", None).read_text())
         if tree["truncated"]:
             raise ValueError(f"GitHub returned an incomplete file index for {repository}.")
 
@@ -101,8 +88,7 @@ def crawl(
 
         # Pin downloads to the indexed commit so a branch update cannot mix snapshots.
         tracks = [
-            map_track(repository, source, commit, path, license, license_url)
-            for path in paths[:limit]
+            map_track(repository, source, commit, path, license_url) for path in paths[:limit]
         ]
 
         for track in tracks:
@@ -111,6 +97,6 @@ def crawl(
             if website:
                 track["metadata"]["creator_url"] = website
 
-        prepare_previews(tracks, http, previews, duration, refresh)
+        prepare_previews(tracks, http, previews, duration)
 
     return tracks

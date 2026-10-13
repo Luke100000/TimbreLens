@@ -116,20 +116,25 @@ def validate_options(duration: float, limit: int | None) -> None:
         raise ValueError("Preview duration must be finite and at least 0.001 seconds.")
 
 
+def get_audio(
+    http: CachedHTTP,
+    track: Track,
+    url: str | None = None,
+) -> Path:
+    return http.get(url or track["audio_url"], None, cache_key=f"audio:{track['id']}")
+
+
 def prepare_previews(
     tracks: list[Track],
     http: CachedHTTP,
     previews: Path,
     duration: float,
-    refresh: bool = False,
     extension: str | None = None,
 ) -> None:
-    age = 0 if refresh else 30 * 86400
-
     for index, track in enumerate(tracks, 1):
         title = track["title"] or unquote(Path(urlsplit(track["audio_url"]).path).stem)
         print(f"[{index}/{len(tracks)}] {title}", file=sys.stderr)
-        audio = http.get(track["audio_url"], age)
+        audio = get_audio(http, track)
         prepare_preview(track, audio, previews, http.cache, duration, extension)
 
 

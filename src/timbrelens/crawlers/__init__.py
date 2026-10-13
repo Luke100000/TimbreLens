@@ -3,13 +3,11 @@ from functools import partial
 from pathlib import Path
 
 from timbrelens.crawlers import (
-    archive,
     bandcamp,
     creatorchords,
     github,
     incompetech,
     kongano,
-    silverman,
     soundcloud,
     teknoaxe,
     timbeek,
@@ -25,13 +23,11 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         "https://creativecommons.org/licenses/by/3.0/",
         artist="Darren Curtis",
         website="https://www.darrencurtismusic.com/",
-        strict_license=True,
     ),
     "freepd": partial(
         github.crawl,
         "0lhi/FreePD",
         "freepd",
-        "CC0-1.0",
         "https://creativecommons.org/publicdomain/zero/1.0/",
     ),
     "ifness": partial(
@@ -54,13 +50,6 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         ),
     ),
     "kongano": kongano.crawl,
-    "ondrosik": partial(
-        archive.crawl,
-        "Ondrosik-Free-music-catalog",
-        "ondrosik",
-        artist="Ondrosik",
-        website="https://ondrosik.sk/music/",
-    ),
     "scottbuckley": partial(
         soundcloud.crawl,
         "https://soundcloud.com/scottbuckley",
@@ -68,15 +57,12 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         "https://creativecommons.org/licenses/by/4.0/",
         artist="Scott Buckley",
         website="https://www.scottbuckley.com.au/",
-        strict_license=True,
         exclude=r"\bremix\b",
     ),
-    "silverman": silverman.crawl,
     "tannerhelland": partial(
         github.crawl,
         "tannerhelland/free-music",
         "tannerhelland",
-        "CC-BY-4.0",
         "https://creativecommons.org/licenses/by/4.0/",
         path_prefix="mp3/",
         artist="Tanner Helland",
@@ -92,5 +78,6 @@ CRAWLERS: dict[str, Callable[[Path, Path, float, int | None, bool], list[Track]]
         "https://creativecommons.org/licenses/by/4.0/",
         artist="Tim Kulig",
         website="https://timkulig.com/",
+        license_override_url="https://timkulig.com/faq",
     ),
 }
