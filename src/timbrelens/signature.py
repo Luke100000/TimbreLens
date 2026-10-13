@@ -6,6 +6,7 @@ from PIL import Image, ImageDraw
 from scipy.ndimage import gaussian_filter1d
 from scipy.signal import find_peaks
 
+from timbrelens.ffmpeg import run as _ffmpeg
 from timbrelens.files import atomic_output
 
 BACKGROUND = (248, 247, 243)
@@ -33,7 +34,24 @@ def signature(input: Path, output: Path, bins: int = 64) -> None:
     if bins < 2:
         raise ValueError("A signature needs at least two bins.")
 
-    samples, sample_rate = librosa.load(input, sr=22050, mono=True)
+    sample_rate = 22050
+    samples = np.frombuffer(
+        _ffmpeg(
+            [
+                "-i",
+                str(input.resolve()),
+                "-vn",
+                "-ac",
+                "1",
+                "-ar",
+                str(sample_rate),
+                "-f",
+                "f32le",
+                "pipe:1",
+            ]
+        ),
+        dtype="<f4",
+    )
     if not samples.size:
         raise ValueError(f"No audio samples: {input}")
 

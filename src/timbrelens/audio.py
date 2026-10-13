@@ -1,14 +1,14 @@
 import hashlib
 import json
 import math
-import subprocess
 import sys
 from array import array
-from functools import cache
 from pathlib import Path
 
 from diskcache import Cache
 
+from timbrelens.ffmpeg import run as _ffmpeg
+from timbrelens.ffmpeg import version as _ffmpeg_version
 from timbrelens.files import atomic_output, sha256
 from timbrelens.models import Preview
 from timbrelens.signature import signature
@@ -26,21 +26,6 @@ MP3_ENCODING = [
     "-id3v2_version",
     "0",
 ]
-
-
-def _ffmpeg(arguments: list[str]) -> bytes:
-    result = subprocess.run(
-        ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", *arguments],
-        capture_output=True,
-    )
-    if result.returncode:
-        raise ValueError(f"FFmpeg failed: {result.stderr.decode(errors='replace').strip()}")
-    return result.stdout
-
-
-@cache
-def _ffmpeg_version() -> str:
-    return _ffmpeg(["-version"]).decode()
 
 
 def normalize(input: Path, output: Path) -> None:
