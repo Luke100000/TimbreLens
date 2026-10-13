@@ -38,6 +38,9 @@ uv run timbrelens crawl freepd
 ...
 ```
 
+SoundCloud crawls report and skip individual track extraction failures so the remaining tracks can finish.
+Failure to load the artist's track index still stops the crawl.
+
 Other tools:
 
 ```sh

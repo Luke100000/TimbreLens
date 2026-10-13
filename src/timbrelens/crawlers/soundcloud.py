@@ -196,18 +196,23 @@ def crawl(
 
     tracks = []
     skipped = 0
+    failed = 0
 
     with CachedHTTP(cache / source) as http, SoundCloudDL(http, refresh) as downloader:
         try:
             index = downloader.extract_info(url, download=False)
-            entries = index.get("entries", [index])
-            if not entries:
-                raise ValueError("SoundCloud returned an empty track index.")
+        except DownloadError as error:
+            raise ValueError(f"SoundCloud extraction failed: {error}") from error
 
-            entries = {entry["id"]: entry for entry in entries}
+        entries = index.get("entries", [index])
+        if not entries:
+            raise ValueError("SoundCloud returned an empty track index.")
 
-            for position, entry in enumerate(entries.values(), 1):
-                print(f"[{position}/{len(entries)}] {entry['title']}", file=sys.stderr)
+        entries = {entry["id"]: entry for entry in entries}
+
+        for position, entry in enumerate(entries.values(), 1):
+            print(f"[{position}/{len(entries)}] {entry['title']}", file=sys.stderr)
+            try:
                 indexed = downloader.tracks.get(entry["id"])
 
                 if exclude and re.search(exclude, entry["title"], re.IGNORECASE):
@@ -296,8 +301,15 @@ def crawl(
                 if limit is not None and len(tracks) >= limit:
                     break
 
-        except DownloadError as error:
-            raise ValueError(f"SoundCloud extraction failed: {error}") from error
+            except DownloadError as error:
+                failed += 1
+                print(
+                    f"Skipping SoundCloud track {entry['id']} ({entry['title']}): {error}",
+                    file=sys.stderr,
+                )
+
+    if failed:
+        print(f"Skipped {failed} SoundCloud tracks after extraction failures.", file=sys.stderr)
 
     if skipped:
         print(f"Skipped {skipped} ineligible SoundCloud tracks.", file=sys.stderr)
