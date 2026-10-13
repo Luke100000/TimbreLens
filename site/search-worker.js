@@ -14,7 +14,7 @@ async function load() {
 
     const manifest = await manifestResponse.json();
     const responses = await Promise.all([
-        fetch(new URL(manifest.catalog.file, dataRoot)),
+        fetch(new URL(manifest.catalog, dataRoot)),
         fetch(new URL(manifest.lexical.file, dataRoot)),
     ]);
 

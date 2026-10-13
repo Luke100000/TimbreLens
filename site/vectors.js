@@ -1,5 +1,5 @@
 export async function loadVectors(spec, dataRoot) {
-    const buffers = await Promise.all([spec.file, spec.inverse_norms.file].map(async file => {
+    const buffers = await Promise.all([spec.file, spec.inverse_norms].map(async file => {
         const response = await fetch(new URL(file, dataRoot));
 
         if (!response.ok) {

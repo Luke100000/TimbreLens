@@ -22,7 +22,6 @@ SEARCH_OPTIONS = {
         "instruments",
         "texture",
     ],
-    "storeFields": [],
     "searchOptions": {"boost": {"title": 3, "artist": 2}, "prefix": True, "fuzzy": 0.2},
 }
 DISPLAY_FIELDS = (
@@ -154,16 +153,12 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
             public.append(_public_track(track))
 
         _write_json(data / "catalog.json", {"schema_version": 1, "tracks": public})
-        _build_index(public, data / "minisearch.json", manifest["runtime"]["version"])
+        _build_index(public, data / "minisearch.json", manifest["runtime_version"])
         exported = {
-            "schema_version": 1,
             "track_ids": manifest["track_ids"],
-            "runtime": manifest["runtime"],
-            "byte_order": "little",
-            "catalog": {"file": "catalog.json"},
+            "catalog": "catalog.json",
             "lexical": {
                 "file": "minisearch.json",
-                "version": SEARCH_VERSION,
                 "options": SEARCH_OPTIONS,
             },
         }
@@ -171,8 +166,8 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
         for kind in ("text", "audio"):
             exported[kind] = manifest[kind]
 
-            for asset in (manifest[kind], manifest[kind]["inverse_norms"]):
-                shutil.copyfile(embeddings / asset["file"], data / asset["file"])
+            for name in (manifest[kind]["file"], manifest[kind]["inverse_norms"]):
+                shutil.copyfile(embeddings / name, data / name)
 
         _write_json(data / "manifest.json", exported)
 

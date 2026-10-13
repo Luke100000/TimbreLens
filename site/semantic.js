@@ -57,7 +57,7 @@ export async function loadSemantic(manifest, dataRoot, vectors) {
         // BGE matches metadata; CLAP matches the same query against audio embeddings.
         const metadata = await text(textSpec.query_prefix + query,
             {pooling: textSpec.pooling, normalize: true});
-        const inputs = tokenizer(audioSpec.query_prefix + query, {padding: true, truncation: true});
+        const inputs = tokenizer(query, {padding: true, truncation: true});
         const {text_embeds} = await audio(inputs);
 
         return [

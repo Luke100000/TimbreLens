@@ -152,11 +152,8 @@ def embed(
             "model": audio_model,
             "revision": _revision(audio_model, audio_revision, cache),
             "dtype": "q8",
-            "query_model_class": "ClapTextModelWithProjection",
-            "query_prefix": "",
             "sample_rate": 48000,
             "window_seconds": 10,
-            "aggregation": "duration_weighted_mean_of_normalized_windows",
         },
     }
     recipe = {"runtime_version": RUNTIME_VERSION, "runner_sha256": sha256(RUNNER)}
@@ -221,23 +218,18 @@ def embed(
         models[kind] = {
             "file": filename,
             "dimensions": dimensions,
-            "dtype": "int8",
-            "quantization": "symmetric_per_row_max_abs_127_round_ties_even",
-            "inverse_norms": {"file": norm_filename, "dtype": "float32"},
-            "encoder": models[kind],
+            "inverse_norms": norm_filename,
+            "encoder": {
+                field: value
+                for field, value in models[kind].items()
+                if field not in ("sample_rate", "window_seconds")
+            },
         }
 
     manifest = {
-        "schema_version": 1,
         "catalog_sha256": catalog_hash,
         "track_ids": [track["id"] for track in tracks],
-        "runtime": {
-            "name": "@huggingface/transformers",
-            "version": RUNTIME_VERSION,
-            "browser_device": "wasm",
-        },
-        "dtype": "int8",
-        "byte_order": "little",
+        "runtime_version": RUNTIME_VERSION,
         **models,
     }
     content = json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + "\n"
