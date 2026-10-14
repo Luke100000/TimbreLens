@@ -44,7 +44,6 @@ class Track(TypedDict):
     metadata: dict[str, object]
     preview: NotRequired[Preview]
     enrichment: NotRequired[Enrichment]
-    duplicates: NotRequired[list["Track"]]
 
 
 class Catalog(TypedDict):

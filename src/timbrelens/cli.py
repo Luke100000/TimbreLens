@@ -9,6 +9,7 @@ from openai import OpenAIError
 
 from timbrelens import (
     audio,
+    dedup,
     embeddings,
     enrichment,
     evaluation,
@@ -118,21 +119,32 @@ def apply_fallbacks(
     values = fallbacks.load(state.parent / "catalog-fallback.json")
     catalog = catalog_state.load(state)
     updated = 0
-    for track in catalog["tracks"]:
-        for record in [track, *track.get("duplicates", [])]:
-            changed = fallbacks.apply(record, values)
-            if not changed:
-                continue
+    for record in catalog["tracks"]:
+        changed = fallbacks.apply(record, values)
+        if not changed:
+            continue
 
-            if changed & {"title", "artist"} and "attribution" not in changed:
-                creator_url = record.get("metadata", {}).get("creator_url") or record["source_url"]
-                record["attribution"] = attribution(record, creator_url)
-            updated += 1
+        if changed & {"title", "artist"} and "attribution" not in changed:
+            creator_url = record.get("metadata", {}).get("creator_url") or record["source_url"]
+            record["attribution"] = attribution(record, creator_url)
+        updated += 1
 
     if updated:
         catalog_state.save(catalog, state)
 
     print(f"Applied fallback metadata to {updated} source records.")
+
+
+@app.command
+def deduplicate(
+    state: Path = Path("data/catalog.json"),
+    cache: Path = Path(".cache/crawlers"),
+):
+    """Remove duplicate recordings using full original audio fingerprints."""
+    catalog = catalog_state.load(state)
+    merged = dedup.merge(catalog, state.parent / "originals", cache)
+    catalog_state.save(merged, state)
+    print(f"Deduplicated catalog: {len(merged['tracks'])} tracks.")
 
 
 @app.command

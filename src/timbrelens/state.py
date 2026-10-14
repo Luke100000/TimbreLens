@@ -18,13 +18,7 @@ def load(path: Path) -> Catalog:
     ):
         raise ValueError(f"Unsupported catalog format: {path}")
 
-    records = []
-    for track in catalog["tracks"]:
-        if not isinstance(track, dict) or not isinstance(track.get("duplicates", []), list):
-            raise ValueError(f"Invalid track records: {path}")
-
-        records.extend([track, *track.get("duplicates", [])])
-
+    records = catalog["tracks"]
     if any(
         not isinstance(track, dict) or not isinstance(track.get("id"), str) for track in records
     ):
@@ -35,6 +29,7 @@ def load(path: Path) -> Catalog:
         raise ValueError(f"Duplicate track IDs: {path}")
 
     for track in records:
+        track.pop("duplicates", None)
         if track.get("uploaded"):
             track["uploaded"] = date.fromisoformat(track["uploaded"])
 
@@ -81,13 +76,7 @@ def save(catalog: Catalog, path: Path) -> None:
 
 
 def merge(catalog: Catalog, tracks: list[Track]) -> Catalog:
-    # Update every source record before grouping identical files again.
-    existing = {}
-    for track in catalog["tracks"]:
-        for record in [track, *track.get("duplicates", [])]:
-            existing[record["id"]] = {
-                field: value for field, value in record.items() if field != "duplicates"
-            }
+    existing = {track["id"]: dict(track) for track in catalog["tracks"]}
 
     seen = set()
     for track in tracks:
@@ -117,16 +106,14 @@ def merge(catalog: Catalog, tracks: list[Track]) -> Catalog:
         existing[track["id"]] = dict(track)
 
     unique = []
-    recordings = {}
+    recordings = set()
     for track in sorted(existing.values(), key=lambda track: track["id"]):
         audio_hash = track.get("preview", {}).get("source_sha256")
-        duplicate = recordings.get(audio_hash) if audio_hash else None
-        if duplicate is not None:
-            duplicate.setdefault("duplicates", []).append(track)
+        if audio_hash and audio_hash in recordings:
             continue
 
         unique.append(track)
         if audio_hash:
-            recordings[audio_hash] = track
+            recordings.add(audio_hash)
 
     return {"schema_version": 1, "tracks": unique}
