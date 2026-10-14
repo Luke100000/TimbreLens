@@ -5,6 +5,7 @@ import subprocess
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from timbrelens import fallbacks
 from timbrelens.models import Track
 
 
@@ -72,14 +73,25 @@ def read_metadata(input: Path) -> dict:
     return metadata
 
 
-def fill_missing(track: Track, input: Path) -> None:
+def fill_missing(track: Track, input: Path, fallback: dict | None = None) -> set[str]:
     metadata = read_metadata(input)
     track["metadata"]["audio_tags"] = metadata.pop("audio_tags")
+
+    # Pick the actual duration
+    measured_duration = metadata.pop("duration")
+    if measured_duration is not None:
+        if track.get("duration") is not None and track["duration"] != measured_duration:
+            track["metadata"].setdefault("source_duration", track["duration"])
+        track["duration"] = measured_duration
 
     # Source metadata takes precedence over embedded tags.
     for field, value in metadata.items():
         if not track[field] and value:
             track[field] = value
 
+    changed = fallbacks.apply(track, fallback or {})
+
     if not track["title"]:
         track["title"] = unquote(Path(urlsplit(track["audio_url"]).path).stem)
+
+    return changed

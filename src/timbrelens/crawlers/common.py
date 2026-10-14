@@ -8,7 +8,7 @@ from urllib.robotparser import RobotFileParser
 import httpx
 from diskcache import Cache
 
-from timbrelens import audio_metadata, originals
+from timbrelens import audio_metadata, fallbacks, originals
 from timbrelens.audio import preview
 from timbrelens.http import CachedHTTP
 from timbrelens.models import Track
@@ -147,9 +147,11 @@ def prepare_preview(
     extension: str | None = None,
 ) -> None:
     # Fill the title from audio tags before generating missing credits.
-    audio_metadata.fill_missing(track, audio)
+    changed = audio_metadata.fill_missing(
+        track, audio, fallbacks.load(previews.parent / "catalog-fallback.json")
+    )
 
-    if not track["attribution"]:
+    if not track["attribution"] or (changed & {"title", "artist"} and "attribution" not in changed):
         creator_url = track["metadata"].get("creator_url") or track["source_url"]
         track["attribution"] = attribution(track, creator_url)
 

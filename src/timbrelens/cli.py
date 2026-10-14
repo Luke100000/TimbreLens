@@ -7,10 +7,20 @@ from cyclopts import App, Parameter
 from httpx import HTTPError
 from openai import OpenAIError
 
-from timbrelens import audio, embeddings, enrichment, evaluation, labels, pipeline, server
+from timbrelens import (
+    audio,
+    embeddings,
+    enrichment,
+    evaluation,
+    fallbacks,
+    labels,
+    pipeline,
+    server,
+)
 from timbrelens import export as page_export
 from timbrelens import state as catalog_state
 from timbrelens.crawlers import CRAWLERS
+from timbrelens.crawlers.common import attribution
 
 app = App(name="timbrelens", help="Offline audio catalog and static search.")
 
@@ -98,6 +108,31 @@ def tags(
         counts = Counter(value for track in tracks for value in track[name])
         for label, count in sorted(counts.items(), key=lambda item: (item[1], item[0])):
             print(f"{name}\t{count}\t{label}")
+
+
+@app.command
+def apply_fallbacks(
+    state: Path = Path("data/catalog.json"),
+):
+    """Fill missing catalog fields from handwritten metadata without crawling."""
+    values = fallbacks.load(state.parent / "catalog-fallback.json")
+    catalog = catalog_state.load(state)
+    updated = 0
+    for track in catalog["tracks"]:
+        for record in [track, *track.get("duplicates", [])]:
+            changed = fallbacks.apply(record, values)
+            if not changed:
+                continue
+
+            if changed & {"title", "artist"} and "attribution" not in changed:
+                creator_url = record.get("metadata", {}).get("creator_url") or record["source_url"]
+                record["attribution"] = attribution(record, creator_url)
+            updated += 1
+
+    if updated:
+        catalog_state.save(catalog, state)
+
+    print(f"Applied fallback metadata to {updated} source records.")
 
 
 @app.command
