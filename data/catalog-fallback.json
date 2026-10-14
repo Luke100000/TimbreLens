@@ -1,4 +1,353 @@
 {
   "schema_version": 1,
-  "tracks": []
+  "tracks": [
+    {
+      "id": "freepd:Comedy/BeBop for Joey.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Comedy/Jungle Mission.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Comedy/Monsters in Hotel.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Comedy/Rush.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Comedy/Vintage Party.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Battle Ready.mp3",
+      "artist": "Bryan Teoh"
+    },
+    {
+      "id": "freepd:Epic/Behind Enemy Lines.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Big Eyes.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Cornfield Chase.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Epic Boss Battle.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Heroic Adventure.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Hit n Smash.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Kings Trailer.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Lonely Mountain.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Mothership.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Night Attack.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Epic/Overture.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Epic/Release the Hybrids.mp3",
+      "artist": "Bryan Teoh"
+    },
+    {
+      "id": "freepd:Epic/Think About It.mp3",
+      "artist": "Bryan Teoh"
+    },
+    {
+      "id": "freepd:Epic/Video Game Blockbuster.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Horror/Alien Invasion.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Horror/Horror Mytery.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Horror/Horror Suspense.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [1⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [2⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [3⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [4⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [5⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ancient Winds [6⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Awkward Apocalyptic Pickup.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Brewing Potions.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Miscellaneous/Burning Trapezoid of Fire.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Circuit.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Miscellaneous/Deck the Halls.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [1⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [2⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [3⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [4⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [5⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Ebbs and Flows [6⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [1⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [2⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [3⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [4⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [5⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Elf Meditation [6⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Jethro on the Run.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Martini Sunset.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Nomadic Sunset MMXIX.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Miscellaneous/Spec Ops.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Miscellaneous/The Vikings.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Miscellaneous/We Wish You a Merry Christmas.mp3",
+      "artist": "Alexander Nakarada"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [1⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [2⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [3⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [4⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [5⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Miscellaneous/Wind of the Rainforest [6⧸6].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Romance/Lovely Piano Song.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Romance/Nostalgic Piano.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Romance/Pond.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Romance/Romantic Inspiration.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Romance/Shining Stars.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Action Strike.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/City Run.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Desert Fox Underscore.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Desert Fox.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Guerilla Tactics.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Ice and Snow.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Scoring/Travelers Notebook.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Upbeat/Advertime.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Upbeat/Happy Whistling Ukulele.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Upbeat/Inspiration.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Upbeat/Ukulele Song.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:World/Aquatic City Vanished.mp3",
+      "artist": "Bryan Teoh"
+    },
+    {
+      "id": "freepd:World/Bavarian Seascape.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:World/Coy Koi.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:World/Desert Conflict.mp3",
+      "artist": "Rafael Krux"
+    },
+    {
+      "id": "freepd:Zoned/Gotcha [1⧸2].mp3",
+      "artist": "Alpha Hydrae"
+    },
+    {
+      "id": "freepd:Zoned/Gotcha [2⧸2].mp3",
+      "artist": "Alpha Hydrae"
+    },
+    {
+      "id": "freepd:Zoned/Sadness on White Keys.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Simon Says Dont - 100 [1⧸2].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Simon Says Dont - 100 cents [2⧸2].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Simon Says Dont - 50 cents [1⧸2].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Simon Says Dont - 50 cents [2⧸2].mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Waltzing Marvin.mp3",
+      "artist": "Kevin MacLeod"
+    },
+    {
+      "id": "freepd:Zoned/Well-tempered Raver.mp3",
+      "artist": "Kevin MacLeod"
+    }
+  ]
 }

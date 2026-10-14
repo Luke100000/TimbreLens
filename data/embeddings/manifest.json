@@ -9,7 +9,7 @@
     "file": "audio.i8.bin",
     "inverse_norms": "audio-norms.f32.bin"
   },
-  "catalog_sha256": "7cca97567353cb71533c8594711387becbb15c4faedeaa58836f216a9638fe23",
+  "catalog_sha256": "1dfb511bb9e0d4470b42f34320bde9a99519e1516db70be1352ba34218ae16d8",
   "runtime_version": "4.3.0",
   "text": {
     "dimensions": 384,
