@@ -140,9 +140,9 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
             path = preview_path(track, state)
 
             destination = audio / path.name
-            shutil.copyfile(path, destination)
+            shutil.copy2(path, destination)
             image_path = path.with_suffix(".png")
-            shutil.copyfile(image_path, audio / image_path.name)
+            shutil.copy2(image_path, audio / image_path.name)
             public.append(_public_track(track, alias_rules))
 
         _write_json(data / "catalog.json", {"schema_version": 1, "tracks": public})
