@@ -1,0 +1,64 @@
+{
+  "*": {
+    "bass synth": "synth bass",
+    "bell synth": "synth bell",
+    "cellos": "cello",
+    "claps": "clap",
+    "dance-pop": "dance pop",
+    "hand drums": "hand drum",
+    "handclaps": "hand claps",
+    "hi-hats": "hi-hat",
+    "hip-hop": "hip hop",
+    "instrumental hip-hop": "instrumental hip hop",
+    "jazz-hop": "jazz hop",
+    "lofi": "lo-fi",
+    "sax": "saxophone",
+    "snare": "snare drum",
+    "sub-bass": "sub bass",
+    "synth bells": "synth bell",
+    "synth-pop": "synth pop",
+    "synth-rock": "synth rock",
+    "synthesized strings": "synth strings",
+    "synthesizer": "synth",
+    "synthpop": "synth pop",
+    "tenor sax": "tenor saxophone",
+    "trombones": "trombone",
+    "violas": "viola",
+    "violins": "violin",
+    "vocal samples": "vocal sample"
+  },
+  "tags": {
+    "free downloads": "free download",
+    "theme]": "theme"
+  },
+  "genres": {
+    "breakbeats": "breakbeat",
+    "electronic dance music": "electronic dance",
+    "solo piano": "piano solo",
+    "world music": "world"
+  },
+  "moods": {
+    "calming": "calm",
+    "dreamlike": "dreamy",
+    "grooving": "groovy"
+  },
+  "instruments": {
+    "bagpipe": "bagpipes",
+    "bell": "bells",
+    "bowed string": "bowed strings",
+    "chime": "chimes",
+    "cymbals": "cymbal",
+    "deep drums": "deep drum",
+    "female vocal": "female vocals",
+    "low drums": "low drum",
+    "male vocal": "male vocals",
+    "plucked string": "plucked strings",
+    "sound effect": "sound effects",
+    "woodwind": "woodwinds"
+  },
+  "texture": {
+    "beatless],": "beatless",
+    "dry mixdowns avoided...": "",
+    "single-instrument": "single instrument"
+  }
+}

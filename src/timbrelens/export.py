@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from timbrelens import labels
 from timbrelens.files import preview_path, sha256
 from timbrelens.state import load
 
@@ -37,26 +38,17 @@ DISPLAY_FIELDS = (
 )
 
 
-def _public_track(track: dict) -> dict:
+def _public_track(track: dict, aliases: dict | None = None) -> dict:
     result = {field: track[field] for field in DISPLAY_FIELDS if field in track}
     enrichment = track.get("enrichment") or {}
     result["summary"] = enrichment.get("summary", "").strip()
 
-    label_fields = ("tags", "genres", "moods", "instruments", "texture")
-
-    for field in label_fields:
-        result[field] = sorted(
-            {
-                value.strip().casefold()
-                for value in [*track.get(field, []), *enrichment.get(field, [])]
-                if value.strip()
-            }
-        )
+    result.update(labels.track_labels(track, labels.load_aliases() if aliases is None else aliases))
 
     # Shuffle by track and label so repeated exports keep the same card order.
-    labels = {label for field in label_fields for label in result[field]}
+    display_labels = {label for field in labels.FIELDS for label in result[field]}
     result["display_tags"] = sorted(
-        labels,
+        display_labels,
         key=lambda label: hashlib.sha256(f"{track['id']}\0{label}".encode()).digest(),
     )
 
@@ -121,6 +113,7 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
 
     catalog_hash = sha256(state)
     tracks = sorted(load(state)["tracks"], key=lambda track: track["id"])
+    alias_rules = labels.load_aliases()
 
     if not tracks:
         raise ValueError("No tracks to export; run a crawler first.")
@@ -150,7 +143,7 @@ def export(state: Path, embeddings: Path, site: Path, output: Path) -> None:
             shutil.copyfile(path, destination)
             image_path = path.with_suffix(".png")
             shutil.copyfile(image_path, audio / image_path.name)
-            public.append(_public_track(track))
+            public.append(_public_track(track, alias_rules))
 
         _write_json(data / "catalog.json", {"schema_version": 1, "tracks": public})
         _build_index(public, data / "minisearch.json", manifest["runtime_version"])

@@ -1,4 +1,5 @@
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Annotated, Literal
 
@@ -6,8 +7,9 @@ from cyclopts import App, Parameter
 from httpx import HTTPError
 from openai import OpenAIError
 
-from timbrelens import audio, embeddings, enrichment, evaluation, pipeline, server
+from timbrelens import audio, embeddings, enrichment, evaluation, labels, pipeline, server
 from timbrelens import export as page_export
+from timbrelens import state as catalog_state
 from timbrelens.crawlers import CRAWLERS
 
 app = App(name="timbrelens", help="Offline audio catalog and static search.")
@@ -80,6 +82,22 @@ def export(
 ):
     """Export the static page, search indexes, embeddings, and previews."""
     page_export.export(state=state, embeddings=embeddings, site=site, output=output)
+
+
+@app.command
+def tags(
+    state: Path = Path("data/catalog.json"),
+    field: Literal["tags", "genres", "moods", "instruments", "texture"] | None = None,
+    mapped: bool = False,
+):
+    """Print every label and its track count, grouped by field."""
+    aliases = labels.load_aliases() if mapped else {}
+    tracks = [labels.track_labels(track, aliases) for track in catalog_state.load(state)["tracks"]]
+    print("field\tcount\tlabel")
+    for name in (field,) if field else labels.FIELDS:
+        counts = Counter(value for track in tracks for value in track[name])
+        for label, count in sorted(counts.items(), key=lambda item: (item[1], item[0])):
+            print(f"{name}\t{count}\t{label}")
 
 
 @app.command
