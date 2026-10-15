@@ -53,14 +53,6 @@ uv run timbrelens --help
 
 `evaluate` writes model comparisons to `data/evaluation.md`.
 
-Crawling removes byte-identical originals and matching audio fingerprints from the catalog, keeping the entry with
-the first ID alphabetically. Fingerprint matching requires the same title and artist
-(ignoring case, spacing and punctuation), file durations within two seconds, and at least 99% bit agreement across
-nearly the full recording. Very short clips keep byte-hash deduplication only.
-
-`deduplicate` applies this to an existing catalog using `data/originals`, with fingerprints cached locally.
-Run `embed` and `export` afterwards if it changes the catalog.
-
 ## GitHub Pages
 
 Pushes to `master` run the [Pages workflow](.github/workflows/pages.yml), which exports and deploys the site.

@@ -1,8 +1,6 @@
 import json
-import re
 import subprocess
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 from diskcache import Cache
@@ -33,7 +31,7 @@ def _fingerprint(audio: Path, cache: Cache) -> dict | None:
 
 
 def _matches(left: dict, right: dict) -> bool:
-    if abs(left["duration"] - right["duration"]) > 2:
+    if abs(left["duration"] - right["duration"]) > 5:
         return False
 
     first, second = left["fingerprint"], right["fingerprint"]
@@ -47,7 +45,7 @@ def _matches(left: dict, right: dict) -> bool:
             continue
 
         errors = sum((a ^ b).bit_count() for a, b in pairs)
-        if errors <= 0.01 * 32 * len(pairs):
+        if errors <= 0.05 * 32 * len(pairs):
             return True
 
     return False
@@ -55,21 +53,10 @@ def _matches(left: dict, right: dict) -> bool:
 
 def merge(catalog: Catalog, originals: Path, cache: Path) -> Catalog:
     catalog = state.merge(catalog, [])
-    groups = defaultdict(list)
-    for track in catalog["tracks"]:
-        key = tuple(
-            re.sub(r"[\W_]+", "", track.get(field, "").casefold()) for field in ("title", "artist")
-        )
-        if all(key):
-            groups[key].append(track)
-
     candidates = {
-        track["id"]: track.get("preview", {}).get("source_sha256")
-        for group in groups.values()
-        if len(group) > 1
-        for track in group
+        track["id"]: track.get("preview", {}).get("source_sha256") for track in catalog["tracks"]
     }
-    if not candidates:
+    if len(candidates) < 2:
         return catalog
 
     paths = {}
@@ -80,28 +67,19 @@ def merge(catalog: Catalog, originals: Path, cache: Path) -> Catalog:
             if identifier in candidates and sha256(audio) == candidates[identifier]:
                 paths[identifier] = audio
 
-    removed = set()
+    unique = []
+    representatives = []
     with Cache(str(cache / "fingerprints")) as store:
-        for group in groups.values():
-            if len(group) < 2:
-                continue
-
-            representatives = []
-            for track in group:
-                audio = paths.get(track["id"])
-                if audio is None:
+        for track in catalog["tracks"]:
+            audio = paths.get(track["id"])
+            fingerprint = _fingerprint(audio, store) if audio else None
+            if fingerprint is not None:
+                if any(_matches(reference, fingerprint) for reference in representatives):
                     continue
 
-                fingerprint = _fingerprint(audio, store)
-                if fingerprint is None:
-                    continue
+                representatives.append(fingerprint)
 
-                for reference in representatives:
-                    if _matches(reference, fingerprint):
-                        removed.add(track["id"])
-                        break
-                else:
-                    representatives.append(fingerprint)
+            unique.append(track)
 
-    catalog["tracks"] = [track for track in catalog["tracks"] if track["id"] not in removed]
+    catalog["tracks"] = unique
     return catalog
