@@ -47,6 +47,7 @@ Other tools:
 ```sh
 uv run timbrelens evaluate
 uv run timbrelens deduplicate
+uv run timbrelens prune-previews
 uv run timbrelens normalize .cache/track.mp3 .cache/normalized.wav
 uv run timbrelens --help
 ```

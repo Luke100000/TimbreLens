@@ -14,6 +14,7 @@ from timbrelens import (
     enrichment,
     evaluation,
     fallbacks,
+    files,
     labels,
     pipeline,
     server,
@@ -141,10 +142,24 @@ def deduplicate(
     cache: Path = Path(".cache/crawlers"),
 ):
     """Remove duplicate recordings using full original audio fingerprints."""
+    if not state.is_file():
+        raise FileNotFoundError(f"Catalog not found: {state}")
+
     catalog = catalog_state.load(state)
     merged = dedup.merge(catalog, state.parent / "originals", cache)
     catalog_state.save(merged, state)
+    files.prune_previews(merged, state.parent / "previews")
     print(f"Deduplicated catalog: {len(merged['tracks'])} tracks.")
+
+
+@app.command
+def prune_previews(state: Path = Path("data/catalog.json")):
+    """Remove preview audio and images no longer used by the catalog."""
+    if not state.is_file():
+        raise FileNotFoundError(f"Catalog not found: {state}")
+
+    removed = files.prune_previews(catalog_state.load(state), state.parent / "previews")
+    print(f"Removed {removed} unused preview files.")
 
 
 @app.command
